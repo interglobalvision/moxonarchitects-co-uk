@@ -451,7 +451,6 @@ function people_pt() {
     'description'         => __( 'People Information Entry', 'text_domain' ),
     'labels'              => $labels,
     'supports'            => array('title', 'editor'),
-    'taxonomies'          => false,
     'hierarchical'        => false,
     'public'              => true,
     'show_ui'             => true,
