@@ -5,6 +5,7 @@
 ?>
       var sliderImages = {
         full: [],
+        large: [],
         medium: [],
         small: []
       };
