@@ -12,7 +12,8 @@
     while(the_repeater_field('project_page_images')) {
       $image = get_sub_field('image');
 ?>
-      sliderImages.full.push( {image : '<?php echo $image['sizes']['homepage-thumb']; ?>'});
+      sliderImages.full.push( {image : '<?php echo $image['sizes']['slider-3840']; ?>'});
+      sliderImages.large.push( {image : '<?php echo $image['sizes']['slider-1680']; ?>'});
       sliderImages.medium.push( {image : '<?php echo $image['sizes']['slider-945']; ?>'});
       sliderImages.small.push( {image : '<?php echo $image['sizes']['slider-660']; ?>'});
 		<?php }
@@ -27,7 +28,9 @@
         slides = sliderImages.small;
       } else if (screenWidth <= 945 ) {
         slides = sliderImages.medium;
-      }
+      } else if (screenWidth <= 1680 ) {
+        slides = sliderImages.large;
+      } 
 
       jQuery(function($){
         $.supersized({
