@@ -57,38 +57,12 @@ echo $term->slug;
       </div>
 		</div>
 
-    <script type="text/javascript">
-    jQuery(document).ready(function() {
-
-      jQuery(function($){
-        $.supersized({
-            vertical_center: 0,
-            fit_landscape: 1,
-            autoplay: 0,
-            slide_interval: 2000,
-            transition: 1,
-            transition_speed: 700,
-            horizontal_center: 0,
-            image_protect: 0,
-            slide_links: 'blank',
-            slides: [
-<?php
-  if(get_field('project_page_images')):
-    while(the_repeater_field('project_page_images')):
-?>
-		  {image : '<?php the_sub_field('image'); ?>'},
-		<?php endwhile;
-  endif;
-?>
-            ]
-				  });
-		    });
-		  });
+    
+  <?php get_template_part('slider'); ?>
 <?php
   endwhile;
   endif;
 ?>
-    </script>
 
 <a id="prevslide" class="load-item"></a>
 <a id="nextslide" class="load-item"></a>

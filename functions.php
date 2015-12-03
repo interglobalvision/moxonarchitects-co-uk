@@ -483,6 +483,12 @@ set_post_thumbnail_size( 650, 475, true );
 add_image_size( 'homepage-thumb', 1920, 1200 );
 add_image_size( 'hp-post-thumbnail', 1366, 768 );
 
+// Slider images
+add_image_size( 'slider-3840', 3840 );
+add_image_size( 'slider-1680', 1680 );
+add_image_size( 'slider-945', 945 );
+add_image_size( 'slider-660', 660 );
+
 /** Enqueue Scripts. */
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 function theme_enqueue_scripts() {
@@ -728,11 +734,11 @@ function menuActiveType($type, $postId) {
 
 }
 
-
-
-
-
-
-
-
-
+function pr($variable, $die = false) {
+  echo '<pre>';
+  var_dump($variable);
+  echo '</pre>';
+  if( $die ) {
+    die;
+  }
+}

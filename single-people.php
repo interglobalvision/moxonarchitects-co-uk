@@ -43,35 +43,8 @@ wp_reset_postdata();
       </div>
 		</div>
 
-<script type="text/javascript">
-
-jQuery(document).ready(function() {
-
-  jQuery(function($){
-
-    $.supersized({
-      vertical_center : 0,			// Vertically center background
-      fit_landscape : 1,			// Landscape images will not exceed browser width
-      autoplay : 0,
-      slide_interval : 2000,
-      transition : 1,
-      transition_speed : 700,
-      horizontal_center : 0,			// Horizontally center background
-      image_protect :	0,			// Disables image dragging and right click with Javascript
-      slide_links	:	'blank',
-      slides : [
-<?php
-if(get_field('project_page_images')):
-  while(the_repeater_field('project_page_images')): ?>
-    {image : '<?php the_sub_field('image'); ?>'},
-<?php
-  endwhile;
-endif; ?>
-      ]
-    });
-  });
-});
-
+    
+  <?php get_template_part('slider'); ?>
 <?php
   endwhile;
 endif; ?>
