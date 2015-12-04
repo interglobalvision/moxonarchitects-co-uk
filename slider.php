@@ -34,12 +34,10 @@
         slides = sliderImages.large;
       } 
 
-
       var supersizedOptions = {
         vertical_center: true,
-        horizontal_center: true,
-        fit_landscape: true,
-        fit_portrait: false,
+        horizontal_center: false,
+        fit_portrait: true,
         autoplay: false,
         slide_interval: 2000,
         transition: 1,
@@ -48,13 +46,6 @@
         slide_links: 'blank',
         slides: slides 
       };
-
-      var screenRatio = screenWidth / jQuery(window).height();
-
-      if( screenRatio < 1 ) {
-        supersizedOptions.fit_portrait = true;
-        supersizedOptions.fit_landscape = false;
-      }
 
       jQuery(function($){
         $.supersized(supersizedOptions);
