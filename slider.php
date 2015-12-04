@@ -22,8 +22,9 @@
 ?>
 
     jQuery(document).ready(function() {
+
       var slides = sliderImages.full;
-      var screenWidth = jQuery(document).width();
+      var screenWidth = jQuery(window).width();
 
       if ( screenWidth <= 660 ) {
         slides = sliderImages.small;
@@ -33,20 +34,30 @@
         slides = sliderImages.large;
       } 
 
+
+      var supersizedOptions = {
+        vertical_center: true,
+        horizontal_center: true,
+        fit_landscape: true,
+        fit_portrait: false,
+        autoplay: false,
+        slide_interval: 2000,
+        transition: 1,
+        transition_speed: 700,
+        image_protect: false,
+        slide_links: 'blank',
+        slides: slides 
+      };
+
+      var screenRatio = screenWidth / jQuery(window).height();
+
+      if( screenRatio < 1 ) {
+        supersizedOptions.fit_portrait = true;
+        supersizedOptions.fit_landscape = false;
+      }
+
       jQuery(function($){
-        $.supersized({
-            vertical_center: true,
-            horizontal_center: true,
-            fit_landscape: true,
-            autoplay: false,
-            slide_interval: 2000,
-            transition: 1,
-            transition_speed: 700,
-            horizontal_center: false,
-            image_protect: false,
-            slide_links: 'blank',
-            slides: slides 
-				  });
-		    });
-		  });
+        $.supersized(supersizedOptions);
+      });
+    });
     </script>
