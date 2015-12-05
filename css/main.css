@@ -299,8 +299,7 @@ input[type="submit"]:active {
 }
 input[type="checkbox"],
 input[type="radio"] {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
 /* Addresses box sizing set to content-box in IE8/9 */
   padding: 0;
 /* Addresses excess padding in IE8/9 */
@@ -460,8 +459,7 @@ input[type="submit"]:active {
 }
 input[type="checkbox"],
 input[type="radio"] {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
 /* Addresses box sizing set to content-box in IE8/9 */
   padding: 0;
 /* Addresses excess padding in IE8/9 */
@@ -470,7 +468,6 @@ input[type="search"] {
   -webkit-appearance: textfield;
 /* Addresses appearance set to searchfield in S5, Chrome */
 /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-decoration {
@@ -520,7 +517,6 @@ input[type="search"] {
   -webkit-appearance: textfield;
 /* Addresses appearance set to searchfield in S5, Chrome */
 /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-decoration {
@@ -1264,8 +1260,7 @@ a:active {
   margin: 1px 0 0 0;
   padding: 5px 10px;
   overflow-y: auto;
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
 }
 #project-copy p:last-child {
   margin-bottom: 0px;
@@ -2735,5 +2730,3 @@ img[src*="googleapis.com/"] {
   bottom: -125px;
   right: -125px;
 }
-
-/*# sourceMappingURL=main.css.map */

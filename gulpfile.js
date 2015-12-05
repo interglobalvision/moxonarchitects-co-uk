@@ -44,17 +44,25 @@ gulp.task('javascript-library', function() {
   // General
   gulp.src('js/libs/general/*.js')
   .pipe(concat('lib-general.js'))
-  .pipe(gulp.dest('js'));
+  .pipe(gulp.dest('js'))
+  .pipe(rename({suffix: '.min'}))
+  .pipe(sourcemaps.write('/'))
+  .on('error', errorNotify)
+  .pipe(gulp.dest('js'))
 
   // News-contact
   gulp.src('js/libs/news-contact/*.js')
   .pipe(concat('lib-news-contact.js'))
   .pipe(gulp.dest('js'))
+  .pipe(rename({suffix: '.min'}))
+  .pipe(sourcemaps.write('/'))
+  .on('error', errorNotify)
+  .pipe(gulp.dest('js'))
   .pipe(notify({ message: 'Javascript Library task complete' }));
 });
 
 gulp.task('style', function() {
-  return gulp.src('css/site.styl')
+  return gulp.src('css/main.styl')
   .pipe(plumber())
   .pipe(stylus())
   .on('error', errorNotify)
