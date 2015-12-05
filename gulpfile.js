@@ -25,7 +25,7 @@ function errorNotify(error){
 }
 
 gulp.task('javascript', function() {
-  gulp.src('js/main.js')
+  gulp.src('js/custom.js')
   .pipe(sourcemaps.init())
   .pipe(jshint())
   .pipe(jshint.reporter('jshint-stylish'))
