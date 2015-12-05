@@ -76,17 +76,6 @@ gulp.task('style', function() {
   .pipe(notify({ message: 'Style task complete' }));
 });
 
-gulp.task('images', function () {
-    return gulp.src('src/images/*.*')
-    .pipe(cache('images'))
-    .pipe(imagemin({
-      progressive: false
-    }))
-    .on('error', errorNotify)
-    .pipe(gulp.dest('img/dist'))
-		.pipe(notify({ message: 'Images task complete' }));
-});
-
 gulp.task('watch', function() {
   gulp.watch(['js/custom.js'], ['javascript']);
   gulp.watch(['js/libs/**/*.js'], ['javascript-library']);
