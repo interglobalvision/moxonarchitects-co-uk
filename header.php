@@ -4,8 +4,6 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <title><?php wp_title( '|', true, 'right' ); ?></title>
 
-  <link href="http://fnt.webink.com/wfs/webink.css/?project=A37B4D72-EC7C-491B-A609-8BC8B742A1B4&fonts=CAC4D133-08E9-2123-5FFE-D354F1BB6F08:f=Executive-MediumIta,06DF7380-FF3E-3BE8-59D0-E24986CA63CD:f=Executive-Medium,6AADE4ED-2FC6-C1F3-C6AB-C518D2A37A6B:f=Executive-Thin,CFA46947-638C-0F15-A271-A897771BB7AA:f=Executive-Bold,AFACCE17-5C0F-7C3C-CF59-DFC1523A0631:f=Executive-RegularIta,61C315B0-9382-DB96-AC5F-7057ACCFA58F:f=Executive-BoldIta,F7EF464B-61A5-06EB-24B0-2416CEA2DC9D:f=Executive-LightIta,BF6E34AD-813B-1B6B-449A-38F4A417DE49:f=Executive-Regular,0BE979EE-912C-6C8E-CD7D-8F6D0AD222B2:f=Executive-ThinIta,B938B391-BE8A-4F4A-42F3-D707D8F6EAA3:f=Executive-Light" rel="stylesheet" type="text/css"/>
-
   <meta name="viewport" content="width=device-width">
   <link rel="profile" href="http://gmpg.org/xfn/11">
 
