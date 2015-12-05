@@ -4,9 +4,10 @@
 function scrollCopy() {
 
   var menuHeight = jQuery('#copy-toggle').outerHeight();
+  var maxHeight = jQuery(window).height() - menuHeight;
 
   jQuery('#project-copy').css({
-    'max-height': (jQuery(window).height() - menuHeight) + 'px'
+    'max-height': maxHeight + 'px',
   });
 }
 
@@ -14,17 +15,19 @@ jQuery(document).ready(function() {
 
   // MENU ACTIVE HACK
 
-  var postData =  jQuery('#project-copy').data();
+  var postData = jQuery('#project-copy').data();
 
   if (typeof postData !== 'undefined') {
 
     if (typeof postData.type !== 'undefined') {
       var type = postData.type;
+
       jQuery('#menu-type-' + type).addClass('active');
     }
 
     if (typeof postData.section !== 'undefined') {
       var section = postData.section;
+
       console.log(section);
       jQuery('#menu-section-' + section).addClass('active');
     }
@@ -241,9 +244,7 @@ jQuery(document).ready(function() {
     });
 
     jQuery(document).ready(function() {
-        jQuery('.moxonlogogeneral').fadeIn(2000);
+      jQuery('.moxonlogogeneral').fadeIn(2000);
     });
-
-
 
 });
