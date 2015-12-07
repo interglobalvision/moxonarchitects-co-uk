@@ -12,6 +12,27 @@ function scrollCopy() {
 }
 
 jQuery(document).ready(function() {
+  // SLIDER
+  var slider = new Swiper ('.swiper-container', {
+    pagination: '#slide-list',
+    paginationClickable: true,
+    loop: true,
+    effect: 'fade',
+    fade: {
+      crossFade: true,
+    },
+    preloadImages: true,
+  });
+
+  // SLIDER NEXT/PREV
+
+  jQuery('#prevslide').on('click', function() {
+    slider.slidePrev()
+  });
+
+  jQuery('#nextslide').on('click', function() {
+    slider.slideNext();
+  });
 
   // MENU ACTIVE HACK
 
@@ -41,7 +62,7 @@ jQuery(document).ready(function() {
     jQuery(this).toggleClass('active');
   });
 
-  jQuery('#copy-toggle').on('click', function() {
+  jQuery('#copy-toggle p, .menu-toggle-indicator').on('click', function() {
     jQuery('#project-copy').slideToggle();
     jQuery(this).toggleClass('active');
   });
@@ -63,23 +84,6 @@ jQuery(document).ready(function() {
   jQuery('.mobile-submenu-trigger').on('click', function() {
     jQuery(this).siblings('.mobile-submenu').slideToggle();
     jQuery(this).toggleClass('active');
-  });
-
-  // FIX FOR MISSED GALLERY INDICATOR CLICKS SO THEY DONT OPEN THE COPY SECTION
-
-  jQuery('#slide-list').on('click', function(e) {
-    e.stopPropagation();
-    e.preventDefault();
-  });
-
-  // GALLERY NEXT/PREV
-
-  jQuery('#prevslide').on('click', function() {
-    api.prevSlide();
-  });
-
-  jQuery('#nextslide').on('click', function() {
-    api.nextSlide();
   });
 
   // CONTENT SCROLL WHEN NEEDED

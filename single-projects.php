@@ -44,7 +44,7 @@ wp_reset_postdata();
 
 		<div id="project-copy-panel">
       <nav id="copy-toggle">
-        <?php the_title(); ?>
+        <p><?php the_title(); ?></p>
         <ul id="slide-list"></ul>
         <span class="menu-toggle-indicator menu-toggle-close">–</span><span class="menu-toggle-indicator menu-toggle-open">+</span>
       </nav>

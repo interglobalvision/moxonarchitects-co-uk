@@ -1,63 +1,30 @@
-    <script type="text/javascript">
 <?php
-  // Form slider arrays
-  if(get_field('project_page_images')) {
+// Form slider arrays
+if(get_field('project_page_images')) {
 ?>
-      var sliderImages = {
-        full: [],
-        large: [],
-        medium: [],
-        small: []
-      };
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
 <?php
-    while(the_repeater_field('project_page_images')) {
-      $image = get_sub_field('image');
+  while(the_repeater_field('project_page_images')) {
+    $image = get_sub_field('image');
+    $portrait = $image['height'] > $image['width'] ? true : false;
 ?>
-      sliderImages.full.push( {image : '<?php echo $image['sizes']['slider-3840']; ?>'});
-      sliderImages.large.push( {image : '<?php echo $image['sizes']['slider-1680']; ?>'});
-      sliderImages.medium.push( {image : '<?php echo $image['sizes']['slider-945']; ?>'});
-      sliderImages.small.push( {image : '<?php echo $image['sizes']['slider-660']; ?>'});
-		<?php }
-  }
+      <div class="swiper-slide">
+        <img 
+          class="<?php echo $portrait ? 'portrait' : ''; ?>"
+          src="<?php echo $image['sizes']['slider-3840']; ?>"
+          srcset="
+            <?php echo $image['sizes']['slider-660']; ?> 660w,
+            <?php echo $image['sizes']['slider-945']; ?> 945w,
+            <?php echo $image['sizes']['slider-1680']; ?> 1680w
+        ">
+      </div>
+<?php }
+}
 ?>
-
-    jQuery(document).ready(function() {
-
-      var slides = sliderImages.full;
-      var screenWidth = jQuery(window).width();
-
-      if ( screenWidth <= 660 ) {
-        slides = sliderImages.small;
-      } else if (screenWidth <= 945 ) {
-        slides = sliderImages.medium;
-      } else if (screenWidth <= 1680 ) {
-        slides = sliderImages.large;
-      } 
-
-
-      var supersizedOptions = {
-        vertical_center: true,
-        horizontal_center: true,
-        fit_landscape: true,
-        fit_portrait: false,
-        autoplay: false,
-        slide_interval: 2000,
-        transition: 1,
-        transition_speed: 700,
-        image_protect: false,
-        slide_links: 'blank',
-        slides: slides 
-      };
-
-      var screenRatio = screenWidth / jQuery(window).height();
-
-      if( screenRatio < 1 ) {
-        supersizedOptions.fit_portrait = true;
-        supersizedOptions.fit_landscape = false;
-      }
-
-      jQuery(function($){
-        $.supersized(supersizedOptions);
-      });
-    });
-    </script>
+    </div>
+    
+</div>

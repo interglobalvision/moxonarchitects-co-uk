@@ -106,7 +106,6 @@ function moxon2014_scripts() {
   wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery.js', array(), '', false );
 
   // Scripts
-  wp_enqueue_script( 'customglobal', get_template_directory_uri() . '/js/custom.min.js', '', array(), true );
 
   // News and Contact?
   wp_enqueue_script( 'library-news-contact', get_template_directory_uri() . '/js/lib-news-contact.min.js', '', array(), true );
@@ -114,6 +113,7 @@ function moxon2014_scripts() {
   // General library
   wp_enqueue_script( 'library-general', get_template_directory_uri() . '/js/lib-general.min.js', '', array(), true );
 
+  wp_enqueue_script( 'customglobal', get_template_directory_uri() . '/js/custom.js', '', array(), true );
   //nav
 //  wp_enqueue_script( 'classie', get_template_directory_uri() . '/js/classie.js', '', array(), true );
 //  wp_enqueue_script( 'sidebareffect', get_template_directory_uri() . '/js/sidebarEffects.js', '', array(), true );
