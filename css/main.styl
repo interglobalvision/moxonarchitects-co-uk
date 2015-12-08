@@ -1,3 +1,4 @@
+@require 'exec.css'
 @require reset
 @require misc
 @require swiper
@@ -11,8 +12,14 @@ $color-dark-gray = rgb(104,104,104)
 
 $color-transparent-gray = rgba(0,0,0,0.65)
 
-
 // CLEAN CSS
+
+body
+  font-family: 'Executive-Thin', sans-serif
+  font-size: 14px
+  line-height: 1.5
+  -webkit-text-stroke: .15px
+  -webkit-min-device-pixel-ratio: 0
 
 a, a:visited, a:active
   color: white
@@ -304,7 +311,12 @@ a, a:visited, a:active
   #slide-list
     display: none
 
+
 // END CLEAN CSS
+// FROM HERE STARTS THE HORROR
+// ALL YE WHO ENTER ETC
+// ----------------------------------------------------------------------------------------------
+
 
 /* Links */
 h2 {
@@ -521,7 +533,7 @@ embed,iframe,object {
 /* = Swiper
 ----------------------------------------------- */
 
-.swiper-container 
+.swiper-container
   width: 100
   height: 100%
   position: fixed
@@ -579,7 +591,7 @@ embed,iframe,object {
 #slidecounter {
 	float:left;
 	color:#999;
-	font:14px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font: 14px "Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-shadow:#000 0 -1px 0;
 	margin:0;
 	line-height:42px;
@@ -589,7 +601,7 @@ embed,iframe,object {
 	overflow:hidden;
 	float:left;
 	color:#FFF;
-	font:400 14px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font: 400 14px "Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-shadow:#000 1px 1px 2px;
 	margin:0 20px 0 0;
 	line-height:42px;

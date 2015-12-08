@@ -1,3 +1,4 @@
+@import 'exec.css';
 html,
 body,
 div,
@@ -129,11 +130,8 @@ select,
 textarea {
   background: #000;
   color: #fff;
-  font-family: 'Executive-Thin', sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  -webkit-text-stroke: 0.15px;
-  -webkit-min-device-pixel-ratio: 0;
   height: 100%;
 }
 h1,
@@ -1542,6 +1540,13 @@ button.swiper-pagination-bullet {
     right: 25px;
     z-index: -1 !important;
   }
+}
+body {
+  font-family: 'Executive-Thin', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-text-stroke: 0.15px;
+  -webkit-min-device-pixel-ratio: 0;
 }
 a,
 a:visited,

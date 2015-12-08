@@ -13,7 +13,7 @@ if(get_field('project_page_images')) {
     $portrait = $image['height'] > $image['width'] ? true : false;
 ?>
       <div class="swiper-slide">
-        <img 
+        <img
           class="<?php echo $portrait ? 'portrait' : ''; ?>"
           src="<?php echo $image['sizes']['slider-3840']; ?>"
           srcset="
@@ -27,5 +27,5 @@ if(get_field('project_page_images')) {
 }
 ?>
     </div>
-    
+
 </div>

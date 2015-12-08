@@ -27,7 +27,7 @@ jQuery(document).ready(function() {
   // SLIDER NEXT/PREV
 
   jQuery('#prevslide').on('click', function() {
-    slider.slidePrev()
+    slider.slidePrev();
   });
 
   jQuery('#nextslide').on('click', function() {
