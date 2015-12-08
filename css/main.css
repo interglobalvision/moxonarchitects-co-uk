@@ -1818,11 +1818,9 @@ a:active {
   #slide-list {
     top: 7px;
   }
-  #supersized {
-    top: 34px !important;
-  }
-  #supersized li {
-    top: 34px !important;
+  .swiper-slide img {
+    bottom: inherit;
+    top: 0;
   }
   .home #mobile-logo-holder {
     z-index: 9;
