@@ -20,6 +20,7 @@ if(get_field('project_page_images')) {
     $image['slider-660'] = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'slider-660' );
     $image['slider-945'] = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'slider-945' );
     $image['slider-1680'] = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'slider-1680' );
+    $image['slider-2200'] = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'slider-2200' );
     $image['slider-3840'] = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'slider-3840' );
 
 ?>

@@ -19,7 +19,8 @@ if(get_field('project_page_images')) {
           srcset="
             <?php echo $image['sizes']['slider-660']; ?> 660w,
             <?php echo $image['sizes']['slider-945']; ?> 945w,
-            <?php echo $image['sizes']['slider-1680']; ?> 1680w
+            <?php echo $image['sizes']['slider-1680']; ?> 1680w,
+            <?php echo $image['sizes']['slider-2200']; ?> 2200w
         ">
       </div>
 <?php }
