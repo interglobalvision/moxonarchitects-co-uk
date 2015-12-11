@@ -50,4 +50,8 @@ if(get_field('project_page_images')) {
     }
   }
 </style>
+<?php 
+  }
+}
+?>
 <?php get_footer(); ?>
