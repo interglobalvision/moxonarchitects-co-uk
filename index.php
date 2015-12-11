@@ -5,11 +5,6 @@ get_header(); ?>
 // Form slider arrays
 if(get_field('project_page_images')) {
 ?>
-<!-- Slider main container -->
-<div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
 <?php
   $args = array( 'post_type' => 'hp_pt' );
   $loop = new WP_Query( $args );
@@ -23,22 +18,40 @@ if(get_field('project_page_images')) {
     $image['slider-2200'] = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'slider-2200' );
     $image['slider-3840'] = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'slider-3840' );
 
+    //pr($image,true);
 ?>
-      <div class="swiper-slide">
-        <img 
-          src="<?php echo $image[0]['slider-3840']; ?>"
-          srcset="
-            <?php echo $image['slider-660']['0']; ?> 660w,
-            <?php echo $image['slider-945']['0']; ?> 945w,
-            <?php echo $image['slider-1680']['0']; ?> 1680w
-        ">
-      </div>
-<?php }
+<div id="full-bg"></div>
+<style>
+  #full-bg {
+    background-image: url("<?php echo $image['slider-3840'][0]; ?>");
+  }
+
+  @media all and (max-width: 2200px) {
+    #full-bg {
+      background-image: url("<?php echo $image['slider-2200'][0]; ?>");
+    }
+  }
+
+  @media all and (max-width: 1680px) {
+    #full-bg {
+      background-image: url("<?php echo $image['slider-1680'][0]; ?>");
+    }
+  }
+
+  @media all and (max-width: 945px) {
+    #full-bg {
+      background-image: url("<?php echo $image['slider-945'][0]; ?>");
+    }
+  }
+
+  @media all and (max-width: 660px) {
+    #full-bg {
+      background-image: url("<?php echo $image['slider-660'][0]; ?>");
+    }
+  }
+</style>
+<?php 
+  }
 }
 ?>
-    </div>
-    
-</div>
-
-
 <?php get_footer(); ?>
