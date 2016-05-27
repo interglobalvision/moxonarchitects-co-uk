@@ -1,9 +1,12 @@
-	</div><!-- #content -->
+    <footer id="footer">
+    </footer>
 
-</div><!-- #page -->
+  </section>
 
-  <div id="scripts">
-    <?php wp_footer(); ?>
-  </div>
-</body>
+  <?php
+    get_template_part('partials/scripts');
+    get_template_part('partials/schema-org');
+  ?>
+
+  </body>
 </html>
