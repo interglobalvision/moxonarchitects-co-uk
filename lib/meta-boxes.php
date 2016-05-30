@@ -39,5 +39,25 @@ function igv_cmb_metaboxes() {
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
 	 */
 
+  $project_meta = new_cmb2_box( array(
+		'id'            => $prefix . 'metabox',
+		'title'         => __( 'Project Metabox', 'cmb2' ),
+		'object_types'  => array( 'project', ), // Post type
+		// 'show_on_cb' => 'yourprefix_show_if_front_page', // function should return a bool value
+		// 'context'    => 'normal',
+		// 'priority'   => 'high',
+		// 'show_names' => true, // Show field names on the left
+		// 'cmb_styles' => false, // false to disable the CMB stylesheet
+		// 'closed'     => true, // true to keep the metabox closed by default
+	) );
+
+	$project_meta->add_field( array(
+		'name'       => __( 'Project Gallery', 'cmb2' ),
+		'desc'       => __( '...', 'cmb2' ),
+		'id'         => $prefix . 'gallery',
+		'type'       => 'pw_gallery',
+    'sanitization_cb' => 'pw_gallery_field_sanitise',
+	) );
+
 }
 ?>
