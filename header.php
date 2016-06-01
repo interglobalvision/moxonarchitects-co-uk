@@ -57,7 +57,7 @@
 
   <div id="menus" class="u-cf">
 
-    <header id="header" class="menu-column">
+    <div id="main-menu" class="menu-column">
       <div class="menu-column-top">
         *menu icon*
       </div>
@@ -70,7 +70,7 @@
           <a href="<?php echo home_url(); ?>"><li>List of Project Types</li></a>
         </ul>
       </nav>
-    </header>
+    </div>
 
 <?php
     // if ! is page contact or ! is home
