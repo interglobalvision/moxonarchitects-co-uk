@@ -55,9 +55,9 @@
 
 <section id="main-container">
 
-  <div id="menus" class="font-color-white font-uppercase">
+  <div id="menus" class="font-color-white">
 
-    <div id="main-menu" class="menu-column menu-active">
+    <div id="main-menu" class="menu-column menu-active font-uppercase">
       <div class="menu-column-top">
         <i class="icon-menu"></i>
       </div>
@@ -67,15 +67,28 @@
           <a href="<?php echo home_url('news/'); ?>"><li>News</li></a>
           <a href="<?php echo home_url('contact/'); ?>"><li>Contact</li></a>
           <li>&nbsp;</li>
-          <a href="<?php echo home_url(); ?>"><li>List of Project Types</li></a>
+          <?php
+            $types = get_terms( 'project_type', array(
+              'hide_empty' => false,
+            ));
+
+            if ($types) {
+              foreach ($types as $type) {
+          ?>
+          <a href="<?php echo get_term_link($type); ?>"><li><?php echo $type->name; ?></li></a>
+          <?php
+              }
+            }
+          ?>
         </ul>
       </nav>
     </div>
 
 <?php
     // if ! is page contact or ! is home
+    if (!is_home() && !is_page('contact')) {
 ?>
-    <section id="submenu" class="menu-column menu-active">
+    <section id="submenu" class="menu-column menu-active font-uppercase">
       <div class="menu-column-top">
         &nbsp;
       </div>
@@ -83,14 +96,16 @@
         <ul>
 <?php
     // if single project
+      if (is_single() && is_single_type('project', $post)) {
 ?>
           <li>List of Projects with same type as single</li>
           <li>[support for multiple type section??!]</li>
 <?php
-    // endif
+      }
 ?>
 <?php
     // if is page or is people archive
+      if (is_page() && is_post_type_archive('people')) {
 ?>
           <a href="<?php echo home_url('profile/'); ?>"><li>Profile</li></a>
           <a href="<?php echo home_url('news/'); ?>"><li>Clients</li></a>
@@ -98,11 +113,11 @@
           <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
           <a href="<?php echo home_url('recruit/'); ?>"><li>Recruit</li></a>
 <?php
-    // endif
+      }
 ?>
         </ul>
       </nav>
-<?php
-    // endif
-?>
     </section>
+<?php
+    }
+?>

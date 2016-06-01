@@ -1,9 +1,10 @@
 <?php
 get_header();
-?>
 
+  if (!is_home()) {
+?>
     <main id="main-content" class="menu-column menu-active">
-      <div class="menu-column-top">
+      <div class="menu-column-top font-uppercase">
         Title of Post
       </div>
       <nav class="menu-column-content menu-background">
@@ -37,6 +38,9 @@ get_header();
     </main>
 
   </div>
+<?php
+  }
+?>
 
   <section id="images" class="u-flex-center">
     // images go here.
