@@ -96,9 +96,7 @@ function project_type_taxonomy() {
 		'items_list_navigation'      => 'Items list navigation',
 	);
 	$rewrite = array(
-		'slug'                       => 'project',
-		'with_front'                 => true,
-		'hierarchical'               => false,
+		'slug'                       => 'projects',
 	);
 	$args = array(
 		'labels'                     => $labels,
