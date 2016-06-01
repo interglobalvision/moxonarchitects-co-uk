@@ -41,10 +41,10 @@ Site.Menus = {
   bind: function() {
 
     $('.menu-column-top').click(function() {
-      var target = $(this).parent();
+      var $target = $(this).parent();
 
-      target.toggleClass('menu-active');
-      target.children('.menu-column-content').slideToggle(basicAnimationSpeed)
+      $target.toggleClass('menu-active');
+      $target.children('.menu-column-content').slideToggle(basicAnimationSpeed)
     });
 
   },
