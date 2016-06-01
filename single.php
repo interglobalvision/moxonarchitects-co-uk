@@ -1,10 +1,9 @@
 <?php
 get_header();
 
-  if (!is_home()) {
-    if( have_posts() ) {
-      while( have_posts() ) {
-        the_post();
+if( have_posts() ) {
+  while( have_posts() ) {
+    the_post();
 ?>
     <main id="main-content" class="menu-column menu-active">
       <div class="menu-column-top font-uppercase">
@@ -25,9 +24,8 @@ get_header();
 
   </div>
 <?php
-      }
-    }
   }
+}
 ?>
 
   <section id="images" class="u-flex-center">
