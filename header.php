@@ -55,11 +55,11 @@
 
 <section id="main-container">
 
-  <div id="menus" class="u-cf">
+  <div id="menus" class="font-color-white font-uppercase">
 
-    <div id="main-menu" class="menu-column">
+    <div id="main-menu" class="menu-column menu-active">
       <div class="menu-column-top">
-        *menu icon*
+        <i class="icon-menu"></i>
       </div>
       <nav class="menu-column-content">
         <ul>
@@ -75,9 +75,9 @@
 <?php
     // if ! is page contact or ! is home
 ?>
-    <section id="submenu" class="menu-column">
+    <section id="submenu" class="menu-column menu-active">
       <div class="menu-column-top">
-        *no icon*
+        &nbsp;
       </div>
       <nav class="menu-column-content">
         <ul>

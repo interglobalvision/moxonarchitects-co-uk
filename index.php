@@ -2,11 +2,11 @@
 get_header();
 ?>
 
-    <main id="main-content" class="menu-column">
+    <main id="main-content" class="menu-column menu-active">
       <div class="menu-column-top">
         Title of Post
       </div>
-      <nav class="menu-column-content">
+      <nav class="menu-column-content menu-background">
       // level 3 where content goes
         <section id="posts">
 

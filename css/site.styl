@@ -101,6 +101,7 @@ $font-tracking-wider = 0.05em
 
 $color-black-soft = rgb(14, 14, 14)
 $color-white-soft = rgb(253, 253, 253)
+$color-gray-transparent = rgba(0, 0, 0, .65)
 
 // ******************************************************
 
@@ -113,6 +114,7 @@ html
 
 body
   line-height: $font-leading-basic
+  background-color: $color-gray-transparent
 
   // HTML ELEMENT STYLING
 
@@ -144,6 +146,12 @@ p
 
 .font-capitalize
   text-transform: capitalize
+
+.font-uppercase
+  text-transform: uppercase
+
+.font-color-white
+  color: $color-white-soft
 
   // TEXT RULES
 
@@ -267,6 +275,12 @@ img
 
 // MENU
 
+menuBackgrounds()
+  background-color: $color-gray-transparent
+  padding: 6px 8px
+  margin-bottom: 1px
+  margin-right: 1px
+
 #menus
   position: fixed
   top: 0
@@ -275,10 +289,31 @@ img
 
 .menu-column
   float: left
-  width: 180px
+  width: 190px
+  .menu-column-top:after
+    content: '\002B'
+    position: absolute
+    padding: 6px 8px
+    right: 0px
+    top: 0px
+  &.menu-active
+    .menu-column-top:after
+      content: '\2212'
+
+.menu-column-top
+  cursor: pointer
+  position: relative
+  menuBackgrounds()
+
+.menu-column-content
+  li
+    menuBackgrounds()
+
+.menu-background
+  menuBackgrounds()
 
 #main-content
-  width: 450px
+  width: 500px
 
 // ******************************************************
 
