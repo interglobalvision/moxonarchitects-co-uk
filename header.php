@@ -53,9 +53,56 @@
 <body <?php body_class(); ?>>
 <!--[if lt IE 9]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 
-  <section id="main-container">
+<section id="main-container">
 
-  <!-- start content -->
-  <header id="header">
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-  </header>
+  <div id="menus" class="u-cf">
+
+    <div id="main-menu" class="menu-column">
+      <div class="menu-column-top">
+        *menu icon*
+      </div>
+      <nav class="menu-column-content">
+        <ul>
+          <a href="<?php echo home_url('studio/'); ?>"><li>Studio</li></a>
+          <a href="<?php echo home_url('news/'); ?>"><li>News</li></a>
+          <a href="<?php echo home_url('contact/'); ?>"><li>Contact</li></a>
+          <li>&nbsp;</li>
+          <a href="<?php echo home_url(); ?>"><li>List of Project Types</li></a>
+        </ul>
+      </nav>
+    </div>
+
+<?php
+    // if ! is page contact or ! is home
+?>
+    <section id="submenu" class="menu-column">
+      <div class="menu-column-top">
+        *no icon*
+      </div>
+      <nav class="menu-column-content">
+        <ul>
+<?php
+    // if single project
+?>
+          <li>List of Projects with same type as single</li>
+          <li>[support for multiple type section??!]</li>
+<?php
+    // endif
+?>
+<?php
+    // if is page or is people archive
+?>
+          <a href="<?php echo home_url('profile/'); ?>"><li>Profile</li></a>
+          <a href="<?php echo home_url('news/'); ?>"><li>Clients</li></a>
+          <a href="<?php echo home_url('awards/'); ?>"><li>Awards</li></a>
+          <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
+          <a href="<?php echo home_url('recruit/'); ?>"><li>Recruit</li></a>
+<?php
+    // endif
+?>
+        </ul>
+      </nav>
+<?php
+    // endif
+?>
+    </section>

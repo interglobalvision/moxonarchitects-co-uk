@@ -1,5 +1,4 @@
-    <footer id="footer">
-    </footer>
+
 
   </section>
 
