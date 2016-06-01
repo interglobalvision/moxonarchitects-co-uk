@@ -3,10 +3,10 @@ get_header();
 ?>
 
     <main id="main-content" class="menu-column">
-      <nav class="menu-column-top">
+      <div class="menu-column-top">
         Title of Post
-      </nav>
-      <div class="menu-column-content">
+      </div>
+      <nav class="menu-column-content">
       // level 3 where content goes
         <section id="posts">
 
@@ -33,10 +33,10 @@ get_header();
       } ?>
 
         </section>
-      </div>
+      </nav>
     </main>
 
-  </section>
+  </div>
 
   <section id="images" class="u-flex-center">
     // images go here.

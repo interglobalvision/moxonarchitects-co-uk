@@ -55,13 +55,13 @@
 
 <section id="main-container">
 
-  <section id="menus" class="u-cf">
+  <div id="menus" class="u-cf">
 
     <header id="header" class="menu-column">
-      <nav class="menu-column-top">
+      <div class="menu-column-top">
         *menu icon*
-      </nav>
-      <div class="menu-column-content">
+      </div>
+      <nav class="menu-column-content">
         <ul>
           <a href="<?php echo home_url('studio/'); ?>"><li>Studio</li></a>
           <a href="<?php echo home_url('news/'); ?>"><li>News</li></a>
@@ -69,17 +69,17 @@
           <li>&nbsp;</li>
           <a href="<?php echo home_url(); ?>"><li>List of Project Types</li></a>
         </ul>
-      </div>
+      </nav>
     </header>
 
 <?php
     // if ! is page contact or ! is home
 ?>
     <section id="submenu" class="menu-column">
-      <nav class="menu-column-top">
+      <div class="menu-column-top">
         *no icon*
-      </nav>
-      <div class="menu-column-content">
+      </div>
+      <nav class="menu-column-content">
         <ul>
 <?php
     // if single project
@@ -101,7 +101,7 @@
     // endif
 ?>
         </ul>
-      </div>
+      </nav>
 <?php
     // endif
 ?>
