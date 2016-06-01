@@ -26,13 +26,13 @@
       }
     ]);
     Modernizr.addTest('high-resolution-display', function() {
-    	if (window.matchMedia) {
-    		var mq = window.matchMedia("only screen and (-moz-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen  and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 1.3dppx)");
-    		if(mq && mq.matches) {
-    			return true;
-    		} else {
-      		return false;
-    		}
+      if (window.matchMedia) {
+        var mq = window.matchMedia("only screen and (-moz-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen  and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 1.3dppx)");
+        if(mq && mq.matches) {
+          return true;
+        } else {
+          return false;
+        }
       }
     });
     Modernizr.addTest('mobile-or-tablet', function() {
@@ -69,13 +69,24 @@
           <li>&nbsp;</li>
           <?php
             $types = get_terms( 'project_type', array(
-              'hide_empty' => false,
+              'hide_empty' => true,
             ));
 
             if ($types) {
               foreach ($types as $type) {
+                $lastest_project_in_type = get_posts(array(
+                  'tax_query' => array(
+                    array(
+                      'taxonomy' => 'project_type',
+                      'field' => 'id',
+                      'terms' => $type->term_id
+                    )
+                  ),
+                  'posts_per_page' => 1,
+                  'post_type' => 'project'
+                ));
           ?>
-          <a href="<?php echo get_term_link($type); ?>"><li><?php echo $type->name; ?></li></a>
+          <a href="<?php echo get_the_permalink($lastest_project_in_type[0]->ID); ?>"><li><?php echo $type->name; ?></li></a>
           <?php
               }
             }
@@ -86,7 +97,7 @@
 
 <?php
     // if ! is page contact or ! is home
-    if (!is_home() && !is_page('contact')) {
+    if (!is_home() && !is_page('contact') && !is_404()) {
 ?>
     <section id="submenu" class="menu-column menu-active font-uppercase">
       <div class="menu-column-top">
@@ -97,15 +108,35 @@
 <?php
     // if single project
       if (is_single() && is_single_type('project', $post)) {
+        $terms = wp_get_post_terms($post->ID, 'project_type');
+
+        if ($terms) {
+          $projects_with_type = get_posts(array(
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'project_type',
+                'field' => 'id',
+                'terms' => $terms[0]->term_id
+              )
+            ),
+            'posts_per_page' => -1,
+            'post_type' => 'project'
+          ));
+
+          if ($projects_with_type) {
+            foreach ($projects_with_type as $project) {
 ?>
-          <li>List of Projects with same type as single</li>
-          <li>[support for multiple type section??!]</li>
+          <a href="<?php echo get_the_permalink($project->ID); ?>"><li <?php if ($post->ID === $project->ID) {echo 'class="font-color-active"';} ?>><?php echo $project->post_title; ?></li></a>
 <?php
+            }
+          }
+        }
+
       }
 ?>
 <?php
     // if is page or is people archive
-      if (is_page() && is_post_type_archive('people')) {
+      if (is_page() || is_post_type_archive('people')) {
 ?>
           <a href="<?php echo home_url('profile/'); ?>"><li>Profile</li></a>
           <a href="<?php echo home_url('news/'); ?>"><li>Clients</li></a>
