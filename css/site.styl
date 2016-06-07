@@ -1,5 +1,6 @@
 @import "kouto-swiss"
 @import "helpers"
+@import "swiper"
 
 // ******************************************************
 
@@ -291,6 +292,7 @@ menuBackgrounds()
   top: 0
   left: 0
   width: 100%
+  z-index: 100
 
 .menu-column
   float: left
@@ -321,6 +323,20 @@ menuBackgrounds()
   width: 500px
 
 // ******************************************************
+
+// SINGLE
+
+.swiper-pagination-bullet
+  display: inline-block
+  border-radius: 18px
+  height: 9px
+  width: 9px
+  background-color: $color-white-soft
+  margin-left: 5px
+  &.swiper-pagination-bullet-active
+    background-color: $color-yellow
+  &:hover
+    background-color: $color-yellow
 
 // IMAGES
 
