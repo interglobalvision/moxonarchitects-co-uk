@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Site, Modernizr */
+/* global $, jQuery, document, Site, Modernizr, Swiper */
 
 var basicAnimationSpeed = 400;
 
@@ -12,7 +12,8 @@ Site = {
       _this.onResize();
     });
 
-    Site.Menus.init();
+    _this.Menus.init();
+    _this.Gallery.init();
 
   },
 
@@ -40,12 +41,46 @@ Site.Menus = {
 
   bind: function() {
 
-    $('.menu-column-top').click(function() {
+    $('.menu-column-top').click(function(e) {
       var $target = $(this).parent();
 
+      // if gallery pagination is clicked do nothing
+      if ($(e.target).hasClass('swiper-pagination-bullet') || e.target.id === 'gallery-pagination') {
+        return;
+      }
+
       $target.toggleClass('menu-active');
-      $target.children('.menu-column-content').slideToggle(basicAnimationSpeed)
+      $target.children('.menu-column-content').slideToggle(basicAnimationSpeed);
     });
+
+  },
+};
+
+Site.Gallery = {
+  init: function() {
+    var _this = this;
+
+    _this.$gallery = $('#swiper-gallery');
+
+    if (_this.$gallery.length) {
+
+      _this.Swiper = new Swiper('#swiper-gallery', {
+        loop: true,
+        pagination: '#gallery-pagination',
+        paginationType: 'bullets',
+        paginationHide: false,
+        paginationElement: 'li',
+        paginationClickable: true,
+        fade: {
+          crossFade: true,
+        },
+        preloadImages: true,
+        onClick: function(swiper) {
+          swiper.slideNext();
+        },
+      });
+
+    }
 
   },
 };
