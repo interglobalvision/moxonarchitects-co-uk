@@ -63,7 +63,7 @@
       </div>
       <nav class="menu-column-content">
         <ul>
-          <a href="<?php echo home_url('studio/'); ?>"><li <?php if (is_page() && !is_page('Contact')) {echo 'class="font-color-active"';}?>>Studio</li></a>
+          <a href="<?php echo home_url('profile/'); ?>"><li <?php if (is_page() && !is_page('Contact')) {echo 'class="font-color-active"';}?>>Studio</li></a>
           <a href="<?php echo home_url('news/'); ?>"><li>News</li></a>
           <a href="<?php echo home_url('contact/'); ?>"><li <?php if (is_page('Contact')) {echo 'class="font-color-active"';}?>>Contact</li></a>
           <li>&nbsp;</li>
