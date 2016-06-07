@@ -10,7 +10,9 @@ License: GPLv2+
 */
 
 // Useful global constants
-define( 'PW_GALLERY_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'PW_GALLERY_URL' ) ) {
+  define( 'PW_GALLERY_URL', plugin_dir_url( __FILE__ ) );
+}
 
 /**
  * Render field
