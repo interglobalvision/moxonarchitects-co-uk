@@ -63,9 +63,9 @@
       </div>
       <nav class="menu-column-content">
         <ul>
-          <a href="<?php echo home_url('studio/'); ?>"><li>Studio</li></a>
+          <a href="<?php echo home_url('profile/'); ?>"><li <?php if (is_page() && !is_page('Contact')) {echo 'class="font-color-active"';}?>>Studio</li></a>
           <a href="<?php echo home_url('news/'); ?>"><li>News</li></a>
-          <a href="<?php echo home_url('contact/'); ?>"><li>Contact</li></a>
+          <a href="<?php echo home_url('contact/'); ?>"><li <?php if (is_page('Contact')) {echo 'class="font-color-active"';}?>>Contact</li></a>
           <li>&nbsp;</li>
           <?php
             $types = get_terms( 'project_type', array(
@@ -135,13 +135,23 @@
       }
 ?>
 <?php
-    // if is page or is people archive
-      if (is_page() || is_post_type_archive('people')) {
+    // if is page
+      if (is_page()) {
+        global $post;
+?>
+          <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page($post->ID); ?>>Profile</li></a>
+          <a href="<?php echo home_url('news/'); ?>"><li <?php is_active_page($post->ID); ?>>Clients</li></a>
+          <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page($post->ID); ?>>Awards</li></a>
+          <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
+          <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page($post->ID); ?>>Recruit</li></a>
+<?php
+    // or is people archive
+      } else if (is_post_type_archive('people')) {
 ?>
           <a href="<?php echo home_url('profile/'); ?>"><li>Profile</li></a>
           <a href="<?php echo home_url('news/'); ?>"><li>Clients</li></a>
           <a href="<?php echo home_url('awards/'); ?>"><li>Awards</li></a>
-          <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
+          <a href="<?php echo home_url('people/'); ?>"><li class="font-color-active">People</li></a>
           <a href="<?php echo home_url('recruit/'); ?>"><li>Recruit</li></a>
 <?php
       }

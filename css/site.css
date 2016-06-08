@@ -1146,7 +1146,7 @@ html {
 }
 body {
   line-height: 1.35;
-  background-color: rgba(0,0,0,0.65);
+  background-color: #0e0e0e;
 }
 h1 {
   font-size: 2.617924rem;
@@ -1344,6 +1344,20 @@ img {
 }
 #images {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-align-items: flex-end;
+  -ms-flex-align: end;
+      align-items: flex-end;
+  -ms-justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#images img {
+  width: 100%;
 }
 @media screen and (max-width: 601px) {
   .container {
