@@ -23,7 +23,7 @@ get_header();
 
   </div>
 
-  <section id="images" class="u-flex-center">
+  <section id="images">
     <?php the_post_thumbnail('gallery'); ?>
   </section>
 
