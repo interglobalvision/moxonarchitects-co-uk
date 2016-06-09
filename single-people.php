@@ -31,7 +31,7 @@ get_header();
             <div class="people-thumb u-cf">
               <?php the_post_thumbnail('people'); ?>
             </div>
-            <div class="copy margin-top-small">
+            <div class="font-copy margin-top-small">
               <?php the_content(); ?>
             </div>
           </article>

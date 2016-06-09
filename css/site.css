@@ -1184,6 +1184,10 @@ p {
 .font-color-active {
   color: #ff0;
 }
+.font-copy {
+  font-size: 1.3rem;
+  line-height: 1.45;
+}
 .text-overflow-ellipsis {
   white-space: nowrap;
   text-overflow: ellipsis;
