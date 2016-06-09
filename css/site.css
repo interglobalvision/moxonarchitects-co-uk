@@ -1388,10 +1388,10 @@ article.people .wp-post-image {
 .post-type-archive-people article.people {
   padding-bottom: 0px;
 }
-.people-header {
+.post-type-archive-people .people-header {
   position: relative;
 }
-.people-header:after {
+.post-type-archive-people .people-header:after {
   content: '\002B';
   color: #ff0;
   position: absolute;
