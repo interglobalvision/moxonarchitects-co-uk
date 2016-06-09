@@ -6,9 +6,9 @@ if( have_posts() ) {
     the_post();
     $gallery = get_post_meta($post->ID, '_igv_gallery');
 ?>
-    <main id="main-content" class="menu-column menu-active">
+    <main id="main-content" class="menu-column">
       <div class="menu-column-top font-uppercase">
-        <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+        <?php the_title(); ?>
 
         <ul id="gallery-pagination"></ul>
 

@@ -330,15 +330,36 @@ menuBackgrounds()
 
 .swiper-pagination-bullet
   display: inline-block
-  border-radius: 18px
-  height: 9px
-  width: 9px
+  border-radius: 20px
+  height: 8px
+  width: 8px
   background-color: $color-white-soft
   margin-left: 5px
   &.swiper-pagination-bullet-active
     background-color: $color-yellow
   &:hover
     background-color: $color-yellow
+
+// SINGLE PROJECT
+
+.single-project
+  #main-content
+    .menu-column-top:after
+      content: 'INFO'
+      color: $color-yellow
+    .menu-column-content
+      display: none
+
+article.project
+  font-size: $font-size-larger
+  line-height: $font-leading-larger
+  max-height: 90vh
+  overflow-y: auto
+
+#gallery-pagination
+  position: absolute
+  top: 5px
+  right: 46px
 
 // IMAGES
 

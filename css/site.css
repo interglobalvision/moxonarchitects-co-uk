@@ -1330,9 +1330,9 @@ img {
 }
 .swiper-pagination-bullet {
   display: inline-block;
-  border-radius: 18px;
-  height: 9px;
-  width: 9px;
+  border-radius: 20px;
+  height: 8px;
+  width: 8px;
   background-color: #fdfdfd;
   margin-left: 5px;
 }
@@ -1341,6 +1341,24 @@ img {
 }
 .swiper-pagination-bullet:hover {
   background-color: #ff0;
+}
+.single-project #main-content .menu-column-top:after {
+  content: 'INFO';
+  color: #ff0;
+}
+.single-project #main-content .menu-column-content {
+  display: none;
+}
+article.project {
+  font-size: 1.3rem;
+  line-height: 1.45;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+#gallery-pagination {
+  position: absolute;
+  top: 5px;
+  right: 46px;
 }
 #images {
   height: 100vh;
