@@ -1157,7 +1157,7 @@ h2 {
   line-height: 1.15;
 }
 h3 {
-  font-size: 1.618rem;
+  font-size: 1.400505962399693rem;
 }
 p {
   margin-bottom: 1rem;
@@ -1358,6 +1358,23 @@ img {
 }
 #images img {
   width: 100%;
+}
+article.people .wp-post-image {
+  display: block;
+  float: right;
+}
+.post-type-archive-people article.people {
+  padding-bottom: 0px;
+}
+.people-header {
+  position: relative;
+}
+.people-header:after {
+  content: '\002B';
+  color: #ff0;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 @media screen and (max-width: 601px) {
   .container {
