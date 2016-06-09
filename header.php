@@ -139,11 +139,11 @@
       if (is_page()) {
         global $post;
 ?>
-          <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page($post->ID); ?>>Profile</li></a>
-          <a href="<?php echo home_url('news/'); ?>"><li <?php is_active_page($post->ID); ?>>Clients</li></a>
-          <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page($post->ID); ?>>Awards</li></a>
+          <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page('Profile', $post->ID); ?>>Profile</li></a>
+          <a href="<?php echo home_url('clients/'); ?>"><li <?php is_active_page('Clients', $post->ID); ?>>Clients</li></a>
+          <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page('Awards', $post->ID); ?>>Awards</li></a>
           <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
-          <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page($post->ID); ?>>Recruit</li></a>
+          <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page('Recruit', $post->ID); ?>>Recruit</li></a>
 <?php
     // or is people archive
       } else if (is_post_type_archive('people')) {
