@@ -149,7 +149,7 @@ function people_post_type() {
 		'label'                 => 'People',
 		'description'           => 'People',
 		'labels'                => $labels,
-		'supports'              => array( ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -160,8 +160,8 @@ function people_post_type() {
 		'can_export'            => true,
 		'has_archive'           => true,
 		'exclude_from_search'   => false,
-		'publicly_queryable'    => false,
-		'rewrite'               => false,
+		'publicly_queryable'    => true,
+		'rewrite'               => true,
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'people', $args );
