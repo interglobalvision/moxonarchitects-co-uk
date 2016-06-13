@@ -36,6 +36,8 @@ if( have_posts() ) {
 
     <?php
       if (!empty($gallery)) {
+        render_gallery($gallery);
+/*
     ?>
     <!-- Slider main container -->
     <div id="swiper-gallery" class="swiper-container">
@@ -52,6 +54,7 @@ if( have_posts() ) {
       </div>
     </div>
     <?php
+*/
       }
     ?>
 
