@@ -101,6 +101,26 @@ class IGV_Admin {
       ),
     ) );
 
+    // FRONT PAGE
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Front Page options', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $this->prefix . 'front_title',
+      'type' => 'title',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name'        => __( 'Front Page Featured Projects' ),
+      'desc' => __( 'A selection of projects one of which will be randomly loaded', 'cmb2' ),
+      'id'          => $this->prefix . 'front_page',
+      'type'        => 'post_search_text', // This field type
+      'post_type'   => 'project',
+      'select_type' => 'checkbox',
+      // Will replace any selection with selection from modal. Default is 'add'
+      'select_behavior' => 'add',
+    ) );
+
     // SOCIAL MEDIA OPTIONS
 
     $options_metabox->add_field( array(
@@ -159,31 +179,6 @@ class IGV_Admin {
       'desc' => __( '(optional)', 'IGV' ),
       'id'   => $this->prefix . 'og_fb_app_id',
       'type' => 'text',
-    ) );
-
-    // BOILER
-
-    $options_metabox->add_field( array(
-      'name' => __( 'Title for options section', 'cmb2' ),
-      'desc' => __( '', 'cmb2' ),
-      'id'   => $this->prefix . 'general_title',
-      'type' => 'title',
-    ) );
-
-    $options_metabox->add_field( array(
-      'name' => __( 'Test Text', 'IGV' ),
-      'desc' => __( 'field description (optional)', 'IGV' ),
-      'id'   => $this->prefix . 'test_text',
-      'type' => 'text',
-      'default' => 'Default Text',
-    ) );
-
-    $options_metabox->add_field( array(
-      'name'    => __( 'Test Color Picker', 'IGV' ),
-      'desc'    => __( 'field description (optional)', 'IGV' ),
-      'id'      => $this->prefix . 'test_colorpicker',
-      'type'    => 'colorpicker',
-      'default' => '#bada55',
     ) );
 
   }

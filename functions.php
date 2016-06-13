@@ -89,6 +89,9 @@ function cmb_initialize_cmb_meta_boxes() {
     require_once 'lib/cmb-field-gallery/cmb-field-gallery.php';
   }
 
+  // Add CMB2 Post Search field
+  require_once 'lib/CMB2-Post-Search-field/lib/init.php';
+
 }
 
 

@@ -1,9 +1,8 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
 /* global $, jQuery, document, Site, WP, Modernizr, Swiper, google */
 
-var basicAnimationSpeed = 400;
-
 Site = {
+  basicAnimationSpeed: 400,
   mobileThreshold: 601,
   init: function() {
     var _this = this;
@@ -54,7 +53,7 @@ Site.Menus = {
       }
 
       $target.toggleClass('menu-active');
-      $target.children('.menu-column-content').slideToggle(basicAnimationSpeed);
+      $target.children('.menu-column-content').slideToggle(Site.basicAnimationSpeed);
     });
 
   },
@@ -63,8 +62,13 @@ Site.Menus = {
 Site.Gallery = {
   init: function() {
     var _this = this;
+    var autoplay =  false
 
     _this.$gallery = $('#swiper-gallery');
+
+    if ($('body').hasClass('home')) {
+      autoplay = 3000;
+    }
 
     if (_this.$gallery.length) {
 
@@ -75,6 +79,8 @@ Site.Gallery = {
         paginationHide: false,
         paginationElement: 'li',
         paginationClickable: true,
+        autoplay: autoplay,
+        speed: Site.basicAnimationSpeed,
         fade: {
           crossFade: true,
         },

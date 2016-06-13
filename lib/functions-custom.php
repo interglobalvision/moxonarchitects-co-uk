@@ -11,3 +11,24 @@ function is_active_page($page_name, $post_id) {
   }
 
 }
+
+// Render gallery markup
+
+function render_gallery($gallery) {
+?>
+<!-- Slider main container -->
+<div id="swiper-gallery" class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <?php
+      foreach ($gallery[0] as $slide) {
+    ?>
+    <div class="swiper-slide"><?php echo wp_get_attachment_image($slide, 'gallery'); ?></div>
+    <?php
+      }
+    ?>
+  </div>
+</div>
+<?php
+}
