@@ -13,6 +13,7 @@ Site = {
 
     _this.Menus.init();
     _this.Gallery.init();
+    _this.Layout.init();
 
     if ($('body').hasClass('page-contact')) {
       _this.Map.init();
@@ -23,6 +24,8 @@ Site = {
   onResize: function() {
     var _this = this;
 
+    _this.Layout.layout();
+
   },
 
   fixWidows: function() {
@@ -32,6 +35,29 @@ Site = {
       string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
       $(this).html(string);
     });
+  },
+};
+
+Site.Layout = {
+  init: function() {
+    var _this = this;
+
+    _this.$mainContentColumn = $('#main-content .menu-column-content');
+    _this.$mainContentTopColumn = $('#main-content .menu-column-top');
+
+    this.layout();
+  },
+
+  layout: function() {
+    var _this = this;
+
+    var topHeight = _this.$mainContentTopColumn.outerHeight(true);
+    var windowHeight = $(window).height();
+
+    _this.$mainContentColumn.css({
+      'max-height': (windowHeight - topHeight) + 'px',
+    });
+
   },
 };
 

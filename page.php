@@ -11,7 +11,7 @@ get_header();
       <nav class="menu-column-content menu-background">
         <section id="page">
 
-          <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+          <article <?php post_class('font-copy'); ?> id="post-<?php the_ID(); ?>">
 
             <?php the_content(); ?>
 
