@@ -43,8 +43,8 @@ Site.Layout = {
   init: function() {
     var _this = this;
 
-    _this.$mainContentColumn = $('#main-content').find('.menu-column-content');
-    _this.$mainContentTopColumn = $('#main-content').find('.menu-column-top');
+    _this.$mainContentColumn = $('#main-content .menu-column-content');
+    _this.$mainContentTopColumn = $('#main-content .menu-column-top');
 
     this.layout();
   },
