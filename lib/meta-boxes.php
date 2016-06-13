@@ -31,27 +31,67 @@ return $post_options;
 add_action( 'cmb2_init', 'igv_cmb_metaboxes' );
 function igv_cmb_metaboxes() {
 
-	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_igv_';
+  // Start with an underscore to hide fields from custom fields list
+  $prefix = '_igv_';
 
-	/**
-	 * Metaboxes declarations here
+  /**
+   * Metaboxes declarations here
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
-	 */
+   */
+
+  $contact_page = get_page_by_title('Contact');
+  if ($contact_page) {
+    $contact_page_id = $contact_page->ID;
+  } else {
+    $contact_page_id = null;
+  }
 
   $project_meta = new_cmb2_box( array(
-		'id'            => $prefix . 'metabox',
-		'title'         => __( 'Project Metabox', 'cmb2' ),
-		'object_types'  => array( 'project', ), // Post type
-	) );
+    'id'            => $prefix . 'metabox',
+    'title'         => __( 'Project Metabox', 'cmb2' ),
+    'object_types'  => array( 'project', ), // Post type
+    // 'show_on_cb' => 'yourprefix_show_if_front_page', // function should return a bool value
+    // 'context'    => 'normal',
+    // 'priority'   => 'high',
+    // 'show_names' => true, // Show field names on the left
+    // 'cmb_styles' => false, // false to disable the CMB stylesheet
+    // 'closed'     => true, // true to keep the metabox closed by default
+  ) );
 
-	$project_meta->add_field( array(
-		'name'       => __( 'Project Gallery', 'cmb2' ),
-		'desc'       => __( '...', 'cmb2' ),
-		'id'         => $prefix . 'gallery',
-		'type'       => 'pw_gallery',
+  $project_meta->add_field( array(
+    'name'       => __( 'Project Gallery', 'cmb2' ),
+    'desc'       => __( '...', 'cmb2' ),
+    'id'         => $prefix . 'gallery',
+    'type'       => 'pw_gallery',
     'sanitization_cb' => 'pw_gallery_field_sanitise',
-	) );
+  ) );
+
+  $contact_page_meta = new_cmb2_box( array(
+    'id'            => $prefix . 'contact_page_metabox',
+    'title'         => __( 'Contact Page Metabox', 'cmb2' ),
+    'object_types'  => array( 'page', ), // Post type
+    'show_on'      => array( 'key' => 'id', 'value' => $contact_page_id),
+    // 'context'    => 'normal',
+    // 'priority'   => 'high',
+    // 'show_names' => true, // Show field names on the left
+    // 'cmb_styles' => false, // false to disable the CMB stylesheet
+    // 'closed'     => true, // true to keep the metabox closed by default
+  ) );
+
+  $contact_page_meta->add_field( array(
+    'name'       => __( 'Map popup for London', 'cmb2' ),
+    'desc'       => __( '...', 'cmb2' ),
+    'id'         => $prefix . 'map_london',
+    'type'       => 'wysiwyg',
+  ) );
+
+  $contact_page_meta->add_field( array(
+    'name'       => __( 'Map popup for Scotland', 'cmb2' ),
+    'desc'       => __( '...', 'cmb2' ),
+    'id'         => $prefix . 'map_scotland',
+    'type'       => 'wysiwyg',
+  ) );
+
 
   $people_meta = new_cmb2_box( array(
 		'id'            => $prefix . 'people_metabox',

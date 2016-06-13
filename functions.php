@@ -14,10 +14,32 @@ function scripts_and_styles_method() {
   wp_register_script( 'myscripts', $myscripts );
 
   $is_admin = current_user_can('administrator') ? 1 : 0;
+
+  if (is_page('Contact')) {
+    $map_data = array();
+    $contact_page = get_page_by_title('Contact');
+    $meta = get_post_meta($contact_page->ID);
+
+    if (!empty($meta['_igv_map_london'])) {
+      $map_data['London'] = wpautop($meta['_igv_map_london'][0]);
+    } else {
+      $map_data['London'] = '';
+    }
+
+    if (!empty($meta['_igv_map_scotland'])) {
+      $map_data['Scotland'] = wpautop($meta['_igv_map_scotland'][0]);
+    } else {
+      $map_data['Scotland'] = '';
+    }
+  } else {
+    $map_data = null;
+  }
+
   $jsVars = array(
-  	'siteUrl' => home_url(),
-  	'themeUrl' => get_template_directory_uri(),
-  	'isAdmin' => $is_admin,
+    'siteUrl' => home_url(),
+    'themeUrl' => get_template_directory_uri(),
+    'isAdmin' => $is_admin,
+    'mapData' => $map_data
   );
 
   wp_localize_script( 'myscripts', 'WP', $jsVars );
@@ -43,7 +65,7 @@ get_template_part( 'lib/thumbnail-sizes' );
 // Register Nav Menus
 /*
 register_nav_menus( array(
-	'menu_location' => 'Location Name',
+  'menu_location' => 'Location Name',
 ) );
 */
 

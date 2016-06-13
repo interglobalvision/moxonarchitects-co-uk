@@ -1292,7 +1292,6 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   z-index: 100;
 }
 .menu-column {
@@ -1331,6 +1330,10 @@ img {
 }
 #main-content {
   width: 500px;
+}
+#map,
+#map-canvas {
+  height: 100vh;
 }
 .swiper-pagination-bullet {
   display: inline-block;
