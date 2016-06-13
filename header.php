@@ -136,8 +136,8 @@
 ?>
 <?php
     // if is page
+      global $post;
       if (is_page()) {
-        global $post;
 ?>
           <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page('Profile', $post->ID); ?>>Profile</li></a>
           <a href="<?php echo home_url('clients/'); ?>"><li <?php is_active_page('Clients', $post->ID); ?>>Clients</li></a>
@@ -146,7 +146,7 @@
           <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page('Recruit', $post->ID); ?>>Recruit</li></a>
 <?php
     // or is people archive
-      } else if (is_post_type_archive('people')) {
+      } else if (is_post_type_archive('people') || is_single_type('people', $post)) {
 ?>
           <a href="<?php echo home_url('profile/'); ?>"><li>Profile</li></a>
           <a href="<?php echo home_url('news/'); ?>"><li>Clients</li></a>

@@ -91,7 +91,7 @@ $margin-large = ($gutter * 5)
 
 $font-size-basic = 13px
 $font-size-larger = 1.3rem
-$font-size-h3 = golden-ratio(1rem , 1)
+$font-size-h3 = golden-ratio(1rem , .7)
 $font-size-h2 = golden-ratio(1rem , 1.5)
 $font-size-h1 = golden-ratio(1rem , 2)
 
@@ -160,6 +160,10 @@ p
 
 .font-color-active
   color: $color-yellow
+
+.font-copy
+  font-size: $font-size-larger
+  line-height: $font-leading-larger
 
   // TEXT RULES
 
@@ -370,6 +374,29 @@ article.project
   justify-content: center
   img
     width: 100%
+
+// ******************************************************
+
+// PEOPLE
+
+article.people
+  .wp-post-image
+    display: block
+    float: right
+
+// ARCHIVE
+
+.post-type-archive-people
+  article.people
+    padding-bottom: 0px
+  .people-header
+    position: relative
+    &:after
+      content: '\002B'
+      color: $color-yellow
+      position: absolute
+      right: 0px
+      top: 0px
 
 // ******************************************************
 

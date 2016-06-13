@@ -43,12 +43,6 @@ function igv_cmb_metaboxes() {
 		'id'            => $prefix . 'metabox',
 		'title'         => __( 'Project Metabox', 'cmb2' ),
 		'object_types'  => array( 'project', ), // Post type
-		// 'show_on_cb' => 'yourprefix_show_if_front_page', // function should return a bool value
-		// 'context'    => 'normal',
-		// 'priority'   => 'high',
-		// 'show_names' => true, // Show field names on the left
-		// 'cmb_styles' => false, // false to disable the CMB stylesheet
-		// 'closed'     => true, // true to keep the metabox closed by default
 	) );
 
 	$project_meta->add_field( array(
@@ -57,6 +51,26 @@ function igv_cmb_metaboxes() {
 		'id'         => $prefix . 'gallery',
 		'type'       => 'pw_gallery',
     'sanitization_cb' => 'pw_gallery_field_sanitise',
+	) );
+
+  $people_meta = new_cmb2_box( array(
+		'id'            => $prefix . 'people_metabox',
+		'title'         => __( 'People Metabox', 'cmb2' ),
+		'object_types'  => array( 'people', ), // Post type
+	) );
+
+	$people_meta->add_field( array(
+		'name'       => __( 'Title', 'cmb2' ),
+		'desc'       => __( '', 'cmb2' ),
+		'id'         => $prefix . 'title',
+		'type'       => 'text',
+	) );
+
+	$people_meta->add_field( array(
+		'name'       => __( 'Subline', 'cmb2' ),
+		'desc'       => __( 'shows on People page', 'cmb2' ),
+		'id'         => $prefix . 'subline',
+		'type'       => 'text',
 	) );
 
 }

@@ -1157,7 +1157,7 @@ h2 {
   line-height: 1.15;
 }
 h3 {
-  font-size: 1.618rem;
+  font-size: 1.400505962399693rem;
 }
 p {
   margin-bottom: 1rem;
@@ -1183,6 +1183,10 @@ p {
 }
 .font-color-active {
   color: #ff0;
+}
+.font-copy {
+  font-size: 1.3rem;
+  line-height: 1.45;
 }
 .text-overflow-ellipsis {
   white-space: nowrap;
@@ -1376,6 +1380,23 @@ article.project {
 }
 #images img {
   width: 100%;
+}
+article.people .wp-post-image {
+  display: block;
+  float: right;
+}
+.post-type-archive-people article.people {
+  padding-bottom: 0px;
+}
+.post-type-archive-people .people-header {
+  position: relative;
+}
+.post-type-archive-people .people-header:after {
+  content: '\002B';
+  color: #ff0;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 @media screen and (max-width: 601px) {
   .container {
