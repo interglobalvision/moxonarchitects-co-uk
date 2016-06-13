@@ -91,7 +91,7 @@ $margin-large = ($gutter * 5)
 
 $font-size-basic = 13px
 $font-size-larger = 1.3rem
-$font-size-h3 = golden-ratio(1rem , 1)
+$font-size-h3 = golden-ratio(1rem , .7)
 $font-size-h2 = golden-ratio(1rem , 1.5)
 $font-size-h1 = golden-ratio(1rem , 2)
 
@@ -160,6 +160,10 @@ p
 
 .font-color-active
   color: $color-yellow
+
+.font-copy
+  font-size: $font-size-larger
+  line-height: $font-leading-larger
 
   // TEXT RULES
 
@@ -337,15 +341,36 @@ menuBackgrounds()
 
 .swiper-pagination-bullet
   display: inline-block
-  border-radius: 18px
-  height: 9px
-  width: 9px
+  border-radius: 20px
+  height: 8px
+  width: 8px
   background-color: $color-white-soft
   margin-left: 5px
   &.swiper-pagination-bullet-active
     background-color: $color-yellow
   &:hover
     background-color: $color-yellow
+
+// SINGLE PROJECT
+
+.single-project
+  #main-content
+    .menu-column-top:after
+      content: 'INFO'
+      color: $color-yellow
+    .menu-column-content
+      display: none
+
+article.project
+  font-size: $font-size-larger
+  line-height: $font-leading-larger
+  max-height: 90vh
+  overflow-y: auto
+
+#gallery-pagination
+  position: absolute
+  top: 5px
+  right: 46px
 
 // IMAGES
 
@@ -356,6 +381,29 @@ menuBackgrounds()
   justify-content: center
   img
     width: 100%
+
+// ******************************************************
+
+// PEOPLE
+
+article.people
+  .wp-post-image
+    display: block
+    float: right
+
+// ARCHIVE
+
+.post-type-archive-people
+  article.people
+    padding-bottom: 0px
+  .people-header
+    position: relative
+    &:after
+      content: '\002B'
+      color: $color-yellow
+      position: absolute
+      right: 0px
+      top: 0px
 
 // ******************************************************
 
