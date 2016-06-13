@@ -1331,6 +1331,10 @@ img {
 #main-content {
   width: 500px;
 }
+#main-content .menu-column-content {
+  overflow-y: auto;
+  max-height: 90vh;
+}
 #map,
 #map-canvas {
   height: 100vh;
@@ -1355,12 +1359,6 @@ img {
 }
 .single-project #main-content .menu-column-content {
   display: none;
-}
-article.project {
-  font-size: 1.3rem;
-  line-height: 1.45;
-  max-height: 90vh;
-  overflow-y: auto;
 }
 #gallery-pagination {
   position: absolute;
