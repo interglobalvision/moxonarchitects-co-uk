@@ -111,7 +111,8 @@ class IGV_Admin {
     ) );
 
     $options_metabox->add_field( array(
-      'name'        => __( 'Related post' ),
+      'name'        => __( 'Front Page Featured Projects' ),
+      'desc' => __( 'A selection of projects one of which will be randomly loaded', 'cmb2' ),
       'id'          => $this->prefix . 'front_page',
       'type'        => 'post_search_text', // This field type
       'post_type'   => 'project',
