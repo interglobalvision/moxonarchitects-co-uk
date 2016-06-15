@@ -1216,6 +1216,16 @@ img {
   max-width: 100%;
   height: auto;
 }
+.image-cover {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.image-cover img {
+  position: absolute;
+  max-width: initial;
+}
 .margin-top-micro {
   margin-top: 4.944271909998838px;
 }

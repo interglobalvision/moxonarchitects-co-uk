@@ -13,11 +13,13 @@ $front_page_gallery = get_post_meta($front_page_projects[$random_index], '_igv_g
 
   <a href="<?php echo get_the_permalink($front_page_projects[$random_index]); ?>">
   <section id="images" class="u-flex-center">
-    <?php
-      if (!empty($front_page_gallery)) {
-        render_gallery($front_page_gallery);
-      }
-    ?>
+    <div class="image-cover">
+      <?php
+        if (!empty($front_page_gallery)) {
+          echo wp_get_attachment_image($front_page_gallery[0][0], 'gallery');
+        }
+      ?>
+    </div>
   </section>
   </a>
 

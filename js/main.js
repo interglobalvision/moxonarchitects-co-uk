@@ -7,24 +7,29 @@ Site = {
   init: function() {
     var _this = this;
 
-    $(window).resize(function(){
+    _this.Menus.init();
+    _this.Layout.init();
+
+    $(window).resize(function() {
       _this.onResize();
     });
 
-    _this.Menus.init();
-    _this.Gallery.init();
-    _this.Layout.init();
+    $(document).ready(function () {
 
-    if ($('body').hasClass('page-contact')) {
-      _this.Map.init();
-    }
+      _this.Gallery.init();
+
+      if ($('body').hasClass('page-contact')) {
+        _this.Map.init();
+      }
+
+    });
 
   },
 
   onResize: function() {
     var _this = this;
 
-    _this.Layout.layout();
+    _this.Layout.resize();
 
   },
 
@@ -45,20 +50,95 @@ Site.Layout = {
     _this.$mainContentColumn = $('#main-content .menu-column-content');
     _this.$mainContentTopColumn = $('#main-content .menu-column-top');
 
-    this.layout();
+    _this.windowHeight = $(window).height();
+    _this.windowWidth = $(window).width();
+
+    _this.layout();
+  },
+
+  resize: function() {
+    var _this = this;
+
+    _this.windowHeight = $(window).height();
+    _this.windowWidth = $(window).width();
+
+    _this.layout();
   },
 
   layout: function() {
     var _this = this;
 
     var topHeight = _this.$mainContentTopColumn.outerHeight(true);
-    var windowHeight = $(window).height();
 
     _this.$mainContentColumn.css({
-      'max-height': (windowHeight - topHeight) + 'px',
+      'max-height': (_this.windowHeight - topHeight) + 'px',
+    });
+
+    _this.imageCovers();
+  },
+
+  imageCovers: function() {
+    var _this = this;
+
+    $('.image-cover').each(function() {
+      var $image = $(this).children('img').first();
+      var imageWidth = $image.width();
+      var imageHeight = $image.height();
+
+      if ((_this.windowWidth / _this.windowHeight) > (imageWidth / imageHeight)) {
+
+        console.log('window dont fit image');
+        _this.fitImageToWidth($image, imageHeight, imageWidth);
+
+
+      } else {
+
+        console.log('not window dont fit image');
+        _this.fitImageToHeight($image, imageHeight, imageWidth);
+
+      }
+
+/*
+      if (imageWidth > imageHeight) {
+
+        _this.fitImageToHeight($image, imageHeight, imageWidth);
+
+      } else {
+
+        _this.fitImageToWidth($image, imageHeight, imageWidth);
+
+      }
+*/
+
     });
 
   },
+
+  fitImageToHeight: function($image, imageHeight, imageWidth) {
+    var _this = this;
+    var offset = (((_this.windowHeight / imageHeight) * imageWidth) - _this.windowWidth) / 2
+
+    return $image.css({
+      'width': 'auto',
+      'height': _this.windowHeight + 'px',
+      'left': '-' + offset + 'px',
+      'top': '0',
+    });
+
+  },
+
+  fitImageToWidth: function($image, imageHeight, imageWidth) {
+    var _this = this;
+    var offset = (((_this.windowWidth / imageWidth) * imageHeight) - _this.windowHeight) / 2
+
+    return $image.css({
+      'height': 'auto',
+      'width': _this.windowWidth + 'px',
+      'top': '-' + offset + 'px',
+      'left': '0',
+    });
+
+  }
 };
 
 Site.Menus = {
@@ -198,9 +278,4 @@ Site.Map = {
   },
 };
 
-jQuery(document).ready(function () {
-  'use strict';
-
-  Site.init();
-
-});
+Site.init();
