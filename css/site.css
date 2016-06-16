@@ -1346,6 +1346,20 @@ img {
   overflow-y: auto;
   max-height: 90vh;
 }
+#desktop-logo-overlay {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 16px;
+  z-index: 90;
+}
+#desktop-logo-overlay svg {
+  width: 450px;
+  height: 68px;
+}
+#desktop-logo-overlay svg path {
+  fill: #fdfdfd;
+}
 #map,
 #map-canvas {
   height: 100vh;
