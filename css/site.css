@@ -1392,7 +1392,7 @@ img {
       -ms-flex-pack: center;
           justify-content: center;
 }
-#images img {
+.gallery-image {
   width: 100%;
 }
 article.people .wp-post-image {
