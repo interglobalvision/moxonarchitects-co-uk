@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Site, WP, Modernizr, Swiper, google */
+/* global $, document, Site, WP, Modernizr, Swiper, google */
 
 Site = {
   basicAnimationSpeed: 400,
@@ -116,7 +116,7 @@ Site.Layout = {
 
   fitImageToHeight: function($image, imageHeight, imageWidth) {
     var _this = this;
-    var offset = (((_this.windowHeight / imageHeight) * imageWidth) - _this.windowWidth) / 2
+    var offset = (((_this.windowHeight / imageHeight) * imageWidth) - _this.windowWidth) / 2;
 
     return $image.css({
       'width': 'auto',
@@ -129,7 +129,7 @@ Site.Layout = {
 
   fitImageToWidth: function($image, imageHeight, imageWidth) {
     var _this = this;
-    var offset = (((_this.windowWidth / imageWidth) * imageHeight) - _this.windowHeight) / 2
+    var offset = (((_this.windowWidth / imageWidth) * imageHeight) - _this.windowHeight) / 2;
 
     return $image.css({
       'height': 'auto',
@@ -143,8 +143,13 @@ Site.Layout = {
 
 Site.Menus = {
   init: function() {
+    var _this = this;
 
-    this.bind();
+    _this.bind();
+
+    if ($('body').hasClass('post-type-archive-people')) {
+      _this.bindPeople();
+    }
 
   },
 
@@ -163,12 +168,33 @@ Site.Menus = {
     });
 
   },
+
+  bindPeople: function() {
+
+    $('.people-header').click(function(e) {
+      e.preventDefault();
+
+      var $parent = $(this).parent();
+      var $copy = $parent.children('.people-copy').first();
+
+      if ($parent.hasClass('active')) {
+        $parent.removeClass('active');
+        $copy.slideUp(Site.basicAnimationSpeed);
+      } else {
+        $('article.people').removeClass('active');
+        $('.people-copy').slideUp(Site.basicAnimationSpeed);
+        $parent.addClass('active');
+        $copy.slideDown(Site.basicAnimationSpeed);
+      }
+    });
+
+  },
 };
 
 Site.Gallery = {
   init: function() {
     var _this = this;
-    var autoplay =  false
+    var autoplay =  false;
 
     _this.$gallery = $('#swiper-gallery');
 
@@ -270,7 +296,7 @@ Site.Map = {
     }
 
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function() {
       this.setZoom(6);
       google.maps.event.removeListener(boundsListener);
     });

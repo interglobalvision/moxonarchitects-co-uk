@@ -14,9 +14,8 @@ get_header();
               $title = get_post_meta($post->ID, '_igv_title');
               $subline = get_post_meta($post->ID, '_igv_subline');
         ?>
-          <a href="<?php the_permalink(); ?>">
           <article <?php post_class('menu-background'); ?> id="post-<?php the_ID(); ?>">
-            <header class="people-header">
+            <header class="people-header u-pointer">
               <h3 class="margin-bottom-micro"><span class="font-uppercase"><?php the_title(); ?></span><?php
                 if (!empty($title)) {
                   echo ', ' . $title[0];
@@ -31,8 +30,10 @@ get_header();
             <div class="people-thumb u-cf">
               <?php the_post_thumbnail('people'); ?>
             </div>
+            <div class="people-copy font-copy margin-top-small">
+              <?php the_content(); ?>
+            </div>
           </article>
-          </a>
         <?php
             }
           }
