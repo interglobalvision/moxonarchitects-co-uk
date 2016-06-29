@@ -3,7 +3,7 @@
 
 Site = {
   basicAnimationSpeed: 400,
-  mobileThreshold: 601,
+  mobileThreshold: 800,
   init: function() {
     var _this = this;
 
@@ -165,6 +165,13 @@ Site.Menus = {
 
       $target.toggleClass('menu-active');
       $target.children('.menu-column-content').slideToggle(Site.basicAnimationSpeed);
+    });
+
+    $('#menu-studio-link').click(function(e) {
+      if (Site.Layout.windowWidth < Site.mobileThreshold) {
+        e.preventDefault();
+        $('#mobile-studio-submenu').slideToggle(Site.basicAnimationSpeed);
+      }
     });
 
   },

@@ -52,30 +52,6 @@ for col in 1..$cols
   .col-{col}
     width: ( col * $col ) + ( ( col - 1 ) * $gutter )
 
-    // FLUID COLS
-
-.percent-col
-  float: left
-  box-sizing: border-box
-
-$pcols = 10
-
-for pcol in 1..$pcols
-  .s-into-{pcol}
-    width: ( 100% / pcol )
-
-@media screen and (min-width: 601px)
-
-  for pcol in 1..$pcols
-    .m-into-{pcol}
-      width: ( 100% / pcol )
-
-@media screen and (min-width: 993px)
-
-  for pcol in 1..$pcols
-    .l-into-{pcol}
-      width: ( 100% / pcol )
-
 // ******************************************************
 
 // VARIABLES
@@ -207,6 +183,12 @@ img
   img
     position: absolute
     max-width: initial
+
+.only-desktop
+  display: initial
+
+.only-mobile
+  display: none
 
 // ******************************************************
 
@@ -341,9 +323,13 @@ menuBackgrounds()
 
 #main-content
   width: 500px
-  .menu-column-content
-    overflow-y: auto
-    max-height: 90vh
+
+#mobile-studio-submenu
+  width: 100%
+  display: none
+  li
+    padding-left: 24px
+
 
 // ******************************************************
 
@@ -458,10 +444,10 @@ article.people
 
 // MEDIA QUERIES
 
-@media screen and (max-width: ($col * $cols)+($gutter * $cols))
+@media screen and (max-width: 880px)
 
   @import "responsive/desktop-mid"
 
-@media screen and (max-width: 601px)
+@media screen and (max-width: 800px)
 
   @import "responsive/mobile"

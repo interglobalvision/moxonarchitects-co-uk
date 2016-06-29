@@ -63,7 +63,16 @@
       </div>
       <nav class="menu-column-content">
         <ul>
-          <a href="<?php echo home_url('profile/'); ?>"><li <?php if (is_page() && !is_page('Contact')) {echo 'class="font-color-active"';}?>>Studio</li></a>
+          <a id="menu-studio-link" href="<?php echo home_url('profile/'); ?>"><li>
+            <span <?php if (is_page() && !is_page('Contact')) {echo 'class="font-color-active"';}?>>Studio</span>
+          </li></a>
+          <ul id="mobile-studio-submenu" class="only-mobile">
+            <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page('Profile', $post->ID); ?>>Profile</li></a>
+            <a href="<?php echo home_url('clients/'); ?>"><li <?php is_active_page('Clients', $post->ID); ?>>Clients</li></a>
+            <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page('Awards', $post->ID); ?>>Awards</li></a>
+            <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
+            <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page('Recruit', $post->ID); ?>>Recruit</li></a>
+          </ul>
           <a href="<?php echo home_url('news/'); ?>"><li>News</li></a>
           <a href="<?php echo home_url('contact/'); ?>"><li <?php if (is_page('Contact')) {echo 'class="font-color-active"';}?>>Contact</li></a>
           <li>&nbsp;</li>
@@ -98,15 +107,8 @@
 <?php
     // if ! is page contact or ! is home
     if (!is_home() && !is_page('contact') && !is_404()) {
-?>
-    <section id="submenu" class="menu-column menu-active font-uppercase">
-      <div class="menu-column-top">
-        &nbsp;
-      </div>
-      <nav class="menu-column-content">
-        <ul>
-<?php
-    // if single project
+
+      // if single project
       if (is_single() && is_single_type('project', $post)) {
         $terms = wp_get_post_terms($post->ID, 'project_type');
 
@@ -126,41 +128,65 @@
           ));
 
           if ($projects_with_type) {
+?>
+    <section id="submenu" class="menu-column menu-active font-uppercase">
+      <div class="menu-column-top">
+        &nbsp;
+      </div>
+      <nav class="menu-column-content">
+        <ul>
+<?php
             foreach ($projects_with_type as $project) {
 ?>
           <a href="<?php echo get_the_permalink($project->ID); ?>"><li <?php if ($post->ID === $project->ID) {echo 'class="font-color-active"';} ?>><?php echo $project->post_title; ?></li></a>
 <?php
             }
-          }
-        }
-
-      }
-?>
-<?php
-    // if is page
-      global $post;
-      if (is_page()) {
-?>
-          <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page('Profile', $post->ID); ?>>Profile</li></a>
-          <a href="<?php echo home_url('clients/'); ?>"><li <?php is_active_page('Clients', $post->ID); ?>>Clients</li></a>
-          <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page('Awards', $post->ID); ?>>Awards</li></a>
-          <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
-          <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page('Recruit', $post->ID); ?>>Recruit</li></a>
-<?php
-    // or is people archive
-      } else if (is_post_type_archive('people') || is_single_type('people', $post)) {
-?>
-          <a href="<?php echo home_url('profile/'); ?>"><li>Profile</li></a>
-          <a href="<?php echo home_url('news/'); ?>"><li>Clients</li></a>
-          <a href="<?php echo home_url('awards/'); ?>"><li>Awards</li></a>
-          <a href="<?php echo home_url('people/'); ?>"><li class="font-color-active">People</li></a>
-          <a href="<?php echo home_url('recruit/'); ?>"><li>Recruit</li></a>
-<?php
-      }
 ?>
         </ul>
       </nav>
     </section>
 <?php
+          }
+        }
+      }
+
+    // if is page
+      global $post;
+      if (is_page()) {
+?>
+    <section id="submenu" class="menu-column menu-active font-uppercase only-desktop">
+      <div class="menu-column-top">
+        &nbsp;
+      </div>
+      <nav class="menu-column-content">
+        <ul>
+          <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page('Profile', $post->ID); ?>>Profile</li></a>
+          <a href="<?php echo home_url('clients/'); ?>"><li <?php is_active_page('Clients', $post->ID); ?>>Clients</li></a>
+          <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page('Awards', $post->ID); ?>>Awards</li></a>
+          <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
+          <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page('Recruit', $post->ID); ?>>Recruit</li></a>
+        </ul>
+      </nav>
+    </section>
+<?php
+    // or is people archive
+      } else if (is_post_type_archive('people') || is_single_type('people', $post)) {
+?>
+    <section id="submenu" class="menu-column menu-active font-uppercase only-desktop">
+      <div class="menu-column-top">
+        &nbsp;
+      </div>
+      <nav class="menu-column-content">
+        <ul>
+          <a href="<?php echo home_url('profile/'); ?>"><li>Profile</li></a>
+          <a href="<?php echo home_url('news/'); ?>"><li>Clients</li></a>
+          <a href="<?php echo home_url('awards/'); ?>"><li>Awards</li></a>
+          <a href="<?php echo home_url('people/'); ?>"><li class="font-color-active">People</li></a>
+          <a href="<?php echo home_url('recruit/'); ?>"><li>Recruit</li></a>
+        </ul>
+      </nav>
+    </section>
+<?php
+      }
     }
 ?>
