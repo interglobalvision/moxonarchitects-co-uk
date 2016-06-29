@@ -121,6 +121,22 @@ class IGV_Admin {
       'select_behavior' => 'add',
     ) );
 
+    // PEOPLE ARCHIVE
+
+    $options_metabox->add_field( array(
+      'name' => __( 'People Page options', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $this->prefix . 'people_title',
+      'type' => 'title',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name'        => __( 'People Page Background Image' ),
+      'desc' => __( '...', 'cmb2' ),
+      'id'          => $this->prefix . 'people_background',
+      'type'        => 'file',
+    ) );
+
     // SOCIAL MEDIA OPTIONS
 
     $options_metabox->add_field( array(
