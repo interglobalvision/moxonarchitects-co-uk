@@ -204,15 +204,17 @@ menuBackgrounds()
 
 // LOGOS
 
-#desktop-logo-overlay
+#mobile-logo-overlay
   position: fixed
-  bottom: 0
-  right: 0
-  padding: $margin-small
+  top: 0
+  left: 0
+  width: 100%
   z-index: 90
+  .u-flex-center
+    height: 100vh
   svg
-    width: 450px
-    height: 68px
+    width: 170px
+    height: 156px
     path
       fill: $color-white-soft
 

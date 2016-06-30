@@ -1775,18 +1775,21 @@ article.people .wp-post-image {
   #main-content {
     width: 100%;
   }
-  #desktop-logo-overlay {
+  #mobile-logo-overlay {
     position: fixed;
-    bottom: 0;
-    right: 0;
-    padding: 16px;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 90;
   }
-  #desktop-logo-overlay svg {
-    width: 450px;
-    height: 68px;
+  #mobile-logo-overlay .u-flex-center {
+    height: 100vh;
   }
-  #desktop-logo-overlay svg path {
+  #mobile-logo-overlay svg {
+    width: 170px;
+    height: 156px;
+  }
+  #mobile-logo-overlay svg path {
     fill: #fdfdfd;
   }
   .swiper-pagination-bullet {
