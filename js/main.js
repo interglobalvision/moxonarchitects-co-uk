@@ -7,8 +7,8 @@ Site = {
   init: function() {
     var _this = this;
 
-    _this.Menus.init();
     _this.Layout.init();
+    _this.Menus.init();
 
     $(window).resize(function() {
       _this.onResize();
@@ -149,6 +149,10 @@ Site.Menus = {
 
     if ($('body').hasClass('post-type-archive-people')) {
       _this.bindPeople();
+    }
+
+    if (Site.Layout.windowWidth < Site.mobileThreshold) {
+      $('#main-menu .menu-column-content').slideToggle(Site.basicAnimationSpeed);
     }
 
   },
