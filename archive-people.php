@@ -1,5 +1,7 @@
 <?php
 get_header();
+
+$background = IGV_get_option('_igv_people_background_id');
 ?>
     <main id="main-content" class="menu-column menu-active">
       <div class="menu-column-top font-uppercase">
@@ -43,6 +45,17 @@ get_header();
     </main>
 
   </div>
+
+  <section id="images" class="u-flex-center">
+    <div class="image-cover">
+      <?php
+        if (!empty($background)) {
+          pr($background);
+          echo wp_get_attachment_image($background, 'gallery');
+        }
+      ?>
+    </div>
+  </section>
 
 <?php
 get_footer();
