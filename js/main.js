@@ -86,29 +86,10 @@ Site.Layout = {
       var imageHeight = $image.height();
 
       if ((_this.windowWidth / _this.windowHeight) > (imageWidth / imageHeight)) {
-
-        console.log('window dont fit image');
         _this.fitImageToWidth($image, imageHeight, imageWidth);
-
-
       } else {
-
-        console.log('not window dont fit image');
         _this.fitImageToHeight($image, imageHeight, imageWidth);
-
       }
-
-/*
-      if (imageWidth > imageHeight) {
-
-        _this.fitImageToHeight($image, imageHeight, imageWidth);
-
-      } else {
-
-        _this.fitImageToWidth($image, imageHeight, imageWidth);
-
-      }
-*/
 
     });
 
@@ -149,10 +130,6 @@ Site.Menus = {
 
     if ($('body').hasClass('post-type-archive-people')) {
       _this.bindPeople();
-    }
-
-    if (Site.Layout.windowWidth < Site.mobileThreshold) {
-      $('#main-menu').removeClass('menu-active');
     }
 
   },
