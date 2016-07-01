@@ -152,7 +152,7 @@ Site.Menus = {
     }
 
     if (Site.Layout.windowWidth < Site.mobileThreshold) {
-      $('#main-menu .menu-column-content').slideToggle(Site.basicAnimationSpeed);
+      $('#main-menu').removeClass('menu-active');
     }
 
   },
