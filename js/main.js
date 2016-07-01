@@ -3,12 +3,12 @@
 
 Site = {
   basicAnimationSpeed: 400,
-  mobileThreshold: 601,
+  mobileThreshold: 800,
   init: function() {
     var _this = this;
 
-    _this.Menus.init();
     _this.Layout.init();
+    _this.Menus.init();
 
     $(window).resize(function() {
       _this.onResize();
@@ -86,29 +86,10 @@ Site.Layout = {
       var imageHeight = $image.height();
 
       if ((_this.windowWidth / _this.windowHeight) > (imageWidth / imageHeight)) {
-
-        console.log('window dont fit image');
         _this.fitImageToWidth($image, imageHeight, imageWidth);
-
-
       } else {
-
-        console.log('not window dont fit image');
         _this.fitImageToHeight($image, imageHeight, imageWidth);
-
       }
-
-/*
-      if (imageWidth > imageHeight) {
-
-        _this.fitImageToHeight($image, imageHeight, imageWidth);
-
-      } else {
-
-        _this.fitImageToWidth($image, imageHeight, imageWidth);
-
-      }
-*/
 
     });
 
@@ -165,6 +146,13 @@ Site.Menus = {
 
       $target.toggleClass('menu-active');
       $target.children('.menu-column-content').slideToggle(Site.basicAnimationSpeed);
+    });
+
+    $('#menu-studio-link').click(function(e) {
+      if (Site.Layout.windowWidth < Site.mobileThreshold) {
+        e.preventDefault();
+        $('#mobile-studio-submenu').slideToggle(Site.basicAnimationSpeed);
+      }
     });
 
   },
