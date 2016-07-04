@@ -40,8 +40,6 @@ get_header();
 ?>
 
   <section id="images" class="u-flex-center">
-    // images go here.
-    // context specific to different routes/templates
   </section>
 
 <?php
