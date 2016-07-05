@@ -64,6 +64,7 @@ function igv_cmb_metaboxes() {
     'id'         => $prefix . 'gallery',
     'type'       => 'pw_gallery',
     'sanitization_cb' => 'pw_gallery_field_sanitise',
+    'preview_size' => array( 150, 150 ),
   ) );
 
   $contact_page_meta = new_cmb2_box( array(
