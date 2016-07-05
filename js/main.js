@@ -139,6 +139,13 @@ Site.Menus = {
     $('.menu-column-top').click(function(e) {
       var $target = $(this).parent();
 
+      // if mobile single project check which action depending on click target
+      if ($('body').hasClass('single-project') && Site.Layout.windowWidth < Site.mobileThreshold) {
+        if (!$(e.target).hasClass('icon-menu')) {
+          $target = $('#main-content');
+        }
+      }
+
       // if gallery pagination is clicked do nothing
       if ($(e.target).hasClass('swiper-pagination-bullet') || e.target.id === 'gallery-pagination') {
         return;
