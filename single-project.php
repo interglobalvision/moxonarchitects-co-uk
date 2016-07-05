@@ -10,11 +10,11 @@ if( have_posts() ) {
       <div class="menu-column-top font-uppercase">
         <?php the_title(); ?>
 
-        <ul id="gallery-pagination"></ul>
+        <ul id="gallery-pagination" class="only-desktop"></ul>
 
       </div>
       <nav class="menu-column-content menu-background">
-        <section id="posts">
+        <section id="project">
 
           <article <?php post_class('font-copy'); ?> id="post-<?php the_ID(); ?>">
 
@@ -33,13 +33,22 @@ if( have_posts() ) {
 ?>
 
   <section id="images">
-
+    <div id="project-gallery" class="only-desktop">
     <?php
       if (!empty($gallery)) {
         render_gallery($gallery);
       }
     ?>
-
+    </div>
+    <div id="project-images" class="only-mobile">
+    <?php
+      if (!empty($gallery)) {
+        foreach ($gallery[0] as $image) {
+          echo wp_get_attachment_image($image, 'mobile-project-image', null, array('class' => 'mobile-project-image'));
+        }
+      }
+    ?>
+    </div>
   </section>
 
 <?php
