@@ -1074,6 +1074,9 @@ p {
   font-size: 0.85em;
   text-transform: uppercase;
 }
+.font-tracking-wider {
+  letter-spacing: 0.05em;
+}
 .font-capitalize {
   text-transform: capitalize;
 }
@@ -1838,18 +1841,16 @@ article.people .wp-post-image {
   #mobile-logo-overlay svg path {
     fill: #fdfdfd;
   }
-  .swiper-pagination-bullet {
-    border-radius: 20px;
-    height: 8px;
-    width: 8px;
-    background-color: #fdfdfd;
-    margin-left: 5px;
+  #mobile-single-project-title {
+    display: inline-block;
+    padding-left: 8px;
+    max-width: 75%;
+    vertical-align: bottom;
   }
-  .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background-color: #ff0;
-  }
-  .swiper-pagination-bullet:hover {
-    background-color: #ff0;
+  #mobile-single-project-info-toggle {
+    float: right;
+    color: #ff0;
+    text-transform: lowercase;
   }
   .single-project #main-content .menu-column-top:after {
     font-size: 1rem;
@@ -1865,10 +1866,19 @@ article.people .wp-post-image {
   .single-project #main-content .menu-column-content {
     display: none;
   }
-  #gallery-pagination {
-    position: absolute;
-    top: 5px;
-    right: 46px;
+  #images {
+    -webkit-box-align: start;
+    -ms-align-items: flex-start;
+    -ms-flex-align: start;
+        -ms-grid-row-align: flex-start;
+        align-items: flex-start;
+  }
+  #project-images {
+    padding-top: 30px;
+  }
+  .mobile-project-image {
+    display: block;
+    margin-bottom: 1px;
   }
   .post-type-archive-people .people-header {
     position: relative;
