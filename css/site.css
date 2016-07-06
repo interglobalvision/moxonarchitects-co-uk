@@ -1276,6 +1276,39 @@ img {
 #map-canvas {
   height: 100vh;
 }
+.project-type-archive-post {
+  position: relative;
+  min-height: 2.5rem;
+}
+.project-type-archive-post-title-holder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.project-type-archive-post-title {
+  background-color: rgba(0,0,0,0.65);
+  padding: 6px 8px;
+  margin-bottom: 1px;
+  margin-right: 1px;
+  margin-right: 0;
+}
+.project-type-archive-post-title:after {
+  content: '';
+  background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='50' height='51.556' viewBox='-17.5 -18.044 50 51.556'><path fill='#FF0' d='M10.605-18.044V4.729H32.5v5.824H10.605v22.959h-6.2V10.553H-17.5V4.729H4.403v-22.773h6.202z'/></svg>");
+  display: block;
+  background-size: 10px 10px;
+  width: 10px;
+  height: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 8px;
+  top: 9px;
+}
+.project-type-archive-post-title.menu-active:after {
+  background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='50' height='51.556' viewBox='-17.5 -18.044 50 51.556'><path fill='#FF0' d='M-17.5 4.729h50v5.824h-50z'/></svg>");
+}
 .swiper-pagination-bullet {
   display: inline-block;
   border-radius: 20px;

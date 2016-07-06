@@ -81,30 +81,31 @@
           <a href="<?php echo home_url('news/'); ?>"><li>News</li></a>
           <a href="<?php echo home_url('contact/'); ?>"><li <?php if (is_page('Contact')) {echo 'class="font-color-active"';}?>>Contact</li></a>
           <li>&nbsp;</li>
-          <?php
-            $types = get_terms( 'project_type', array(
-              'hide_empty' => true,
-            ));
+<?php
+  $types = get_terms( 'project_type', array(
+    'hide_empty' => true,
+  ));
 
-            if ($types) {
-              foreach ($types as $type) {
-                $lastest_project_in_type = get_posts(array(
-                  'tax_query' => array(
-                    array(
-                      'taxonomy' => 'project_type',
-                      'field' => 'id',
-                      'terms' => $type->term_id
-                    )
-                  ),
-                  'posts_per_page' => 1,
-                  'post_type' => 'project'
-                ));
-          ?>
-          <a href="<?php echo get_the_permalink($lastest_project_in_type[0]->ID); ?>"><li><?php echo $type->name; ?></li></a>
-          <?php
-              }
-            }
-          ?>
+  if ($types) {
+    foreach ($types as $type) {
+      $lastest_project_in_type = get_posts(array(
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'project_type',
+            'field' => 'id',
+            'terms' => $type->term_id
+          )
+        ),
+        'posts_per_page' => 1,
+        'post_type' => 'project'
+      ));
+?>
+          <a class="only-mobile" href="<?php echo get_term_link($type); ?>"><li><?php echo $type->name; ?></li></a>
+          <a class="only-desktop" href="<?php echo get_the_permalink($lastest_project_in_type[0]->ID); ?>"><li><?php echo $type->name; ?></li></a>
+<?php
+    }
+  }
+?>
         </ul>
       </nav>
     </div>
