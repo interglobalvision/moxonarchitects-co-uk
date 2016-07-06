@@ -49,7 +49,7 @@ function project_post_type() {
     'label'                 => 'Project',
     'description'           => 'Projects',
     'labels'                => $labels,
-    'supports'              => array( ),
+    'supports'              => array( 'title', 'editor', 'thumbnail', ),
     'taxonomies'            => array( 'project_type' ),
     'hierarchical'          => false,
     'public'                => true,

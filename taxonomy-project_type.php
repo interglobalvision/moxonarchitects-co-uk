@@ -5,7 +5,7 @@ get_header();
 ?>
     <main id="main-content" class="menu-column menu-active">
       <div class="menu-column-top font-uppercase">
-        Posts
+        &nbsp;
       </div>
       <nav class="menu-column-content menu-background">
         <section id="posts">
@@ -15,12 +15,17 @@ get_header();
         while( have_posts() ) {
           the_post();
       ?>
+          <a href="<?php the_permalink() ?>">
+            <article <?php post_class('project-type-archive-post'); ?> id="post-<?php the_ID(); ?>">
 
-          <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+              <?php the_post_thumbnail('project-type-archive'); ?>
 
-            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+              <div class="project-type-archive-post-title-holder">
+                <h4 class="project-type-archive-post-title font-uppercase"><?php the_title(); ?></h4>
+              </div>
 
-          </article>
+            </article>
+          </a>
 
       <?php
         }
