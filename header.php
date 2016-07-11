@@ -60,8 +60,7 @@
     <div id="main-menu" class="menu-column menu-active font-uppercase">
       <div class="menu-column-top">
         <i class="icon-menu"></i><?php
-          global $post;
-          if (is_single_type('project', $post)) {
+          if (is_single_type('project', $post) && !is_archive()) {
         ?>
           <span id="mobile-single-project-title" class="only-mobile text-overflow-ellipsis"><?php the_title(); ?></span>
           <span id="mobile-single-project-info-toggle" class="only-mobile font-tracking-wider">info</span>
