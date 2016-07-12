@@ -1820,7 +1820,6 @@ article.people .wp-post-image {
   }
   #main-content {
     width: 100%;
-    max-height: 100vh;
     overflow-y: auto;
   }
   #main-content .menu-column-top {
