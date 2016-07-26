@@ -232,6 +232,7 @@ Site.News = {
     _this.$news = $('#news');
 
     if (_this.$news.length) {
+      _this.fixShimHeight();
       _this.initMasonry();
     }
 
@@ -241,11 +242,17 @@ Site.News = {
     var _this = this;
 
     _this.$news.masonry({
-//       columnWidth: (1/4),
       percentPosition: true,
-      itemSelector: '.news-post'
+      itemSelector: '.news-masonry-item'
     });
   },
+
+  fixShimHeight: function() {
+    var $shim = $('#news-post-shim');
+
+    $shim.height($('#main-menu').height());
+  },
+
 }
 
 Site.Map = {

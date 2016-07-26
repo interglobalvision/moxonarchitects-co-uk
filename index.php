@@ -8,20 +8,22 @@ get_header();
     if( have_posts() ) {
     ?>
     <section id="news">
+      <div id="news-post-shim" class="news-masonry-item"></div>
     <?php
       while( have_posts() ) {
         the_post();
     ?>
 
-        <article <?php post_class('news-post'); ?> id="post-<?php the_ID(); ?>">
-
-          <?php the_post_thumbnail('news-thumb'); ?>
-          <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-
+        <article <?php post_class('news-post news-masonry-item'); ?> id="post-<?php the_ID(); ?>">
+          <a href="<?php the_permalink() ?>">
+            <?php the_post_thumbnail('news-thumb'); ?>
+            <div class="news-post-title u-flex-center text-align-center"><?php the_title(); ?></div>
+          </a>
         </article>
 
     <?php
       }
+      get_template_part('partials/pagination');
     ?>
     </section>
     <?php
