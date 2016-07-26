@@ -9,6 +9,7 @@ Site = {
 
     _this.Layout.init();
     _this.Menus.init();
+    _this.News.init();
 
     $(window).resize(function() {
       _this.onResize();
@@ -221,6 +222,31 @@ Site.Gallery = {
 
   },
 };
+
+Site.News = {
+  $news: undefined,
+
+  init: function() {
+    var _this = this;
+
+    _this.$news = $('#news');
+
+    if (_this.$news.length) {
+      _this.initMasonry();
+    }
+
+  },
+
+  initMasonry: function() {
+    var _this = this;
+
+    _this.$news.masonry({
+//       columnWidth: (1/4),
+      percentPosition: true,
+      itemSelector: '.news-post'
+    });
+  },
+}
 
 Site.Map = {
   init: function() {
