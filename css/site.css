@@ -1276,6 +1276,9 @@ img {
 #map-canvas {
   height: 100vh;
 }
+.news-post {
+  width: 25%;
+}
 .project-type-archive-post {
   position: relative;
   min-height: 2.5rem;
@@ -1575,6 +1578,9 @@ article.people .wp-post-image {
   #desktop-logo-overlay svg path {
     fill: #fdfdfd;
   }
+  .news-post {
+    width: 33.333333333333336%;
+  }
   .swiper-pagination-bullet {
     border-radius: 20px;
     height: 8px;
@@ -1841,6 +1847,9 @@ article.people .wp-post-image {
   }
   #mobile-logo-overlay svg path {
     fill: #fdfdfd;
+  }
+  .news-post {
+    width: 100%;
   }
   #mobile-single-project-title {
     display: inline-block;
