@@ -9,6 +9,7 @@ Site = {
 
     _this.Layout.init();
     _this.Menus.init();
+    _this.News.init();
 
     $(window).resize(function() {
       _this.onResize();
@@ -221,6 +222,38 @@ Site.Gallery = {
 
   },
 };
+
+Site.News = {
+  $news: undefined,
+
+  init: function() {
+    var _this = this;
+
+    _this.$news = $('#news');
+
+    if (_this.$news.length) {
+      _this.fixShimHeight();
+      _this.initMasonry();
+    }
+
+  },
+
+  initMasonry: function() {
+    var _this = this;
+
+    _this.$news.masonry({
+      percentPosition: true,
+      itemSelector: '.news-masonry-item'
+    });
+  },
+
+  fixShimHeight: function() {
+    var $shim = $('#news-post-shim');
+
+    $shim.height($('#main-menu').height());
+  },
+
+}
 
 Site.Map = {
   init: function() {

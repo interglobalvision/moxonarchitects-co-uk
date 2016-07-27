@@ -70,7 +70,7 @@
       <nav class="menu-column-content">
         <ul>
           <a id="menu-studio-link" href="<?php echo home_url('profile/'); ?>"><li>
-            <span <?php if (is_page() && !is_page('Contact')) {echo 'class="font-color-active"';}?>>Studio</span>
+            <span <?php if (is_page() && !is_page('Contact') && !is_front_page()) {echo 'class="font-color-active"';}?>>Studio</span>
           </li></a>
           <ul id="mobile-studio-submenu" class="only-mobile">
             <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page('Profile', $post->ID); ?>>Profile</li></a>
@@ -159,7 +159,7 @@
 
     // if is page
       global $post;
-      if (is_page()) {
+      if (is_page() && !is_front_page()) {
 ?>
     <section id="submenu" class="menu-column menu-active font-uppercase only-desktop">
       <div class="menu-column-top">

@@ -353,6 +353,46 @@ menuBackgrounds()
 
 // ******************************************************
 
+// NEWS
+
+#news
+  min-height: 100vh
+
+.news-masonry-item
+  width: calc( 100% / 3)
+  float: left
+
+.news-post
+  position: relative
+  .news-post-title
+    font-size: $font-size-h2
+    line-height: $font-leading-tighter
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    color: $color-white-soft
+    padding: $margin-small
+    background-image: radial-gradient(ellipse at center,  rgba(190,190,190,0.8) 0%,rgba(150,150,150,0.5) 100%)
+    opacity: 0
+    &:hover
+      opacity: 1
+  .attachment-news-thumb
+    display: block
+
+#news-post-shim
+  background-color: black
+  min-height: 3rem
+  padding-bottom: 1rem
+
+#pagination
+  width: 100%
+  color: $color-white-soft
+
+
+// ******************************************************
+
 // PROJECT TYPE ARCHIVE
 
 .project-type-archive-post

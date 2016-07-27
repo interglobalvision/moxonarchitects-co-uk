@@ -1276,6 +1276,51 @@ img {
 #map-canvas {
   height: 100vh;
 }
+#news {
+  min-height: 100vh;
+}
+.news-masonry-item {
+  width: calc(33.333333333333336%);
+  float: left;
+}
+.news-post {
+  position: relative;
+}
+.news-post .news-post-title {
+  font-size: 2.058106176075472rem;
+  line-height: 1.15;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fdfdfd;
+  padding: 16px;
+  background-image: -webkit-radial-gradient(ellipse at center,rgba(190,190,190,0.8) 0%,rgba(150,150,150,0.5) 100%);
+  background-image: -webkit-radial-gradient(center ellipse,rgba(190,190,190,0.8) 0%,rgba(150,150,150,0.5) 100%);
+  background-image: radial-gradient(ellipse at center,rgba(190,190,190,0.8) 0%,rgba(150,150,150,0.5) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.news-post .news-post-title:hover {
+  -ms-filter: none;
+  -webkit-filter: none;
+          filter: none;
+  opacity: 1;
+}
+.news-post .attachment-news-thumb {
+  display: block;
+}
+#news-post-shim {
+  background-color: #000;
+  min-height: 3rem;
+  padding-bottom: 1rem;
+}
+#pagination {
+  width: 100%;
+  color: #fdfdfd;
+}
 .project-type-archive-post {
   position: relative;
   min-height: 2.5rem;
@@ -1575,6 +1620,9 @@ article.people .wp-post-image {
   #desktop-logo-overlay svg path {
     fill: #fdfdfd;
   }
+  .news-masonry-item {
+    width: calc(33.33333333333333%);
+  }
   .swiper-pagination-bullet {
     border-radius: 20px;
     height: 8px;
@@ -1841,6 +1889,9 @@ article.people .wp-post-image {
   }
   #mobile-logo-overlay svg path {
     fill: #fdfdfd;
+  }
+  .news-masonry-item {
+    width: 100%;
   }
   #mobile-single-project-title {
     display: inline-block;
