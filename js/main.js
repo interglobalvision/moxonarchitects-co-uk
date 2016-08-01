@@ -280,6 +280,7 @@ Site.News = {
 
     _this.$overlayContent.html(html);
     _this.$overlay.fadeIn(Site.fastAnimationSpeed);
+    $(document).bind('keydown.closeOverlay', _this.closeOverlay.bind(_this));
   },
 
   closeOverlay: function() {
@@ -287,7 +288,8 @@ Site.News = {
 
     _this.$overlay.fadeOut(Site.fastAnimationSpeed);
     _this.$overlayContent.html('');
-  }
+    $(document).unbind('keydown.closeOverlay');
+  },
 }
 
 Site.Map = {
