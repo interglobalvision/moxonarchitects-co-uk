@@ -19,12 +19,21 @@ get_header();
             <?php the_post_thumbnail('news-thumb'); ?>
             <div class="news-post-title u-flex-center text-align-center"><?php the_title(); ?></div>
           </a>
+
+          <div class="news-post-content">
+            <?php the_content(); ?>
+          </div>
         </article>
 
     <?php
       }
       get_template_part('partials/pagination');
     ?>
+    </section>
+
+    <section id="news-overlay">
+      <a href="#" id="news-overlay-close">x</a>
+      <div id="news-overlay-content"></div>
     </section>
     <?php
     } else {

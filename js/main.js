@@ -224,17 +224,36 @@ Site.Gallery = {
 };
 
 Site.News = {
-  $news: undefined,
-
   init: function() {
     var _this = this;
 
     _this.$news = $('#news');
+    _this.$overlay = $('#news-overlay');
+    _this.$overlayContent = $('#news-overlay-content');
 
     if (_this.$news.length) {
       _this.fixShimHeight();
       _this.initMasonry();
     }
+
+    _this.bind();
+
+  },
+
+  bind: function() {
+    var _this = this;
+
+    $('#news-overlay-close').click(function() {
+      _this.closeOverlay();
+    });
+
+    $('.news-post').click(function(e) {
+      e.preventDefault();
+
+      var content = $(this).find('.news-post-content').html();
+
+      _this.openOverlay(content);
+    });
 
   },
 
@@ -253,6 +272,19 @@ Site.News = {
     $shim.height($('#main-menu').height());
   },
 
+  openOverlay: function(html) {
+    var _this = this;
+
+    _this.$overlayContent.html(html);
+    _this.$overlay.show();
+  },
+
+  closeOverlay: function() {
+    var _this = this;
+
+    _this.$overlay.hide();
+    _this.$overlayContent.html('');
+  }
 }
 
 Site.Map = {
