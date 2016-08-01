@@ -3,6 +3,7 @@
 
 Site = {
   basicAnimationSpeed: 400,
+  fastAnimationSpeed: 200,
   mobileThreshold: 800,
   init: function() {
     var _this = this;
@@ -278,13 +279,13 @@ Site.News = {
     var _this = this;
 
     _this.$overlayContent.html(html);
-    _this.$overlay.show();
+    _this.$overlay.fadeIn(Site.fastAnimationSpeed);
   },
 
   closeOverlay: function() {
     var _this = this;
 
-    _this.$overlay.hide();
+    _this.$overlay.fadeOut(Site.fastAnimationSpeed);
     _this.$overlayContent.html('');
   }
 }
