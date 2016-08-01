@@ -21,7 +21,10 @@ get_header();
           </a>
 
           <div class="news-post-content">
-            <?php the_content(); ?>
+            <h2 class="news-post-title margin-bottom-basic text-align-center js-fix-widows"><?php the_title(); ?></h2>
+            <div class="font-copy">
+              <?php the_content(); ?>
+            </div>
           </div>
         </article>
 
@@ -33,7 +36,7 @@ get_header();
 
     <section id="news-overlay">
       <a href="#" id="news-overlay-close">x</a>
-      <div id="news-overlay-content"></div>
+      <div id="news-overlay-content" class="font-color-white"></div>
     </section>
     <?php
     } else {

@@ -243,7 +243,9 @@ Site.News = {
   bind: function() {
     var _this = this;
 
-    $('#news-overlay-close').click(function() {
+    $('#news-overlay-close').click(function(e) {
+      e.preventDefault();
+
       _this.closeOverlay();
     });
 
