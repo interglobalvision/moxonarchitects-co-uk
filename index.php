@@ -35,7 +35,7 @@ get_header();
     </section>
 
     <section id="news-overlay">
-      <a href="#" id="news-overlay-close">x</a>
+      <div id="news-overlay-close" class="u-pointer font-color-yellow font-size-h1">&times;</div>
       <div id="news-overlay-content" class="font-color-white"></div>
     </section>
     <?php
