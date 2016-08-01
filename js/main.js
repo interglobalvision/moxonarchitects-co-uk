@@ -263,9 +263,11 @@ Site.News = {
   initMasonry: function() {
     var _this = this;
 
-    _this.$news.masonry({
-      percentPosition: true,
-      itemSelector: '.news-masonry-item'
+    _this.$news.imagesLoaded( function() {
+      _this.$news.masonry({
+        percentPosition: true,
+        itemSelector: '.news-masonry-item'
+      });
     });
   },
 
@@ -290,7 +292,7 @@ Site.News = {
     _this.$overlayContent.html('');
     $(document).unbind('keydown.closeOverlay');
   },
-}
+};
 
 Site.Map = {
   init: function() {
