@@ -282,6 +282,7 @@ Site.News = {
 
     _this.$overlayContent.html(html);
     _this.$overlay.fadeIn(Site.fastAnimationSpeed);
+    $('html').addClass('stop-scroll');
     $(document).bind('keydown.closeOverlay', _this.closeOverlay.bind(_this));
   },
 
@@ -290,6 +291,7 @@ Site.News = {
 
     _this.$overlay.fadeOut(Site.fastAnimationSpeed);
     _this.$overlayContent.html('');
+    $('html').removeClass('stop-scroll');
     $(document).unbind('keydown.closeOverlay');
   },
 };

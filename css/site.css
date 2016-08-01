@@ -1046,6 +1046,9 @@ html {
   font-size: 13px;
   letter-spacing: 0.001em;
 }
+html.stop-scroll {
+  overflow: hidden;
+}
 body {
   line-height: 1.35;
   background-color: #0e0e0e;
