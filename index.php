@@ -19,12 +19,24 @@ get_header();
             <?php the_post_thumbnail('news-thumb'); ?>
             <div class="news-post-title u-flex-center text-align-center"><?php the_title(); ?></div>
           </a>
+
+          <div class="news-post-content">
+            <h2 class="news-post-title margin-bottom-basic text-align-center js-fix-widows"><?php the_title(); ?></h2>
+            <div class="font-copy">
+              <?php the_content(); ?>
+            </div>
+          </div>
         </article>
 
     <?php
       }
       get_template_part('partials/pagination');
     ?>
+    </section>
+
+    <section id="news-overlay">
+      <div id="news-overlay-close" class="u-pointer font-color-yellow font-size-h1">&times;</div>
+      <div id="news-overlay-content" class="font-color-white"></div>
     </section>
     <?php
     } else {

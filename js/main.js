@@ -3,6 +3,7 @@
 
 Site = {
   basicAnimationSpeed: 400,
+  fastAnimationSpeed: 200,
   mobileThreshold: 800,
   init: function() {
     var _this = this;
@@ -224,26 +225,49 @@ Site.Gallery = {
 };
 
 Site.News = {
-  $news: undefined,
-
   init: function() {
     var _this = this;
 
     _this.$news = $('#news');
+    _this.$overlay = $('#news-overlay');
+    _this.$overlayContent = $('#news-overlay-content');
 
     if (_this.$news.length) {
       _this.fixShimHeight();
       _this.initMasonry();
     }
 
+    _this.bind();
+
+  },
+
+  bind: function() {
+    var _this = this;
+
+    $('#news-overlay-close').click(function(e) {
+      e.preventDefault();
+
+      _this.closeOverlay();
+    });
+
+    $('.news-post').click(function(e) {
+      e.preventDefault();
+
+      var content = $(this).find('.news-post-content').html();
+
+      _this.openOverlay(content);
+    });
+
   },
 
   initMasonry: function() {
     var _this = this;
 
-    _this.$news.masonry({
-      percentPosition: true,
-      itemSelector: '.news-masonry-item'
+    _this.$news.imagesLoaded( function() {
+      _this.$news.masonry({
+        percentPosition: true,
+        itemSelector: '.news-masonry-item'
+      });
     });
   },
 
@@ -253,7 +277,24 @@ Site.News = {
     $shim.height($('#main-menu').height());
   },
 
-}
+  openOverlay: function(html) {
+    var _this = this;
+
+    _this.$overlayContent.html(html);
+    _this.$overlay.fadeIn(Site.fastAnimationSpeed);
+    $('html').addClass('stop-scroll');
+    $(document).bind('keydown.closeOverlay', _this.closeOverlay.bind(_this));
+  },
+
+  closeOverlay: function() {
+    var _this = this;
+
+    _this.$overlay.fadeOut(Site.fastAnimationSpeed);
+    _this.$overlayContent.html('');
+    $('html').removeClass('stop-scroll');
+    $(document).unbind('keydown.closeOverlay');
+  },
+};
 
 Site.Map = {
   init: function() {

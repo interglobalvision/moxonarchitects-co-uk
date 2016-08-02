@@ -83,6 +83,7 @@ $color-white-soft = rgb(253, 253, 253)
 
 $color-yellow = #ff0
 $color-gray-transparent = rgba(0, 0, 0, .65)
+$color-dark-gray-transparent = rgba(0, 0, 0, .8)
 
 // ******************************************************
 
@@ -92,6 +93,8 @@ html
   font-family: 'Executive-Thin', sans-serif
   font-size: $font-size-basic
   letter-spacing: $font-tracking-basic
+  &.stop-scroll
+    overflow: hidden
 
 body
   line-height: $font-leading-basic
@@ -99,7 +102,7 @@ body
 
   // HTML ELEMENT STYLING
 
-h1
+h1, .font-size-h1
   font-size: $font-size-h1
   line-height: $font-leading-tighter
 
@@ -137,7 +140,7 @@ p
 .font-color-white
   color: $color-white-soft
 
-.font-color-active
+.font-color-active, .font-color-yellow
   color: $color-yellow
 
 .font-copy
@@ -381,6 +384,9 @@ menuBackgrounds()
   .attachment-news-thumb
     display: block
 
+.news-post-content
+  display: none
+
 #news-post-shim
   background-color: black
   min-height: 3rem
@@ -390,6 +396,54 @@ menuBackgrounds()
   width: 100%
   color: $color-white-soft
 
+// OVERLAY
+
+#news-overlay
+  position: fixed
+  background-color: $color-dark-gray-transparent
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  overflow-y: scroll
+  padding: $margin-basic
+  z-index: 110
+  display: none
+
+#news-overlay-close
+  position: fixed
+  top: 0
+  right: 0
+  padding: $margin-basic
+  z-index: 120
+  line-height: 0
+
+#news-overlay-content
+  max-width: 650px
+  margin: 0 auto
+  .font-copy
+    *:first-child
+      margin-top: 0
+  h2
+    font-size: $font-size-h1
+  p
+    margin-left: $margin-basic
+    margin-bottom: 2rem
+  img
+    margin-top: 3rem
+    margin-bottom: 3rem
+  .wp-caption
+    width: 100% !important
+    margin-top: 3rem
+    margin-bottom: 3rem
+    .wp-caption-text
+      font-size: 1rem
+      margin-left: 0
+      margin-top: $margin-micro
+    img
+      max-width: 100%
+      height: auto
+      margin-bottom: 0
 
 // ******************************************************
 
