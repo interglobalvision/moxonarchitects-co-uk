@@ -1098,6 +1098,9 @@ p {
   font-size: 1.3rem;
   line-height: 1.45;
 }
+blockquote {
+  margin-left: 32px;
+}
 .text-overflow-ellipsis {
   white-space: nowrap;
   text-overflow: ellipsis;
