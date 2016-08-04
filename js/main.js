@@ -283,7 +283,7 @@ Site.News = {
     _this.$overlayContent.html(html);
     _this.$overlay.fadeIn(Site.fastAnimationSpeed);
     $('html').addClass('stop-scroll');
-    $(document).bind('keydown.closeOverlay', _this.closeOverlay.bind(_this));
+    $(document).bind('keydown.closeOverlay', _this.overlayKeydown.bind(_this));
   },
 
   closeOverlay: function() {
@@ -293,6 +293,14 @@ Site.News = {
     _this.$overlayContent.html('');
     $('html').removeClass('stop-scroll');
     $(document).unbind('keydown.closeOverlay');
+  },
+
+  overlayKeydown: function(e) {
+    var _this = this;
+
+    if (e.keyCode === 27) {
+      _this.closeOverlay();
+    }
   },
 };
 
