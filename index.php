@@ -21,7 +21,8 @@ get_header();
           </a>
 
           <div class="news-post-content">
-            <h2 class="news-post-title margin-bottom-basic text-align-center js-fix-widows"><?php the_title(); ?></h2>
+            <h2 class="news-post-title margin-bottom-tiny text-align-center js-fix-widows"><?php the_title(); ?></h2>
+            <div class="text-align-center font-copy font-uppercase margin-bottom-basic"><?php the_time('jS F Y'); ?></div>
             <div class="font-copy">
               <?php the_content(); ?>
             </div>
