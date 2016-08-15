@@ -1286,6 +1286,7 @@ img {
 }
 #news {
   min-height: 100vh;
+  max-width: 1800px;
 }
 .news-masonry-item {
   width: calc(33.333333333333336%);
@@ -1685,7 +1686,7 @@ article.people .wp-post-image {
     fill: #fdfdfd;
   }
   .news-masonry-item {
-    width: calc(33.33333333333333%);
+    width: 50%;
   }
   .swiper-pagination-bullet {
     border-radius: 20px;
@@ -1954,8 +1955,14 @@ article.people .wp-post-image {
   #mobile-logo-overlay svg path {
     fill: #fdfdfd;
   }
+  #news {
+    width: 100%;
+  }
   .news-masonry-item {
     width: 100%;
+  }
+  #news-post-shim {
+    display: none;
   }
   #mobile-single-project-title {
     display: inline-block;

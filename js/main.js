@@ -49,6 +49,8 @@ Site.Layout = {
   init: function() {
     var _this = this;
 
+    _this.$news = $('#news');
+
     _this.$mainContentColumn = $('#main-content .menu-column-content');
     _this.$mainContentTopColumn = $('#main-content .menu-column-top');
 
@@ -56,6 +58,10 @@ Site.Layout = {
     _this.windowWidth = $(window).width();
 
     _this.layout();
+
+    if (_this.$news.length) {
+      _this.newsLayout();
+    }
   },
 
   resize: function() {
@@ -65,6 +71,10 @@ Site.Layout = {
     _this.windowWidth = $(window).width();
 
     _this.layout();
+
+    if (_this.$news.length) {
+      _this.newsLayout();
+    }
   },
 
   layout: function() {
@@ -77,6 +87,26 @@ Site.Layout = {
     });
 
     _this.imageCovers();
+  },
+
+  newsLayout: function() {
+    var _this = this;
+
+    _this.$news.css('width', 'initial');
+
+    if (_this.windowWidth > 880) {
+      _this.$news.css('width', '80%');
+
+      var newsWidth = _this.$news.width();
+
+      newsWidth = Math.floor(newsWidth);
+
+      while (newsWidth % 3 !== 0) {
+        newsWidth--;
+      }
+
+      _this.$news.width(newsWidth);
+    }
   },
 
   imageCovers: function() {
