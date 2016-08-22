@@ -1466,6 +1466,9 @@ img {
       -ms-flex-pack: center;
           justify-content: center;
 }
+#project-gallery {
+  width: 100%;
+}
 .gallery-image {
   width: 100%;
   display: block;
