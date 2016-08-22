@@ -95,7 +95,7 @@ Site.Layout = {
     _this.$news.css('width', 'initial');
 
     if (_this.windowWidth > 880) {
-      _this.$news.css('width', '80%');
+      _this.$news.css('width', '100%');
 
       var newsWidth = _this.$news.width();
 

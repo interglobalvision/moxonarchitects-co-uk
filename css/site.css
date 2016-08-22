@@ -1294,6 +1294,8 @@ img {
 }
 .news-post {
   position: relative;
+  padding-bottom: 1px;
+  padding-right: 1px;
 }
 .news-post .news-post-title {
   font-size: 2.058106176075472rem;
@@ -1325,7 +1327,8 @@ img {
   display: none;
 }
 #news-post-shim {
-  background-color: #000;
+  padding-bottom: 1px;
+  padding-right: 1px;
   min-height: 3rem;
   padding-bottom: 1rem;
 }
