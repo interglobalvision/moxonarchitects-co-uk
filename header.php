@@ -52,6 +52,9 @@
 </head>
 <body <?php body_class(); ?>>
 <!--[if lt IE 9]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+<?php
+  global $post;
+?>
 
 <section id="main-container">
 
@@ -70,16 +73,16 @@
       <nav class="menu-column-content">
         <ul>
           <a id="menu-studio-link" href="<?php echo home_url('profile/'); ?>"><li>
-            <span <?php if (is_page() && !is_page('Contact') && !is_front_page()) {echo 'class="font-color-active"';}?>>Studio</span>
+            <span <?php if (is_page() && !is_page('Contact') && !is_front_page() || is_post_type_archive('people') || is_single_type('people', $post)) {echo 'class="font-color-active"';}?>>Studio</span>
           </li></a>
           <ul id="mobile-studio-submenu" class="only-mobile">
             <a href="<?php echo home_url('profile/'); ?>"><li <?php is_active_page('Profile', $post->ID); ?>>Profile</li></a>
             <a href="<?php echo home_url('clients/'); ?>"><li <?php is_active_page('Clients', $post->ID); ?>>Clients</li></a>
             <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page('Awards', $post->ID); ?>>Awards</li></a>
-            <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
+            <a href="<?php echo home_url('people/'); ?>"><li <?php if (is_post_type_archive('people') || is_single_type('people', $post)) {echo 'class="font-color-active"';} ?>>People</li></a>
             <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page('Recruit', $post->ID); ?>>Recruit</li></a>
           </ul>
-          <a href="<?php echo home_url('news/'); ?>"><li>News</li></a>
+          <a href="<?php echo home_url('news/'); ?>"><li <?php if (is_page('News') || is_home()) {echo 'class="font-color-active"';}?>>News</li></a>
           <a href="<?php echo home_url('contact/'); ?>"><li <?php if (is_page('Contact')) {echo 'class="font-color-active"';}?>>Contact</li></a>
           <li>&nbsp;</li>
 <?php
@@ -112,7 +115,7 @@
     </div>
 
 <?php
-    // if ! is page contact or ! is home
+    // if ! is page contact or ! is home=news
     if (!is_home() && !is_page('contact') && !is_404()) {
 
       // if single project
@@ -158,7 +161,6 @@
       }
 
     // if is page
-      global $post;
       if (is_page() && !is_front_page()) {
 ?>
     <section id="submenu" class="menu-column menu-active font-uppercase only-desktop">
