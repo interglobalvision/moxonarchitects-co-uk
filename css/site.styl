@@ -183,15 +183,21 @@ html
 img
   max-width: 100%
   height: auto
+  max-height: 100%
+  width: auto
 
-.image-cover
+.image-cover-holder
   overflow: hidden
   position: relative
   height: 100%
   width: 100%
-  img
-    position: absolute
-    max-width: initial
+  max-height: auto
+  max-width: auto
+
+.image-cover
+  max-height: none
+  max-width: none
+  position: absolute
 
 .only-desktop
   display: initial
@@ -535,8 +541,27 @@ menuBackgrounds()
   height: 100vh
 
 .gallery-image
-  width: 100%
   display: block
+
+.gallery-image-large,
+.gallery-image-huge
+  display: none
+
+@media screen and (min-width: 1200px)
+
+  .gallery-image-large
+    display: block
+
+  .gallery-image-normal
+    display: none
+
+@media screen and (min-width: 1800px)
+
+  .gallery-image-huge
+    display: block
+
+  .gallery-image-large
+    display: none
 
 // ******************************************************
 
