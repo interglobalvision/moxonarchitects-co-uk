@@ -113,7 +113,7 @@ Site.Layout = {
     var _this = this;
 
     $('.image-cover').each(function() {
-      var $image = $(this).children('img').first();
+      var $image = $(this)
       var imageWidth = $image.width();
       var imageHeight = $image.height();
 
@@ -122,7 +122,6 @@ Site.Layout = {
       } else {
         _this.fitImageToHeight($image, imageHeight, imageWidth);
       }
-
     });
 
   },
