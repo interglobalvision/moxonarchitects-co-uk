@@ -17,6 +17,7 @@ function is_active_page($page_name, $post_id) {
 function render_gallery($gallery) {
 ?>
 <div id="swiper-gallery" class="swiper-container">
+  <div class="swiper-nav swiper-next"></div><div class="swiper-nav swiper-prev"></div>
   <div class="swiper-wrapper">
 <?php
   foreach ($gallery[0] as $slide) {

@@ -232,6 +232,8 @@ Site.Gallery = {
 
       _this.Swiper = new Swiper('#swiper-gallery', {
         loop: true,
+        nextButton: '.swiper-next',
+        prevButton: '.swiper-prev',
         pagination: '#gallery-pagination',
         paginationType: 'bullets',
         paginationHide: false,

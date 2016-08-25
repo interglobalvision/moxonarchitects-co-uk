@@ -1426,6 +1426,25 @@ img {
 .project-type-archive-post-title.menu-active:after {
   background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='50' height='51.556' viewBox='-17.5 -18.044 50 51.556'><path fill='#FF0' d='M-17.5 4.729h50v5.824h-50z'/></svg>");
 }
+.swiper-nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 100;
+}
+.swiper-next {
+  right: 0;
+}
+.swiper-next:hover {
+  cursor: e-resize;
+}
+.swiper-prev {
+  left: 0;
+}
+.swiper-prev:hover {
+  cursor: w-resize;
+}
 .swiper-pagination-bullet {
   display: inline-block;
   border-radius: 20px;
