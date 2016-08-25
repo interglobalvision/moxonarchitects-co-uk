@@ -79,6 +79,7 @@ $font-tracking-basic = 0.001em
 $font-tracking-wider = 0.05em
 
 $color-black-soft = rgb(14, 14, 14)
+$color-black = black
 $color-white-soft = rgb(253, 253, 253)
 
 $color-yellow = #ff0
@@ -98,7 +99,6 @@ html
 
 body
   line-height: $font-leading-basic
-  background-color: $color-black-soft
 
   // HTML ELEMENT STYLING
 
@@ -176,9 +176,9 @@ a:visited
 
 // BASIC
 
-html
-  background-color: $color-white-soft
-  color: $color-black-soft
+html, body
+  background-color: $color-black
+  color: $color-black
 
 img
   max-width: 100%
