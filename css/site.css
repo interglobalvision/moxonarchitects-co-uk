@@ -1137,8 +1137,6 @@ img {
   position: relative;
   height: 100%;
   width: 100%;
-  max-height: auto;
-  max-width: auto;
 }
 .image-cover {
   max-height: none;
