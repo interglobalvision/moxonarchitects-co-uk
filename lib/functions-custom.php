@@ -12,6 +12,16 @@ function is_active_page($page_name, $post_id) {
 
 }
 
+// Check if term is in post terms if set and set menu active
+
+function term_active($type, $post_terms) {
+  if ($post_terms) {
+    if (in_array($type, $post_terms)) {
+      echo 'class="font-color-active"';
+    }
+  }
+}
+
 // Render gallery markup
 
 function render_gallery($gallery) {

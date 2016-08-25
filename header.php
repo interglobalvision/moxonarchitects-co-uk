@@ -90,6 +90,16 @@
     'hide_empty' => true,
   ));
 
+  if (is_single()) {
+    // if single post
+    $post_terms = wp_get_post_terms($post->ID, 'project_type');
+  } else if (is_tax('project_type')) {
+    $tax = $wp_query->queried_object;
+    $post_terms = array($tax);
+  } else {
+    $post_terms = false;
+  }
+
   if ($types) {
     foreach ($types as $type) {
       $lastest_project_in_type = get_posts(array(
@@ -104,8 +114,8 @@
         'post_type' => 'project'
       ));
 ?>
-          <a class="only-mobile" href="<?php echo get_term_link($type); ?>"><li><?php echo $type->name; ?></li></a>
-          <a class="only-desktop" href="<?php echo get_the_permalink($lastest_project_in_type[0]->ID); ?>"><li><?php echo $type->name; ?></li></a>
+          <a class="only-mobile" href="<?php echo get_term_link($type); ?>"><li <?php term_active($type, $post_terms); ?>><?php echo $type->name; ?></li></a>
+          <a class="only-desktop" href="<?php echo get_the_permalink($lastest_project_in_type[0]->ID); ?>"><li <?php term_active($type, $post_terms); ?>><?php echo $type->name; ?></li></a>
 <?php
     }
   }
