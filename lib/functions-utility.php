@@ -24,13 +24,13 @@ function get_id_by_slug($page_slug) {
 }
 // is_single for custom post type
 function is_single_type($type, $post) {
-  if ($post) {
-    if (get_post_type($post->ID) === $type) {
-      return true;
-    }
+  if (!$post || !is_single()) {
+    return false;
+  } else if (get_post_type($post->ID) === $type) {
+    return true;
+  } else {
+    return false;
   }
-
-  return false;
 }
 
 // print var in <pre> tags
