@@ -62,6 +62,10 @@ Site.Layout = {
     if (_this.$news.length) {
       _this.newsLayout();
     }
+
+    $('#images').imagesLoaded(function() {
+      _this.imageCovers();
+    });
   },
 
   resize: function() {
@@ -113,7 +117,7 @@ Site.Layout = {
     var _this = this;
 
     $('.image-cover').each(function() {
-      var $image = $(this)
+      var $image = $(this);
       var imageWidth = $image.width();
       var imageHeight = $image.height();
 
