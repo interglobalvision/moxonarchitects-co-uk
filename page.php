@@ -28,8 +28,6 @@ get_header();
       <?php
         $thumbnail_id = get_post_thumbnail_id();
         if (!empty($thumbnail_id)) {
-          echo wp_get_attachment_image($thumbnail_id, 'gallery', null, array('class' => 'image-cover gallery-image-normal'));
-          echo wp_get_attachment_image($thumbnail_id, 'gallery-large', null, array('class' => 'image-cover gallery-image-large'));
           echo wp_get_attachment_image($thumbnail_id, 'gallery-huge', null, array('class' => 'image-cover gallery-image-huge'));
         }
       ?>

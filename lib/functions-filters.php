@@ -39,12 +39,6 @@ function add_lazysize_on_srcset($attr) {
   // Remove default src
   unset($attr['src']);
 
-  // Remove default sizes
-  unset($attr['sizes']);
-
-  // Add lazysize auto size
-  $attr['data-sizes'] = 'auto';
-
   return $attr;
 }
 add_filter('wp_get_attachment_image_attributes', 'add_lazysize_on_srcset');

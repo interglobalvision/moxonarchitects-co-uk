@@ -50,8 +50,6 @@ $background = IGV_get_option('_igv_people_background_id');
     <div class="image-cover-holder">
       <?php
         if (!empty($background)) {
-          echo wp_get_attachment_image($background, 'gallery', null, array('class' => 'image-cover gallery-image-normal'));
-          echo wp_get_attachment_image($background, 'gallery-large', null, array('class' => 'image-cover gallery-image-large'));
           echo wp_get_attachment_image($background, 'gallery-huge', null, array('class' => 'image-cover gallery-image-huge'));
         }
       ?>

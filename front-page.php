@@ -16,8 +16,6 @@ $front_page_gallery = get_post_meta($front_page_projects[$random_index], '_igv_g
     <div class="image-cover-holder">
       <?php
         if (!empty($front_page_gallery)) {
-          echo wp_get_attachment_image($front_page_gallery[0][0], 'gallery', null, array('class' => 'image-cover gallery-image-normal'));
-          echo wp_get_attachment_image($front_page_gallery[0][0], 'gallery-large', null, array('class' => 'image-cover gallery-image-large'));
           echo wp_get_attachment_image($front_page_gallery[0][0], 'gallery-huge', null, array('class' => 'image-cover gallery-image-huge'));
         }
       ?>

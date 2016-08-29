@@ -57,15 +57,16 @@ Site.Layout = {
     _this.windowHeight = $(window).height();
     _this.windowWidth = $(window).width();
 
-    _this.layout();
-
     if (_this.$news.length) {
       _this.newsLayout();
     }
 
-    $('#images').imagesLoaded(function() {
+    $('img').load(function() {
       _this.imageCovers();
     });
+
+    _this.layout();
+
   },
 
   resize: function() {
@@ -79,6 +80,8 @@ Site.Layout = {
     if (_this.$news.length) {
       _this.newsLayout();
     }
+
+    _this.imageCovers();
   },
 
   layout: function() {
@@ -90,7 +93,6 @@ Site.Layout = {
       'max-height': (_this.windowHeight - topHeight) + 'px',
     });
 
-    _this.imageCovers();
   },
 
   newsLayout: function() {
