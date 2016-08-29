@@ -22,3 +22,23 @@ function filter_ptags_on_iframes($content){
    return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
 }
 add_filter('the_content', 'filter_ptags_on_iframes');
+
+/* 
+ * Custom img attributes to be compatible with lazysize
+ */
+function add_lazysize_on_srcset($attr) {
+  // Add lazysize class
+  $attr['class'] .= ' lazyload';
+
+  // Add lazysize data-srcset
+  $attr['data-srcset'] = $attr['srcset'];
+
+  // Remove default srcset
+  unset($attr['srcset']);
+
+  // Remove default src
+  unset($attr['src']);
+
+  return $attr;
+}
+add_filter('wp_get_attachment_image_attributes', 'add_lazysize_on_srcset');
