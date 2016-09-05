@@ -304,8 +304,13 @@ Site.News = {
       _this.$news.masonry({
         percentPosition: true,
         itemSelector: '.news-masonry-item'
-      }).css('opacity', 1);
+      });
     });
+
+    _this.$news[0].addEventListener('load', function() {
+      _this.$news.masonry();
+    }, true);
+
   },
 
   fixShimHeight: function() {
