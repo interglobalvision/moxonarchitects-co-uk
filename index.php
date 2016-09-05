@@ -16,7 +16,7 @@ get_header();
 
         <article <?php post_class('news-post news-masonry-item'); ?> id="post-<?php the_ID(); ?>">
           <a href="<?php the_permalink() ?>">
-            <?php the_post_thumbnail('news-thumb'); ?>
+            <?php the_post_thumbnail('news-thumb', array('data-lazysizes' => 'false')); ?>
             <div class="news-post-title u-flex-center text-align-center"><?php the_title(); ?></div>
           </a>
 
