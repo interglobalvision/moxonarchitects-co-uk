@@ -1289,8 +1289,13 @@ img {
   height: 100vh;
 }
 #news {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
   min-height: 100vh;
   max-width: 1800px;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 .news-masonry-item {
   width: calc(33.333333333333336%);

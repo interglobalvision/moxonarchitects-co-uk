@@ -86,6 +86,8 @@ $color-yellow = #ff0
 $color-gray-transparent = rgba(0, 0, 0, .65)
 $color-dark-gray-transparent = rgba(0, 0, 0, .8)
 
+$animation-speed-fast = .3s
+
 // ******************************************************
 
 // TYPOGRAPHY
@@ -366,8 +368,10 @@ menuBackgrounds()
 // NEWS
 
 #news
+  opacity: 0
   min-height: 100vh
   max-width: 1800px
+  transition: opacity $animation-speed-fast
 
 .news-masonry-item
   width: calc( 100% / 3)

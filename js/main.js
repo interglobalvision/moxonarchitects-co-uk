@@ -304,7 +304,7 @@ Site.News = {
       _this.$news.masonry({
         percentPosition: true,
         itemSelector: '.news-masonry-item'
-      });
+      }).css('opacity', 1);
     });
   },
 
