@@ -265,7 +265,7 @@ Site.News = {
   init: function() {
     var _this = this;
 
-    _this.$news = $('#news');
+    _this.$news = $('#news-posts');
     _this.$overlay = $('#news-overlay');
     _this.$overlayContent = $('#news-overlay-content');
 
