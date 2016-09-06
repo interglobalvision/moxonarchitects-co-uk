@@ -1292,8 +1292,13 @@ img {
   height: 100vh;
 }
 #news {
-  min-height: 100vh;
   max-width: 1800px;
+}
+#news-posts {
+  min-height: 100vh;
+}
+#pagination {
+  padding: 32px;
 }
 .news-masonry-item {
   width: calc(33.333333333333336%);
