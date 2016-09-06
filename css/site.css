@@ -1270,6 +1270,9 @@ img {
 #main-content {
   width: 500px;
 }
+#main-content .menu-column-content {
+  overflow-y: auto;
+}
 #desktop-logo-overlay {
   position: fixed;
   bottom: 0;
