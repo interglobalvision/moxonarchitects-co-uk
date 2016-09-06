@@ -28,6 +28,11 @@ function add_lazysize_on_srcset($attr) {
 
   if (!is_admin()) {
 
+    if (isset($attr['data-no-lazysizes'])) {
+      unset($attr['data-no-lazysizes']);
+      return $attr;
+    }
+
     // Add lazysize class
     $attr['class'] .= ' lazyload';
 

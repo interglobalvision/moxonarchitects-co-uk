@@ -306,6 +306,11 @@ Site.News = {
         itemSelector: '.news-masonry-item'
       });
     });
+
+    _this.$news[0].addEventListener('load', function() {
+      _this.$news.masonry();
+    }, true);
+
   },
 
   fixShimHeight: function() {
