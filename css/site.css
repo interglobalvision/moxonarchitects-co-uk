@@ -1532,7 +1532,7 @@ article.people .wp-post-image {
 }
 .post-type-archive-people .people-copy {
   display: none;
-  padding-bottom: 8px;
+  padding-bottom: 32px;
 }
 @media screen and (max-width: 880px) {
   .container {
@@ -1768,7 +1768,7 @@ article.people .wp-post-image {
     padding-bottom: 0px;
   }
   .post-type-archive-people .people-copy {
-    padding-bottom: 8px;
+    padding-bottom: 32px;
   }
 }
 @media screen and (max-width: 800px) {
