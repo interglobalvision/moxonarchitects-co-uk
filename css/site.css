@@ -1506,7 +1506,6 @@ img {
 }
 article.people .wp-post-image {
   display: block;
-  float: right;
 }
 .post-type-archive-people .people-header {
   position: relative;
