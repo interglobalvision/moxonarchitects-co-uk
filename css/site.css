@@ -1443,15 +1443,11 @@ img {
 }
 .swiper-next {
   right: 0;
-}
-.swiper-next:hover {
-  cursor: url("../img/dist/arrow-right.png") 24 18, e-resize;
+  cursor: url("../img/dist/arrow-right.png") 20 16, e-resize;
 }
 .swiper-prev {
   left: 0;
-}
-.swiper-prev:hover {
-  cursor: url("../img/dist/arrow-left.png") 24 18, w-resize;
+  cursor: url("../img/dist/arrow-left.png") 20 16, w-resize;
 }
 .swiper-pagination-bullet {
   display: inline-block;
