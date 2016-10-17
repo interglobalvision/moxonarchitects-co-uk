@@ -1250,19 +1250,19 @@ img {
 .menu-column-top {
   cursor: pointer;
   position: relative;
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
   padding: 6px 8px;
   margin-bottom: 1px;
   margin-right: 1px;
 }
 .menu-column-content li {
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
   padding: 6px 8px;
   margin-bottom: 1px;
   margin-right: 1px;
 }
 .menu-background {
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
   padding: 6px 8px;
   margin-bottom: 1px;
   margin-right: 1px;
@@ -1350,7 +1350,7 @@ img {
 }
 #news-overlay {
   position: fixed;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.825);
   top: 0;
   left: 0;
   width: 100%;
@@ -1412,7 +1412,7 @@ img {
   width: 100%;
 }
 .project-type-archive-post-title {
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
   padding: 6px 8px;
   margin-bottom: 1px;
   margin-right: 1px;
@@ -1685,19 +1685,19 @@ article.people .wp-post-image {
     top: 9px;
   }
   .menu-column-top {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 8px;
     margin-bottom: 1px;
     margin-right: 1px;
   }
   .menu-column-content li {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 8px;
     margin-bottom: 1px;
     margin-right: 1px;
   }
   .menu-background {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 8px;
     margin-bottom: 1px;
     margin-right: 1px;
@@ -1931,19 +1931,19 @@ article.people .wp-post-image {
     top: 9px;
   }
   .menu-column-top {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
     margin-right: 1px;
   }
   .menu-column-content li {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
     margin-right: 1px;
   }
   .menu-background {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
     margin-right: 1px;
