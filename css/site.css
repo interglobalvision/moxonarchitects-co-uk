@@ -1445,13 +1445,13 @@ img {
   right: 0;
 }
 .swiper-next:hover {
-  cursor: e-resize;
+  cursor: url("../img/dist/arrow-right.png") 24 18, e-resize;
 }
 .swiper-prev {
   left: 0;
 }
 .swiper-prev:hover {
-  cursor: w-resize;
+  cursor: url("../img/dist/arrow-left.png") 24 18, w-resize;
 }
 .swiper-pagination-bullet {
   display: inline-block;
