@@ -24,7 +24,7 @@ get_header();
               ?></h3>
               <?php
                 if (!empty($subline)) {
-                  echo '<h4>' . $subline[0] . '</h4>';
+                  echo '<h4 class="margin-bottom-micro">' . $subline[0] . '</h4>';
                 }
               ?>
             </header>

@@ -1250,19 +1250,19 @@ img {
 .menu-column-top {
   cursor: pointer;
   position: relative;
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
   padding: 6px 8px;
   margin-bottom: 1px;
   margin-right: 1px;
 }
 .menu-column-content li {
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
   padding: 6px 8px;
   margin-bottom: 1px;
   margin-right: 1px;
 }
 .menu-background {
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
   padding: 6px 8px;
   margin-bottom: 1px;
   margin-right: 1px;
@@ -1350,7 +1350,7 @@ img {
 }
 #news-overlay {
   position: fixed;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.825);
   top: 0;
   left: 0;
   width: 100%;
@@ -1412,7 +1412,7 @@ img {
   width: 100%;
 }
 .project-type-archive-post-title {
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
   padding: 6px 8px;
   margin-bottom: 1px;
   margin-right: 1px;
@@ -1443,15 +1443,11 @@ img {
 }
 .swiper-next {
   right: 0;
-}
-.swiper-next:hover {
-  cursor: url("../img/dist/arrow-right.png") 24 18, e-resize;
+  cursor: url("../img/dist/arrow-right.png") 20 16, e-resize;
 }
 .swiper-prev {
   left: 0;
-}
-.swiper-prev:hover {
-  cursor: url("../img/dist/arrow-left.png") 24 18, w-resize;
+  cursor: url("../img/dist/arrow-left.png") 20 16, w-resize;
 }
 .swiper-pagination-bullet {
   display: inline-block;
@@ -1506,7 +1502,6 @@ img {
 }
 article.people .wp-post-image {
   display: block;
-  float: right;
 }
 .post-type-archive-people .people-header {
   position: relative;
@@ -1685,19 +1680,19 @@ article.people .wp-post-image {
     top: 9px;
   }
   .menu-column-top {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 8px;
     margin-bottom: 1px;
     margin-right: 1px;
   }
   .menu-column-content li {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 8px;
     margin-bottom: 1px;
     margin-right: 1px;
   }
   .menu-background {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 8px;
     margin-bottom: 1px;
     margin-right: 1px;
@@ -1931,19 +1926,19 @@ article.people .wp-post-image {
     top: 9px;
   }
   .menu-column-top {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
     margin-right: 1px;
   }
   .menu-column-content li {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
     margin-right: 1px;
   }
   .menu-background {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
     margin-right: 1px;

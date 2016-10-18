@@ -25,7 +25,7 @@ $background = IGV_get_option('_igv_people_background_id');
               ?></h3>
               <?php
                 if (!empty($subline)) {
-                  echo '<h4>' . $subline[0] . '</h4>';
+                  echo '<h4 class="margin-bottom-micro">' . $subline[0] . '</h4>';
                 }
               ?>
             </header>
