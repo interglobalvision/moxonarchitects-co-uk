@@ -5,6 +5,7 @@ Site = {
   basicAnimationSpeed: 400,
   fastAnimationSpeed: 200,
   mobileThreshold: 800,
+  autoCloseThreshold: 4500,
   init: function() {
     var _this = this;
 
@@ -169,6 +170,10 @@ Site.Menus = {
       _this.bindPeople();
     }
 
+    if ($('body').hasClass('single-project') || $('body').hasClass('blog')) {
+      _this.initAutoclose();
+    }
+
   },
 
   bind: function() {
@@ -220,6 +225,37 @@ Site.Menus = {
       }
     });
 
+  },
+
+  initAutoclose: function() {
+    var _this = this;
+
+    _this.setAutocloseTimeout();
+
+    $('body').on('mouseover', '#main-menu, #submenu', function() {
+      window.clearTimeout(_this.autoClose);
+    });
+
+    $('body').on('mouseout', '#main-menu, #submenu', function() {
+      _this.setAutocloseTimeout();
+    });
+  },
+
+  setAutocloseTimeout: function() {
+    var _this = this;
+
+    _this.autoClose = setTimeout(function() {
+      _this.closeMenus();
+      if ($('#news-post-shim').length) {
+        Site.News.removeShim();
+      }
+    }, Site.autoCloseThreshold);
+  },
+
+  closeMenus: function() {
+    var $targets = $('#main-menu, #submenu');
+    $targets.removeClass('menu-active');
+    $targets.children('.menu-column-content').slideUp(Site.basicAnimationSpeed);
   },
 };
 
@@ -317,6 +353,12 @@ Site.News = {
     var $shim = $('#news-post-shim');
 
     $shim.height($('#main-menu').height());
+  },
+
+  removeShim: function() {
+    var _this = this;
+
+    _this.$news.masonry('remove', $('#news-post-shim')).masonry('layout');
   },
 
   openOverlay: function(html) {
