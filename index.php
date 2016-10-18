@@ -13,11 +13,14 @@ get_header();
     <?php
       while( have_posts() ) {
         the_post();
+        $draw = get_post_meta($post->ID, '_igv_draw_post', true);
     ?>
-        <article <?php post_class('news-post news-masonry-item'); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class('news-post news-masonry-item'); ?> id="post-<?php the_ID(); ?>" data-drawer="<?php if ($draw) {echo 'true';} ?>">
           <a href="<?php the_permalink() ?>">
+            <header class="news-header">
             <?php the_post_thumbnail('news-thumb'); ?>
             <div class="news-post-title u-flex-center text-align-center"><?php the_title(); ?></div>
+            </header>
           </a>
 
           <div class="news-post-content">

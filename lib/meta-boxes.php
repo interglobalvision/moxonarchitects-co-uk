@@ -39,6 +39,19 @@ function igv_cmb_metaboxes() {
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
    */
 
+  $news_meta = new_cmb2_box( array(
+    'id'            => $prefix . 'news_metabox',
+    'title'         => __( 'News Metabox', 'cmb2' ),
+    'object_types'  => array( 'post', ), // Post type
+  ) );
+
+  $news_meta->add_field( array(
+    'name'       => __( 'Show content in draw not popup', 'cmb2' ),
+    'desc'       => __( '...', 'cmb2' ),
+    'id'         => $prefix . 'draw_post',
+    'type'       => 'checkbox',
+  ) );
+
   $contact_page = get_page_by_title('Contact');
   if ($contact_page) {
     $contact_page_id = $contact_page->ID;
