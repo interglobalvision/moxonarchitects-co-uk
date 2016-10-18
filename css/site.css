@@ -1339,7 +1339,8 @@ img {
 }
 .news-post-content {
   display: none;
-  background-color: #fdfdfd;
+  background-color: #000;
+  color: #fdfdfd;
   padding: 16px;
 }
 #news-post-shim {
