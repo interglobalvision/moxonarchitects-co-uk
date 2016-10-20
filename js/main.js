@@ -326,9 +326,15 @@ Site.News = {
     $('.news-post').click(function(e) {
       e.preventDefault();
 
-      var content = $(this).find('.news-post-content').html();
+      if ($(this).data('drawer')) {
+        $(this).find('.news-post-content').toggle();
+        _this.reloadMasonry();
+      } else {
+        var content = $(this).find('.news-post-content').html();
 
-      _this.openOverlay(content);
+        _this.openOverlay(content);
+      }
+
     });
 
   },
@@ -347,6 +353,12 @@ Site.News = {
       _this.$news.masonry();
     }, true);
 
+  },
+
+  reloadMasonry: function() {
+    var _this = this;
+
+    _this.$news.masonry();
   },
 
   fixShimHeight: function() {

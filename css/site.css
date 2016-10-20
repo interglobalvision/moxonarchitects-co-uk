@@ -1305,11 +1305,13 @@ img {
   float: left;
 }
 .news-post {
-  position: relative;
   padding-bottom: 1px;
   padding-right: 1px;
 }
-.news-post .news-post-title {
+.news-header {
+  position: relative;
+}
+.news-header .news-post-title {
   font-size: 2.058106176075472rem;
   line-height: 1.15;
   position: absolute;
@@ -1326,17 +1328,20 @@ img {
   filter: alpha(opacity=0);
   opacity: 0;
 }
-.news-post .news-post-title:hover {
+.news-header .news-post-title:hover {
   -ms-filter: none;
   -webkit-filter: none;
           filter: none;
   opacity: 1;
 }
-.news-post .attachment-news-thumb {
+.news-header .attachment-news-thumb {
   display: block;
 }
 .news-post-content {
   display: none;
+  background-color: #000;
+  color: #fdfdfd;
+  padding: 16px;
 }
 #news-post-shim {
   padding-bottom: 1px;
