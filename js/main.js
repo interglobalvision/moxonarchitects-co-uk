@@ -351,7 +351,7 @@ Site.Map = {
 
     // Asynchronously Load the map API
     var script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCZnzpvX78wrLOIbWUGPBArJwXFW3QwKrU&callback=Site.Map.initialize';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzyGEDNdsIcsiFdzdJM56py5BjlghcRE&callback=Site.Map.initialize';
     document.body.appendChild(script);
 
   },
