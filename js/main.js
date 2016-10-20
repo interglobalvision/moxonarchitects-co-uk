@@ -405,7 +405,7 @@ Site.Map = {
 
     // Asynchronously Load the map API
     var script = document.createElement('script');
-    script.src = "http://maps.googleapis.com/maps/api/js?&callback=Site.Map.initialize";
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzyGEDNdsIcsiFdzdJM56py5BjlghcRE&callback=Site.Map.initialize';
     document.body.appendChild(script);
 
   },
@@ -416,15 +416,13 @@ Site.Map = {
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
       mapTypeId: 'satellite',
+      mapTypeControl: false,
       panControl: false,
       zoomControl: false,
-      mapTypeControl: false,
       scaleControl: false,
       streetViewControl: false,
       overviewMapControl: false,
-      draggable: true,
       disableDoubleClickZoom: false,
-      scrollwheel: true,
     };
 
     // Display a map on the page
