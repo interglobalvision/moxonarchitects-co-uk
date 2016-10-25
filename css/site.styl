@@ -394,6 +394,10 @@ menuBackgrounds()
 .news-post
   padding-bottom: 1px
   padding-right: 1px
+  &.js-drawer-open
+    .news-header
+      .news-post-title:hover
+        opacity: 0
 
 .news-header
   position: relative
@@ -416,9 +420,20 @@ menuBackgrounds()
 
 .news-post-content
   display: none
+  position: relative
   background-color: $color-black
   color: $color-white-soft
   padding: $margin-small
+  .news-post-title
+    display: none
+  .news-post-date
+    margin-bottom: $margin-small
+  .news-post-drawer-close
+    position: absolute
+    top: 0
+    right: 0
+    padding: $margin-small
+    font-size: $font-size-larger
 
 #news-post-shim
   padding-bottom: 1px
@@ -478,6 +493,8 @@ menuBackgrounds()
       max-width: 100%
       height: auto
       margin-bottom: 0
+  .news-post-drawer-close
+    display: none
 
 // ******************************************************
 
