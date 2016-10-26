@@ -16,19 +16,18 @@ get_header();
         $draw = get_post_meta($post->ID, '_igv_draw_post', true);
     ?>
         <article <?php post_class('news-post news-masonry-item'); ?> id="post-<?php the_ID(); ?>" data-drawer="<?php if ($draw) {echo 'true';} ?>">
-          <a href="<?php the_permalink() ?>">
-            <header class="news-header">
-            <?php the_post_thumbnail('news-thumb'); ?>
-            <div class="news-post-title u-flex-center text-align-center"><?php the_title(); ?></div>
-            </header>
-          </a>
+          <header class="news-header u-pointer">
+          <?php the_post_thumbnail('news-thumb'); ?>
+          <div class="news-post-title u-flex-center text-align-center"><?php the_title(); ?></div>
+          </header>
 
           <div class="news-post-content">
             <h2 class="news-post-title margin-bottom-tiny text-align-center js-fix-widows"><?php the_title(); ?></h2>
-            <div class="text-align-center font-copy font-uppercase margin-bottom-basic"><?php the_time('F Y'); ?></div>
+            <div class="news-post-date text-align-center font-copy font-uppercase margin-bottom-basic"><?php the_time('F Y'); ?></div>
             <div class="font-copy">
               <?php the_content(); ?>
             </div>
+            <span class="news-post-drawer-close u-pointer font-color-yellow">&times;</span>
           </div>
         </article>
     <?php
