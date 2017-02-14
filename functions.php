@@ -77,7 +77,7 @@ get_template_part( 'lib/theme-options' );
 
 // Add third party PHP libs
 
-add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
+add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 11 );
 function cmb_initialize_cmb_meta_boxes() {
   // Add CMB2 plugin
   if( ! class_exists( 'cmb2_bootstrap_202' ) )
