@@ -41,14 +41,16 @@ foreach($instagram_feed['items'] as $item) {
           <header class="news-header u-pointer">
           <img src="<?php echo $image['url']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
           <div class="news-post-title u-flex-center text-align-center">
-            <p><?php echo $date; ?></p>
+            <div>
+              <h4><?php echo $date; ?></h4>
   <?php
     if(!empty($location)){
   ?>
-            <p><?php echo $location; ?></p>
+              <h4><?php echo $location; ?></h4>
   <?php
    }
   ?>
+            </div>
           </div>
           </header>
 
