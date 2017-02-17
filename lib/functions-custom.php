@@ -2,6 +2,21 @@
 
 // Custom functions (like special queries, etc)
 
+// Autolink hashtags to instagram
+
+function link_ig_hashtags($text) {
+  $pattern  = '/#([\w]+)/i';
+  $text = preg_replace_callback($pattern, function($matches) {
+    $text = $matches[0];
+    $hash = substr($text, 1);;
+    return '<a href="https://www.instagram.com/explore/tags/' . $hash . '" rel="nofollow" target="_blank">' . $text . '</a>';
+  }, $text);
+
+  return $text;
+}
+
+// Check if is active page (for header)
+
 function is_active_page($page_name, $post_id) {
 
   $page = get_page_by_title($page_name);
