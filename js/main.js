@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, document, Site, WP, Modernizr, Swiper, google */
+/* global $, document, Site, WP, Swiper, google */
 
 Site = {
   basicAnimationSpeed: 400,
@@ -62,7 +62,7 @@ Site.Layout = {
       _this.newsLayout();
     }
 
-    $('img').load(function() {
+    $('img').on('load', function() {
       _this.imageCovers();
     });
 
