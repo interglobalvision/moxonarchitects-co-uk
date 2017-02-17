@@ -354,7 +354,8 @@ Site.News = {
     _this.$news.imagesLoaded( function() {
       _this.$news.masonry({
         percentPosition: true,
-        itemSelector: '.news-masonry-item'
+        itemSelector: '.news-masonry-item',
+        transitionDuration: 0
       });
     });
 
