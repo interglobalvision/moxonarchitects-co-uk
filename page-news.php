@@ -39,7 +39,7 @@ foreach($instagram_feed['items'] as $item) {
 ?>
         <article class="news-post news-masonry-item" id="post-<?php echo $item['id']; ?>" data-drawer="true">
           <header class="news-header u-pointer">
-            <img class="u-block" src="<?php echo $image['url']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
+            <img class="news-image u-block" src="<?php echo $image['url']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
             <div class="news-post-title-holder u-flex-center text-align-center">
               <div class="news-post-title">
                 <h4><?php echo $date; ?></h4>
