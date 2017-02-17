@@ -5,9 +5,9 @@ get_header();
 <?php
 
 $instagram_feed = get_transient('instagram_feed');
+$instagram_handle = IGV_get_option('_igv_socialmedia_instagram');
 
 if (empty($instagram_feed))  {
-  $instagram_handle = IGV_get_option('_igv_socialmedia_instagram');
 
   if (!empty($instagram_handle)) {
 
@@ -67,7 +67,21 @@ foreach($instagram_feed['items'] as $item) {
 
       </div>
     </div>
-  </section
+
+
+<?php
+  if (!empty($instagram_feed))  {
+?>
+    <a href="https://instagram.com/<?php echo $instagram_handle; ?>" target="_blank" rel="noreferrer">
+      <nav id="pagination" class="news-masonry-item text-align-center font-uppercase">
+        See more on Instagram
+      </nav>
+    </a>
+<?php
+  }
+?>
+
+  </section>
 
 <?php
   }
