@@ -1,5 +1,8 @@
 <?php
 get_header();
+?>
+  </div>
+<?php
 
 $instagram_feed = get_transient('instagram_feed');
 
