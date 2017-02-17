@@ -1122,7 +1122,7 @@ a:visited {
 }
 html,
 body {
-  background-color: #000;
+  background-color: #0e0e0e;
   color: #000;
 }
 img {
@@ -1615,7 +1615,6 @@ article.people .wp-post-image {
   }
   body {
     line-height: 1.35;
-    background-color: #0e0e0e;
   }
   h1 {
     font-size: 2.617924rem;
@@ -1858,7 +1857,6 @@ article.people .wp-post-image {
   }
   body {
     line-height: 1.35;
-    background-color: #0e0e0e;
   }
   h1 {
     font-size: 2.617924rem;
