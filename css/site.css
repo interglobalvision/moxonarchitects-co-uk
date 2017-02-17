@@ -170,7 +170,8 @@ ul.u-inline-list li {
   -ms-flex-align: start;
   -webkit-box-align: start;
   -ms-align-items: flex-start;
-  align-items: flex-start;
+  -ms-grid-row-align: flex-start;
+      align-items: flex-start;
   -webkit-transition-property: -webkit-transform, height;
   -webkit-transition-property: transform, height;
   -webkit-transition-property: height, -webkit-transform;
@@ -1354,6 +1355,9 @@ img {
 .news-header .attachment-news-thumb {
   display: block;
 }
+.news-image {
+  width: 100%;
+}
 .news-post-content {
   display: none;
   position: relative;
@@ -2073,6 +2077,7 @@ article.people .wp-post-image {
     -webkit-box-align: start;
     -ms-align-items: flex-start;
     -ms-flex-align: start;
+        -ms-grid-row-align: flex-start;
         align-items: flex-start;
   }
   #project-images {
