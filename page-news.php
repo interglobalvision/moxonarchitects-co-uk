@@ -3,7 +3,6 @@ get_header();
 ?>
   </div>
 <?php
-
 $instagram_feed = get_transient('instagram_feed');
 $instagram_handle = IGV_get_option('_igv_socialmedia_instagram');
 
@@ -34,7 +33,7 @@ foreach($instagram_feed['items'] as $item) {
   $image = $item['images']['standard_resolution'];
   $date = gmdate('d.m.Y', $item['created_time']);
   $location = $item['location']['name'];
-  $caption = $item['caption']['text'];
+  $caption = link_ig_hashtags($item['caption']['text']);
 
 ?>
         <article class="news-post news-masonry-item" id="post-<?php echo $item['id']; ?>" data-drawer="true">
