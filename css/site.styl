@@ -396,25 +396,26 @@ menuBackgrounds()
   padding-right: 1px
   &.js-drawer-open
     .news-header
-      .news-post-title:hover
+      .news-post-title-holder:hover
         opacity: 0
 
 .news-header
   position: relative
-  .news-post-title
-    font-size: $font-size-h2
-    line-height: $font-leading-tighter
+  .news-post-title-holder
     position: absolute
     top: 0
     left: 0
     width: 100%
     height: 100%
-    color: $color-white-soft
-    padding: $margin-small
-    background-image: radial-gradient(ellipse at center,  rgba(190,190,190,0.8) 0%,rgba(150,150,150,0.5) 100%)
     opacity: 0
     &:hover
       opacity: 1
+  .news-post-title
+    font-size: $font-size-h3
+    line-height: $font-leading-basic
+    color: $color-white-soft
+    padding: $margin-tiny $margin-small
+    background: rgba(0,0,0,.2)
   .attachment-news-thumb
     display: block
 
@@ -423,7 +424,7 @@ menuBackgrounds()
   position: relative
   background-color: $color-black
   color: $color-white-soft
-  padding: $margin-small
+  padding: $margin-small $margin-basic $margin-small $margin-small
   .news-post-title
     display: none
   .news-post-date

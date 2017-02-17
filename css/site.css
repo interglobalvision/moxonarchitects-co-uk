@@ -68,6 +68,9 @@ ul.u-inline-list li {
 .u-fixed {
   position: fixed;
 }
+.u-block {
+  display: block;
+}
 .u-pointer:hover {
   cursor: pointer;
 }
@@ -1317,7 +1320,7 @@ img {
   padding-bottom: 1px;
   padding-right: 1px;
 }
-.news-post.js-drawer-open .news-header .news-post-title:hover {
+.news-post.js-drawer-open .news-header .news-post-title-holder:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   opacity: 0;
@@ -1325,28 +1328,28 @@ img {
 .news-header {
   position: relative;
 }
-.news-header .news-post-title {
-  font-size: 2.058106176075472rem;
-  line-height: 1.15;
+.news-header .news-post-title-holder {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  color: #fdfdfd;
-  padding: 16px;
-  background-image: -webkit-radial-gradient(ellipse at center,rgba(190,190,190,0.8) 0%,rgba(150,150,150,0.5) 100%);
-  background-image: -webkit-radial-gradient(center ellipse,rgba(190,190,190,0.8) 0%,rgba(150,150,150,0.5) 100%);
-  background-image: radial-gradient(ellipse at center,rgba(190,190,190,0.8) 0%,rgba(150,150,150,0.5) 100%);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   opacity: 0;
 }
-.news-header .news-post-title:hover {
+.news-header .news-post-title-holder:hover {
   -ms-filter: none;
   -webkit-filter: none;
           filter: none;
   opacity: 1;
+}
+.news-header .news-post-title {
+  font-size: 1.400505962399693rem;
+  line-height: 1.35;
+  color: #fdfdfd;
+  padding: 8px 16px;
+  background: rgba(0,0,0,0.2);
 }
 .news-header .attachment-news-thumb {
   display: block;
@@ -1356,7 +1359,7 @@ img {
   position: relative;
   background-color: #000;
   color: #fdfdfd;
-  padding: 16px;
+  padding: 16px 32px 16px 16px;
 }
 .news-post-content .news-post-title {
   display: none;
