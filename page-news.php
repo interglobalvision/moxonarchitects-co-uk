@@ -55,6 +55,17 @@ foreach($instagram_feed['items'] as $item) {
 
           <div class="news-post-content">
             <div class="font-copy">
+              <div class="news-post-mobile-header">
+                <h4><?php echo $date; ?></h4>
+    <?php
+      if(!empty($location)){
+    ?>
+                <h4><?php echo $location; ?></h4>
+    <?php
+     }
+    ?>
+              </div>
+
               <p><?php echo $caption; ?></p>
             </div>
           </div>

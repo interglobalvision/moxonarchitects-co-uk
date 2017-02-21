@@ -1357,6 +1357,9 @@ img {
 .news-image {
   width: 100%;
 }
+.news-post-mobile-header {
+  display: none;
+}
 .news-post-content {
   display: none;
   position: relative;
@@ -2041,6 +2044,16 @@ article.people .wp-post-image {
   }
   #news-post-shim {
     display: none;
+  }
+  .news-header .news-post-title-holder:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+  .news-post-mobile-header {
+    display: block;
+    margin-bottom: 8px;
+    color: #969696;
   }
   .news-post-content {
     padding: 16px;
