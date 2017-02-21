@@ -439,16 +439,14 @@ Site.News = {
 
 Site.Map = {
   init: function() {
-
     // Asynchronously Load the map API
     var script = document.createElement('script');
+
     script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzyGEDNdsIcsiFdzdJM56py5BjlghcRE&callback=Site.Map.initialize';
     document.body.appendChild(script);
-
   },
 
   initialize: function() {
-
     var map;
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
