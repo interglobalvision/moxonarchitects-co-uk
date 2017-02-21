@@ -1311,6 +1311,7 @@ img {
 }
 #pagination {
   padding: 32px;
+  padding-bottom: 136px;
 }
 .news-masonry-item {
   width: calc(33.333333333333336%);
@@ -2063,6 +2064,9 @@ article.people .wp-post-image {
   }
   .news-post-content .news-post-drawer-close {
     padding: 16px;
+  }
+  #pagination {
+    padding: 32px;
   }
   #mobile-single-project-title {
     display: inline-block;
