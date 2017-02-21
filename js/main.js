@@ -6,6 +6,7 @@ Site = {
   fastAnimationSpeed: 200,
   mobileThreshold: 800,
   autoCloseThreshold: 4500,
+
   init: function() {
     var _this = this;
 
@@ -62,9 +63,11 @@ Site.Layout = {
       _this.newsLayout();
     }
 
-    $('img').on('load', function() {
-      _this.imageCovers();
-    });
+    if ($('.image-cover').length) {
+      $('.image-cover').on('load', function() {
+        _this.imageCovers();
+      });
+    }
 
     _this.layout();
 
@@ -302,15 +305,15 @@ Site.News = {
     var _this = this;
 
     _this.$news = $('#news-posts');
-    _this.$overlay = $('#news-overlay');
-    _this.$overlayContent = $('#news-overlay-content');
 
     if (_this.$news.length) {
+      _this.$overlay = $('#news-overlay');
+      _this.$overlayContent = $('#news-overlay-content');
+
       _this.fixShimHeight();
       _this.initMasonry();
+      _this.bind();
     }
-
-    _this.bind();
 
   },
 
