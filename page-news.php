@@ -57,7 +57,6 @@ foreach($instagram_feed['items'] as $item) {
             <div class="font-copy">
               <p><?php echo $caption; ?></p>
             </div>
-            <span class="news-post-drawer-close u-pointer font-color-yellow">&times;</span>
           </div>
         </article>
 <?php
