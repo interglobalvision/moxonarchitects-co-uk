@@ -635,6 +635,11 @@ article.people
 
 // MEDIA QUERIES
 
+@media screen and (min-width: 1200px)
+
+  .news-masonry-item
+    width: 25%
+
 @media screen and (max-width: 880px)
 
   @import "responsive/desktop-mid"
@@ -642,3 +647,8 @@ article.people
 @media screen and (max-width: 800px)
 
   @import "responsive/mobile"
+
+@media screen and (max-width: 460px)
+
+  .news-masonry-item
+    width: 100%

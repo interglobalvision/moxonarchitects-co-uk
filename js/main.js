@@ -101,7 +101,7 @@ Site.Layout = {
 
     _this.$news.css('width', 'initial');
 
-    if (_this.windowWidth > 880) {
+    if (_this.windowWidth > 880 && _this.windowWidth < 1200) {
       _this.$news.css('width', '100%');
 
       var newsWidth = _this.$news.width();
@@ -355,6 +355,7 @@ Site.News = {
       _this.$news.masonry({
         percentPosition: true,
         itemSelector: '.news-masonry-item',
+        columnWidth: _this.$news.find('.news-masonry-item')[1],
         transitionDuration: 0
       });
     });

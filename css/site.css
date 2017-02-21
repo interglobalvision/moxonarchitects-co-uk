@@ -1571,6 +1571,11 @@ article.people .wp-post-image {
   display: none;
   padding-bottom: 32px;
 }
+@media screen and (min-width: 1200px) {
+  .news-masonry-item {
+    width: 25%;
+  }
+}
 @media screen and (max-width: 880px) {
   .container {
     width: 1272px;
@@ -2030,12 +2035,6 @@ article.people .wp-post-image {
   #mobile-logo-overlay svg path {
     fill: #fdfdfd;
   }
-  #news {
-    width: 100%;
-  }
-  .news-masonry-item {
-    width: 100%;
-  }
   #news-post-shim {
     display: none;
   }
@@ -2098,5 +2097,10 @@ article.people .wp-post-image {
   }
   .post-type-archive-people .people-copy {
     padding-bottom: 8px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .news-masonry-item {
+    width: 100%;
   }
 }
