@@ -65,7 +65,7 @@ Site.Layout = {
 
     if ($('.image-cover').length) {
       $('.image-cover').on('load', function() {
-        _this.imageCovers();
+        _this.setImageCover($(this));
       });
     }
 
@@ -124,15 +124,22 @@ Site.Layout = {
 
     $('.image-cover').each(function() {
       var $image = $(this);
-      var imageWidth = $image.width();
-      var imageHeight = $image.height();
 
-      if ((_this.windowWidth / _this.windowHeight) > (imageWidth / imageHeight)) {
-        _this.fitImageToWidth($image, imageHeight, imageWidth);
-      } else {
-        _this.fitImageToHeight($image, imageHeight, imageWidth);
-      }
+      _this.setImageCover($image);
     });
+
+  },
+
+  setImageCover: function($image) {
+    var _this = this;
+    var imageWidth = $image.width();
+    var imageHeight = $image.height();
+
+    if ((_this.windowWidth / _this.windowHeight) > (imageWidth / imageHeight)) {
+      _this.fitImageToWidth($image, imageHeight, imageWidth);
+    } else {
+      _this.fitImageToHeight($image, imageHeight, imageWidth);
+    }
 
   },
 
