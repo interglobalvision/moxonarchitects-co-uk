@@ -83,6 +83,7 @@ $color-black = black
 $color-white-soft = rgb(253, 253, 253)
 
 $color-yellow = #ff0
+$color-gray = rgb(150,150,150)
 $color-gray-transparent = rgba(0, 0, 0, .75)
 $color-dark-gray-transparent = rgba(0, 0, 0, .825)
 
@@ -386,6 +387,7 @@ menuBackgrounds()
 
 #pagination
   padding: $margin-basic
+  padding-bottom: $margin-large + $margin-mid
 
 .news-masonry-item
   width: calc( 100% / 3)
@@ -422,12 +424,15 @@ menuBackgrounds()
 .news-image
   width: 100%
 
+.news-post-mobile-header
+  display: none
+
 .news-post-content
   display: none
   position: relative
   background-color: $color-black
   color: $color-white-soft
-  padding: $margin-small $margin-basic $margin-small $margin-small
+  padding: $margin-small
   .news-post-title
     display: none
   .news-post-date
