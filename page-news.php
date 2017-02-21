@@ -15,7 +15,7 @@ if (empty($instagram_feed))  {
 
     if (!empty($results)) {
       $instagram_feed = $results;
-      set_transient('instagram_feed', $results);
+      set_transient('instagram_feed', $results, 15 * MINUTE_IN_SECONDS);
     }
 
   }
