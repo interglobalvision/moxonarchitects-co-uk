@@ -1281,6 +1281,7 @@ img {
   right: 0;
   padding: 16px;
   z-index: 90;
+  pointer-events: none;
 }
 #desktop-logo-overlay svg {
   width: 450px;
@@ -1311,7 +1312,6 @@ img {
 }
 #pagination {
   padding: 32px;
-  padding-bottom: 136px;
 }
 .news-masonry-item {
   width: calc(33.333333333333336%);
