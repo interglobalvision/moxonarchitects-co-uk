@@ -1966,6 +1966,9 @@ article.people .wp-post-image {
   #menus {
     width: 100%;
   }
+  #menus.main-menu-active #main-content .menu-column-content {
+    overflow: hidden;
+  }
   .menu-column {
     float: none;
     width: 100%;

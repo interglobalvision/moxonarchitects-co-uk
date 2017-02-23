@@ -191,6 +191,14 @@ Site.Menus = {
     $('.menu-column-top').click(function(e) {
       var $target = $(this).parent();
 
+      if ($target[0].id === 'main-menu') {
+        if ($('#main-menu .menu-column-content:visible').length === 0) {
+          $('#menus').addClass('main-menu-active');
+        } else {
+          $('#menus').removeClass('main-menu-active');
+        }
+      }
+
       // if mobile single project check which action depending on click target
       if ($('body').hasClass('single-project') && Site.Layout.windowWidth < Site.mobileThreshold) {
         if (!$(e.target).hasClass('icon-menu')) {
