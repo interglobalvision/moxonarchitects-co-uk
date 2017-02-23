@@ -211,7 +211,12 @@ Site.Menus = {
         return;
       }
 
-      $target.toggleClass('menu-active');
+      if ($target.find('.menu-column-content:visible').length === 0) {
+        $target.addClass('menu-active');
+      } else {
+        $target.removeClass('menu-active');
+      }
+
       $target.children('.menu-column-content').slideToggle(Site.basicAnimationSpeed);
     });
 
