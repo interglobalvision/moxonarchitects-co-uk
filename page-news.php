@@ -82,7 +82,7 @@ foreach($instagram_feed['items'] as $item) {
   if (!empty($instagram_feed))  {
 ?>
     <a href="https://instagram.com/<?php echo $instagram_handle; ?>" target="_blank" rel="noreferrer">
-      <nav id="pagination" class="news-masonry-item text-align-center font-uppercase">
+      <nav id="pagination" class="news-masonry-item font-uppercase">
         See more on Instagram
       </nav>
     </a>

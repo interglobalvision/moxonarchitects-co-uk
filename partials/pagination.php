@@ -2,7 +2,7 @@
 if( get_next_posts_link() || get_previous_posts_link() ) {
 ?>
   <!-- post pagination -->
-  <nav id="pagination" class="news-masonry-item text-align-center font-uppercase">
+  <nav id="pagination" class="news-masonry-item font-uppercase">
 <?php
 $previous = get_previous_posts_link('Newer');
 $next = get_next_posts_link('Older');
