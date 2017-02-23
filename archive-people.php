@@ -28,10 +28,8 @@ $background = IGV_get_option('_igv_people_background_id');
                   echo '<h4 class="margin-bottom-micro">' . $subline[0] . '</h4>';
                 }
               ?>
-            </header>
-            <div class="people-thumb u-cf">
               <?php the_post_thumbnail('people'); ?>
-            </div>
+            </header>
             <div class="people-copy font-copy margin-top-small">
               <?php the_content(); ?>
             </div>

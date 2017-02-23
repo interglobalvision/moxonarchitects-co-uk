@@ -27,10 +27,8 @@ get_header();
                   echo '<h4 class="margin-bottom-micro">' . $subline[0] . '</h4>';
                 }
               ?>
-            </header>
-            <div class="people-thumb u-cf">
               <?php the_post_thumbnail('people'); ?>
-            </div>
+            </header>
             <div class="font-copy margin-top-small">
               <?php the_content(); ?>
             </div>
