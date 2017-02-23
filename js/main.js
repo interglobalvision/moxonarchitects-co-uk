@@ -6,6 +6,7 @@ Site = {
   fastAnimationSpeed: 200,
   mobileThreshold: 800,
   autoCloseThreshold: 4500,
+
   init: function() {
     var _this = this;
 
@@ -62,9 +63,11 @@ Site.Layout = {
       _this.newsLayout();
     }
 
-    $('img').on('load', function() {
-      _this.imageCovers();
-    });
+    if ($('.image-cover').length) {
+      $('.image-cover').on('load', function() {
+        _this.setImageCover($(this));
+      });
+    }
 
     _this.layout();
 
@@ -121,15 +124,22 @@ Site.Layout = {
 
     $('.image-cover').each(function() {
       var $image = $(this);
-      var imageWidth = $image.width();
-      var imageHeight = $image.height();
 
-      if ((_this.windowWidth / _this.windowHeight) > (imageWidth / imageHeight)) {
-        _this.fitImageToWidth($image, imageHeight, imageWidth);
-      } else {
-        _this.fitImageToHeight($image, imageHeight, imageWidth);
-      }
+      _this.setImageCover($image);
     });
+
+  },
+
+  setImageCover: function($image) {
+    var _this = this;
+    var imageWidth = $image.width();
+    var imageHeight = $image.height();
+
+    if ((_this.windowWidth / _this.windowHeight) > (imageWidth / imageHeight)) {
+      _this.fitImageToWidth($image, imageHeight, imageWidth);
+    } else {
+      _this.fitImageToHeight($image, imageHeight, imageWidth);
+    }
 
   },
 
@@ -302,15 +312,15 @@ Site.News = {
     var _this = this;
 
     _this.$news = $('#news-posts');
-    _this.$overlay = $('#news-overlay');
-    _this.$overlayContent = $('#news-overlay-content');
 
     if (_this.$news.length) {
+      _this.$overlay = $('#news-overlay');
+      _this.$overlayContent = $('#news-overlay-content');
+
       _this.fixShimHeight();
       _this.initMasonry();
+      _this.bind();
     }
-
-    _this.bind();
 
   },
 
@@ -429,16 +439,14 @@ Site.News = {
 
 Site.Map = {
   init: function() {
-
     // Asynchronously Load the map API
     var script = document.createElement('script');
+
     script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzyGEDNdsIcsiFdzdJM56py5BjlghcRE&callback=Site.Map.initialize';
     document.body.appendChild(script);
-
   },
 
   initialize: function() {
-
     var map;
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
