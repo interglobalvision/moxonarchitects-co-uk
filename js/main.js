@@ -317,7 +317,6 @@ Site.News = {
       _this.$overlay = $('#news-overlay');
       _this.$overlayContent = $('#news-overlay-content');
 
-      _this.fixShimHeight();
       _this.initMasonry();
       _this.bind();
     }
@@ -380,12 +379,6 @@ Site.News = {
     var _this = this;
 
     _this.$news.masonry();
-  },
-
-  fixShimHeight: function() {
-    var $shim = $('#news-post-shim');
-
-    $shim.height($('#main-menu').height());
   },
 
   removeShim: function() {
