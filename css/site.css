@@ -1384,8 +1384,18 @@ img {
 #news-post-shim {
   padding-bottom: 1px;
   padding-right: 1px;
-  min-height: 3rem;
-  padding-bottom: 1rem;
+}
+#news-post-shim:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+#news-post-shim-inside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 #pagination {
   width: 100%;
