@@ -28,7 +28,12 @@ if (!empty($instagram_feed))  {
       <div id="news-post-shim" class="news-masonry-item"><div id="news-post-shim-inside"></div></div>
 
 <?php
+$i = 0;
 foreach($instagram_feed['items'] as $item) {
+  if ($i === 19) {
+    break;
+  }
+
   $id = $item['id'];
   $image = $item['images']['standard_resolution'];
   $date = gmdate('d.m.Y', $item['created_time']);
@@ -71,6 +76,7 @@ foreach($instagram_feed['items'] as $item) {
           </div>
         </article>
 <?php
+  $i++;
   }
 ?>
 
