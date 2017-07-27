@@ -1363,8 +1363,11 @@ img {
 }
 .news-post-content {
   display: none;
-  position: relative;
-  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(0,0,0,0.75);
   color: #fdfdfd;
   padding: 16px;
 }
@@ -2063,6 +2066,7 @@ article.people .wp-post-image {
     color: #969696;
   }
   .news-post-content {
+    position: relative;
     padding: 16px;
   }
   .news-post-content .news-post-date {
