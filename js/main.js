@@ -365,7 +365,7 @@ Site.News = {
     });
 
     $('.news-post-close').click(function() {
-      var $post = $(this).parent().parent().parent();
+      var $post = $(this).parents('.news-post');
 
       console.log($(this));
 
