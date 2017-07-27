@@ -2075,6 +2075,9 @@ article.people .wp-post-image {
   .news-post-content .news-post-drawer-close {
     padding: 16px;
   }
+  .news-post-close {
+    display: none;
+  }
   #pagination {
     padding: 32px;
   }
