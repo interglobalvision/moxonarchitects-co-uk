@@ -1363,8 +1363,11 @@ img {
 }
 .news-post-content {
   display: none;
-  position: relative;
-  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(0,0,0,0.75);
   color: #fdfdfd;
   padding: 16px;
 }
@@ -1380,6 +1383,9 @@ img {
   right: 0;
   padding: 16px;
   font-size: 1.3rem;
+}
+.news-post-content a {
+  color: #ff0;
 }
 #news-post-shim {
   padding-bottom: 1px;
@@ -2063,6 +2069,7 @@ article.people .wp-post-image {
     color: #969696;
   }
   .news-post-content {
+    position: relative;
     padding: 16px;
   }
   .news-post-content .news-post-date {
@@ -2070,6 +2077,9 @@ article.people .wp-post-image {
   }
   .news-post-content .news-post-drawer-close {
     padding: 16px;
+  }
+  .news-post-close {
+    display: none;
   }
   #pagination {
     padding: 32px;

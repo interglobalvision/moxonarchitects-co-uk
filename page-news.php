@@ -58,8 +58,8 @@ foreach($instagram_feed['items'] as $item) {
             </div>
           </header>
 
-          <div class="news-post-content">
-            <div class="font-copy">
+          <div class="news-post-content font-copy">
+            <div>
               <div class="news-post-mobile-header">
                 <h4><?php echo $date; ?></h4>
     <?php
@@ -70,8 +70,9 @@ foreach($instagram_feed['items'] as $item) {
      }
     ?>
               </div>
+              <div class="news-post-close margin-bottom-tiny text-align-right font-color-yellow font-uppercase u-pointer">Close</div>
 
-              <p><?php echo $caption; ?></p>
+              <p class="news-post-caption"><?php echo $caption; ?></p>
             </div>
           </div>
         </article>
