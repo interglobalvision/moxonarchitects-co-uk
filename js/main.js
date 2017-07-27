@@ -364,6 +364,14 @@ Site.News = {
 
     });
 
+    $('.news-post-close').click(function() {
+      var $post = $(this).parent().parent().parent();
+
+      console.log($(this));
+
+      _this.closeDrawer($post);
+    });
+
     $('.news-post-drawer-close').click(function() {
       var $post = $(this).parent().parent();
 
