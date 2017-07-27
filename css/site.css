@@ -1384,6 +1384,9 @@ img {
   padding: 16px;
   font-size: 1.3rem;
 }
+.news-post-content a {
+  color: #ff0;
+}
 #news-post-shim {
   padding-bottom: 1px;
   padding-right: 1px;
