@@ -34,7 +34,7 @@ Site = {
     var _this = this;
 
     _this.Layout.resize();
-
+    _this.News.resize();
   },
 
   fixWidows: function() {
@@ -360,6 +360,8 @@ Site.News = {
         _this.openOverlay(content);
       }
 
+      _this.shaveText($post);
+
     });
 
     $('.news-post-drawer-close').click(function() {
@@ -368,6 +370,25 @@ Site.News = {
       _this.closeDrawer($post);
     });
 
+  },
+
+  resize: function() {
+    var _this = this;
+
+    $('.news-post.js-drawer-open').each(function(index, item) {
+      _this.shaveText($(item));
+    });
+  },
+
+  shaveText: function($item) {
+    var _this = this;
+
+    var $itemsContent = $item.find('.news-post-content');
+
+    var height = $itemsContent.height();
+    var closeHeight = $item.find('.news-post-close').outerHeight(true);
+
+    $item.find('.news-post-caption').shave(height - closeHeight);
   },
 
   initMasonry: function() {

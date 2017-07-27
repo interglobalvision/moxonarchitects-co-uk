@@ -70,9 +70,9 @@ foreach($instagram_feed['items'] as $item) {
      }
     ?>
               </div>
-              <nav class="news-post-close only-desktop margin-bottom-tiny text-align-right font-color-yellow font-uppercase u-pointer">Close</nav>
+              <div class="news-post-close margin-bottom-tiny text-align-right font-color-yellow font-uppercase u-pointer">Close</div>
 
-              <p><?php echo $caption; ?></p>
+              <p class="news-post-caption"><?php echo $caption; ?></p>
             </div>
           </div>
         </article>
