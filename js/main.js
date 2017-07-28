@@ -6,6 +6,7 @@ Site = {
   fastAnimationSpeed: 200,
   mobileThreshold: 800,
   autoCloseThreshold: 4500,
+  mapMaxOffset: 210,
 
   init: function() {
     var _this = this;
@@ -539,6 +540,15 @@ Site.Map = {
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function() {
       this.setZoom(6);
+
+      var xOffset = $(window).width() / 5;
+
+      if (xOffset > Site.mapMaxOffset) {
+        xOffset = Site.mapMaxOffset;
+      }
+
+      this.panBy(-Math.abs(xOffset), 0);
+
       google.maps.event.removeListener(boundsListener);
     });
 
