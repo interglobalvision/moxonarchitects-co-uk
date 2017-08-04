@@ -360,9 +360,6 @@ Site.News = {
 
         _this.openOverlay(content);
       }
-
-      _this.shaveText($post);
-
     });
 
     $('.news-post-close').click(function() {
@@ -387,6 +384,23 @@ Site.News = {
     $('.news-post.js-drawer-open').each(function(index, item) {
       _this.shaveText($(item));
     });
+  },
+
+  autoLinkInstagram: function($item) {
+    var _this = this;
+
+    var $itemCaption = $item.find('.news-post-caption');
+    var text = $itemCaption.text();
+
+    text = text.replace(/(#[a-z\d][\w-]*)/ig, function(match) {
+      return '<a href="https://www.instagram.com/explore/tags/' + match.substr(1) + '" rel="nofollow" target="_blank">' + match + '</a>';
+    });
+
+    text = text.replace(/(?:@)([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)/, function(match) {
+      return '<a href="https://www.instagram.com/' + match.substr(1) + '" rel="nofollow" target="_blank">' + match + '</a>';
+    });
+
+    $itemCaption.html(text);
   },
 
   shaveText: function($item) {
@@ -435,6 +449,9 @@ Site.News = {
 
     $post.addClass('js-drawer-open');
     $post.find('.news-post-content').show();
+
+    _this.shaveText($post);
+    _this.autoLinkInstagram($post);
     _this.reloadMasonry();
   },
 
