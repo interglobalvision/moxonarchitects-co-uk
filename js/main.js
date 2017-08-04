@@ -383,6 +383,7 @@ Site.News = {
 
     $('.news-post.js-drawer-open').each(function(index, item) {
       _this.shaveText($(item));
+      _this.autoLinkInstagram($(item));
     });
   },
 
@@ -390,6 +391,16 @@ Site.News = {
     var _this = this;
 
     var $itemCaption = $item.find('.news-post-caption');
+    var isShaved = $itemCaption.find('.js-shave-char') ? true : false;
+
+    if (isShaved) {
+      var shave = $itemCaption.find('.js-shave-char');
+      var shaved = $itemCaption.find('.js-shave');
+
+      $itemCaption.find('.js-shave-char').remove();
+      $itemCaption.find('.js-shave').remove();
+    }
+
     var text = $itemCaption.text();
 
     text = text.replace(/(#[a-z\d][\w-]*)/ig, function(match) {
@@ -401,6 +412,11 @@ Site.News = {
     });
 
     $itemCaption.html(text);
+
+    if (isShaved) {
+      $itemCaption.append(shave);
+      $itemCaption.append(shaved);
+    }
   },
 
   shaveText: function($item) {
