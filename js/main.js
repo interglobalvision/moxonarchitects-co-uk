@@ -390,30 +390,41 @@ Site.News = {
   autoLinkInstagram: function($item) {
     var _this = this;
 
+    // Get item caption
     var $itemCaption = $item.find('.news-post-caption');
-    var isShaved = $itemCaption.find('.js-shave-char') ? true : false;
+
+    // Check if caption has been shaved
+    var isShaved = $itemCaption.find('.js-shave-char').length ? true : false;
 
     if (isShaved) {
+
+      // Save shaved elements in cache vars to be reinserted later
       var shave = $itemCaption.find('.js-shave-char');
       var shaved = $itemCaption.find('.js-shave');
 
+      // Remove the shaved elements
       $itemCaption.find('.js-shave-char').remove();
       $itemCaption.find('.js-shave').remove();
     }
 
-    var text = $itemCaption.text();
+    // Get caption text
+    var linkedCaption = $itemCaption.text();
 
-    text = text.replace(/(#[a-z\d][\w-]*)/ig, function(match) {
+    // Link hashtags
+    linkedCaption = linkedCaption.replace(/(#[a-z\d][\w-]*)/ig, function(match) {
       return '<a href="https://www.instagram.com/explore/tags/' + match.substr(1) + '" rel="nofollow" target="_blank">' + match + '</a>';
     });
 
-    text = text.replace(/(?:@)([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)/, function(match) {
+    // Link mentions
+    linkedCaption = linkedCaption.replace(/(?:@)([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)/, function(match) {
       return '<a href="https://www.instagram.com/' + match.substr(1) + '" rel="nofollow" target="_blank">' + match + '</a>';
     });
 
-    $itemCaption.html(text);
+    // Reinsert caption
+    $itemCaption.html(linkedCaption);
 
     if (isShaved) {
+      // Reinsert shaved elements
       $itemCaption.append(shave);
       $itemCaption.append(shaved);
     }
