@@ -360,9 +360,6 @@ Site.News = {
 
         _this.openOverlay(content);
       }
-
-      _this.shaveText($post);
-
     });
 
     $('.news-post-close').click(function() {
@@ -386,7 +383,51 @@ Site.News = {
 
     $('.news-post.js-drawer-open').each(function(index, item) {
       _this.shaveText($(item));
+      _this.autoLinkInstagram($(item));
     });
+  },
+
+  autoLinkInstagram: function($item) {
+    var _this = this;
+
+    // Get item caption
+    var $itemCaption = $item.find('.news-post-caption');
+
+    // Check if caption has been shaved
+    var isShaved = $itemCaption.find('.js-shave-char').length ? true : false;
+
+    if (isShaved) {
+
+      // Save shaved elements in cache vars to be reinserted later
+      var shave = $itemCaption.find('.js-shave-char');
+      var shaved = $itemCaption.find('.js-shave');
+
+      // Remove the shaved elements
+      $itemCaption.find('.js-shave-char').remove();
+      $itemCaption.find('.js-shave').remove();
+    }
+
+    // Get caption text
+    var linkedCaption = $itemCaption.text();
+
+    // Link hashtags
+    linkedCaption = linkedCaption.replace(/(#[a-z\d][\w-]*)/ig, function(match) {
+      return '<a href="https://www.instagram.com/explore/tags/' + match.substr(1) + '" rel="nofollow" target="_blank">' + match + '</a>';
+    });
+
+    // Link mentions
+    linkedCaption = linkedCaption.replace(/(?:@)([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)/, function(match) {
+      return '<a href="https://www.instagram.com/' + match.substr(1) + '" rel="nofollow" target="_blank">' + match + '</a>';
+    });
+
+    // Reinsert caption
+    $itemCaption.html(linkedCaption);
+
+    if (isShaved) {
+      // Reinsert shaved elements
+      $itemCaption.append(shave);
+      $itemCaption.append(shaved);
+    }
   },
 
   shaveText: function($item) {
@@ -435,6 +476,9 @@ Site.News = {
 
     $post.addClass('js-drawer-open');
     $post.find('.news-post-content').show();
+
+    _this.shaveText($post);
+    _this.autoLinkInstagram($post);
     _this.reloadMasonry();
   },
 

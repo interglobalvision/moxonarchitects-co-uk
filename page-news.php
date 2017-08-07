@@ -38,7 +38,7 @@ foreach($instagram_feed['items'] as $item) {
   $image = $item['images']['standard_resolution'];
   $date = gmdate('d.m.Y', $item['created_time']);
   $location = $item['location']['name'];
-  $caption = link_ig_hashtags($item['caption']['text']);
+  $caption = $item['caption']['text'];
 
 ?>
         <article class="news-post news-masonry-item" id="post-<?php echo $item['id']; ?>" data-drawer="true">
