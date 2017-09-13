@@ -202,7 +202,7 @@ Site.Menus = {
 
       // if mobile single project check which action depending on click target
       if ($('body').hasClass('single-project') && Site.Layout.windowWidth < Site.mobileThreshold) {
-        if (!$(e.target).hasClass('icon-menu')) {
+        if (e.target.id !== 'hamburger') {
           $target = $('#main-content');
         }
       }
