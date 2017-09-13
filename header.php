@@ -50,6 +50,8 @@
             <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page('Awards', $post->ID); ?>>Awards</li></a>
             <a href="<?php echo home_url('people/'); ?>"><li <?php if (is_post_type_archive('people') || is_single_type('people', $post)) {echo 'class="font-color-active"';} ?>>People</li></a>
             <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page('Recruit', $post->ID); ?>>Recruit</li></a>
+            <a href="<?php echo home_url('partners/'); ?>"><li <?php is_active_page('partners', $post->ID); ?>>partners</li></a>
+            <a href="<?php echo home_url('credits/'); ?>"><li <?php is_active_page('Credits', $post->ID); ?>>Credits</li></a>
           </ul>
           <a href="<?php echo home_url('news/'); ?>"><li <?php if (is_page('News') || is_home()) {echo 'class="font-color-active"';}?>>News</li></a>
           <a href="<?php echo home_url('contact/'); ?>"><li <?php if (is_page('Contact')) {echo 'class="font-color-active"';}?>>Contact</li></a>
@@ -153,6 +155,8 @@
           <a href="<?php echo home_url('awards/'); ?>"><li <?php is_active_page('Awards', $post->ID); ?>>Awards</li></a>
           <a href="<?php echo home_url('people/'); ?>"><li>People</li></a>
           <a href="<?php echo home_url('recruit/'); ?>"><li <?php is_active_page('Recruit', $post->ID); ?>>Recruit</li></a>
+		  <a href="<?php echo home_url('partners/'); ?>"><li <?php is_active_page('partners', $post->ID); ?>>partners</li></a>
+		  <a href="<?php echo home_url('credits/'); ?>"><li <?php is_active_page('Credits', $post->ID); ?>>Credits</li></a>
         </ul>
       </nav>
     </section>
@@ -171,7 +175,9 @@
           <a href="<?php echo home_url('awards/'); ?>"><li>Awards</li></a>
           <a href="<?php echo home_url('people/'); ?>"><li class="font-color-active">People</li></a>
           <a href="<?php echo home_url('recruit/'); ?>"><li>Recruit</li></a>
-        </ul>
+		  <a href="<?php echo home_url('partners/'); ?>"><li <?php is_active_page('partners', $post->ID); ?>>partners</li></a>
+		  <a href="<?php echo home_url('credits/'); ?>"><li <?php is_active_page('Credits', $post->ID); ?>>Credits</li></a>
+       </ul>
       </nav>
     </section>
 <?php
