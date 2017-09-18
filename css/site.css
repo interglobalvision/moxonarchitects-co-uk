@@ -1318,6 +1318,13 @@ img {
 #main-content .menu-column-content {
   overflow-y: auto;
 }
+#hamburger {
+  height: 15px;
+  padding-top: 1px;
+}
+#hamburger path {
+  fill: #fdfdfd;
+}
 #desktop-logo-overlay {
   position: fixed;
   bottom: 0;
