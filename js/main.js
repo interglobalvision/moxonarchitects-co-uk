@@ -12,6 +12,11 @@ Site = {
     var _this = this;
 
     _this.Layout.init();
+
+    if ($('body').hasClass('home')) {
+      _this.HomeVideo.init();
+    }
+
     _this.Menus.init();
     _this.News.init();
 
@@ -35,6 +40,7 @@ Site = {
     var _this = this;
 
     _this.Layout.resize();
+    _this.HomeVideo.resize();
     _this.News.resize();
   },
 
@@ -169,6 +175,115 @@ Site.Layout = {
     });
 
   }
+};
+
+Site.HomeVideo = {
+  active: false,
+
+  init: function() {
+    var _this = this;
+
+    if ($('body').hasClass('home')) {
+      _this.active = true;
+    }
+
+    if (_this.active) {
+
+      // setup objects and vars
+      _this.$video = $('#home-video');
+      _this.videoRatio = _this.$video.width() / _this.$video.height();
+
+      // scale video to fix
+      _this.scaleVideo();
+
+      // fade in when ready
+      _this.showVideo();
+
+    }
+
+  },
+
+  scaleVideo: function() {
+    var _this = this;
+
+    _this.windowWidth = $(window).width();
+    _this.windowHeight = $(window).height();
+
+    _this.videoWidth = _this.$video.width();
+    _this.videoHeight = _this.$video.height();
+
+    var windowRatio = _this.windowWidth / _this.windowHeight;
+
+    _this.reset();
+
+    if (_this.videoRatio > windowRatio) {
+      _this.fitHeight();
+    } else {
+      _this.fitWidth();
+    }
+
+  },
+
+  reset: function() {
+    var _this = this;
+
+    _this.$video.css({
+      'top': 'initial',
+      'left': 'initial'
+    });
+  },
+
+  fitWidth: function() {
+    var _this = this;
+
+    // get scale factor from widths of video and window
+    var scaleFactor = _this.windowWidth / _this.videoWidth;
+
+    // set the width of the video to the width of the window
+    _this.$video.width(_this.windowWidth);
+
+    // set the height to the height of video x scale factor
+    var height = _this.videoHeight * scaleFactor;
+
+    _this.$video.height(height);
+
+    // set the offset to half the height minus the window height
+    _this.$video.css('top', '-' + ((height - _this.windowHeight) / 2) + 'px');
+
+  },
+
+  fitHeight: function() {
+    var _this = this;
+
+    // get scale factor from heights of video and window
+    var scaleFactor = _this.windowHeight / _this.videoHeight;
+
+    // set the width of the video to the height of the window
+    _this.$video.height(_this.windowHeight);
+
+    // set the height to the height of video x scale factor
+    var width = _this.videoWidth * scaleFactor;
+
+    _this.$video.width(width);
+
+    // set the offset to half the height minus the window height
+    _this.$video.css('left', '-' + ((width - _this.windowWidth) / 2) + 'px');
+
+  },
+
+  resize: function() {
+    var _this = this;
+
+    if (_this.active) {
+      _this.scaleVideo();
+    }
+  },
+
+  showVideo: function() {
+    var _this = this;
+
+    _this.$video.css('opacity', 1);
+  },
 };
 
 Site.Menus = {
