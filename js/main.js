@@ -13,10 +13,6 @@ Site = {
 
     _this.Layout.init();
 
-    if ($('body').hasClass('home')) {
-      _this.HomeVideo.init();
-    }
-
     _this.Menus.init();
     _this.News.init();
 
@@ -27,6 +23,10 @@ Site = {
     $(document).ready(function () {
 
       _this.Gallery.init();
+
+      if ($('body').hasClass('home')) {
+        _this.HomeVideo.init();
+      }
 
       if ($('body').hasClass('page-contact')) {
         _this.Map.init();
@@ -188,22 +188,19 @@ Site.HomeVideo = {
     }
 
     if (_this.active) {
-
       // setup objects and vars
       _this.$video = $('#home-video');
       _this.videoRatio = _this.$video.width() / _this.$video.height();
 
       // scale video to fix
-      _this.scaleVideo();
+      _this.layout();
 
       // fade in when ready
       _this.showVideo();
-
     }
-
   },
 
-  scaleVideo: function() {
+  layout: function() {
     var _this = this;
 
     _this.windowWidth = $(window).width();
@@ -214,68 +211,88 @@ Site.HomeVideo = {
 
     var windowRatio = _this.windowWidth / _this.windowHeight;
 
-    _this.reset();
-
-    if (_this.videoRatio > windowRatio) {
-      _this.fitHeight();
-    } else {
-      _this.fitWidth();
-    }
-
+    _this.reset(function() {
+      if (_this.videoRatio > windowRatio) {
+        // video is more landscape than window
+        if (_this.videoRatio >= 1 && windowRatio >= 1) {
+          // video and window are landscape
+          _this.fitHeight();
+        } else if (_this.videoRatio >= 1 && windowRatio < 1) {
+          // video is landscape window is portrait
+          _this.fitHeight();
+        } else {
+          _this.fitWidth();
+        }
+      } else {
+        // video is less landscape than window
+        if (_this.videoRatio >= 1 && windowRatio >= 1) {
+          // video and window are landscape
+          _this.fitWidth();
+        } else if (_this.videoRatio < 1 && windowRatio >= 1) {
+          // video is portrait window is landscape
+          _this.fitWidth();
+        } else {
+          _this.fitHeight();
+        }
+      }
+    });
   },
 
-  reset: function() {
+  reset: function(callback) {
     var _this = this;
 
     _this.$video.css({
       'top': 'initial',
       'left': 'initial'
     });
+
+    callback();
+  },
+
+  scale: function(width, callback) {
+    var _this = this;
+    var width;
+    var height;
+
+    if (width) {
+      width = _this.windowWidth;
+      height = (_this.windowWidth * (1 / _this.videoRatio));
+    } else {
+      width = (_this.windowHeight * _this.videoRatio);
+      height = _this.windowHeight;
+    }
+
+    _this.$video.css({
+      'width': width + 'px',
+      'height': height + 'px'
+    });
+
+    return callback(width, height)
   },
 
   fitWidth: function() {
     var _this = this;
 
-    // get scale factor from widths of video and window
-    var scaleFactor = _this.windowWidth / _this.videoWidth;
-
-    // set the width of the video to the width of the window
-    _this.$video.width(_this.windowWidth);
-
-    // set the height to the height of video x scale factor
-    var height = _this.videoHeight * scaleFactor;
-
-    _this.$video.height(height);
-
-    // set the offset to half the height minus the window height
-    _this.$video.css('top', '-' + ((height - _this.windowHeight) / 2) + 'px');
-
+    _this.scale(true, function(width, height) {
+      // set the offset to half the height minus the window height
+      _this.$video.css('top', '-' + ((height - _this.windowHeight) / 2) + 'px');
+    });
   },
 
   fitHeight: function() {
     var _this = this;
 
-    // get scale factor from heights of video and window
-    var scaleFactor = _this.windowHeight / _this.videoHeight;
-
-    // set the width of the video to the height of the window
-    _this.$video.height(_this.windowHeight);
-
-    // set the height to the height of video x scale factor
-    var width = _this.videoWidth * scaleFactor;
-
-    _this.$video.width(width);
-
-    // set the offset to half the height minus the window height
-    _this.$video.css('left', '-' + ((width - _this.windowWidth) / 2) + 'px');
-
+    _this.scale(false, function(width, height) {
+      // set the offset to half the height minus the window height
+      _this.$video.css('left', '-' + ((width - _this.windowWidth) / 2) + 'px');
+    });
   },
 
   resize: function() {
     var _this = this;
 
     if (_this.active) {
-      _this.scaleVideo();
+      _this.layout();
     }
   },
 
