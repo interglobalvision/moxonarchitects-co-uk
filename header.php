@@ -31,7 +31,9 @@
 
     <div id="main-menu" class="menu-column menu-active font-uppercase">
       <div class="menu-column-top">
-        <?php echo url_get_contents(get_template_directory_uri() . '/img/dist/hamburger.svg'); ?>
+        <div id="hamburger-holder" class="u-inline-block">
+          <?php echo url_get_contents(get_template_directory_uri() . '/img/dist/hamburger.svg'); ?>
+        </div>
 
         <?php
           if (is_single_type('project', $post) && !is_archive()) {
