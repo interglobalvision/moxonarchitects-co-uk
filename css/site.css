@@ -2046,7 +2046,10 @@ article.people .wp-post-image {
   #menus {
     width: 100%;
   }
-  #menus.main-menu-active #main-content .menu-column-content {
+  .single-project.main-menu-open #main-content .menu-column-content {
+    overflow: hidden;
+  }
+  .single-project.main-menu-open #project-images {
     overflow: hidden;
   }
   .menu-column {
@@ -2181,6 +2184,8 @@ article.people .wp-post-image {
   }
   #project-images {
     padding-top: 30px;
+    max-height: 100vh;
+    overflow-y: scroll;
   }
   .mobile-project-image {
     display: block;

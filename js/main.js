@@ -40,6 +40,7 @@ Site = {
     var _this = this;
 
     _this.Layout.resize();
+    _this.Menus.resize();
     _this.HomeVideo.resize();
     _this.News.resize();
   },
@@ -317,6 +318,8 @@ Site.Menus = {
       _this.initAutoclose();
     }
 
+    _this.checkMainMenuState();
+
   },
 
   bind: function() {
@@ -324,18 +327,19 @@ Site.Menus = {
     $('.menu-column-top').click(function(e) {
       var $target = $(this).parent();
 
-      if ($target[0].id === 'main-menu') {
-        if ($('#main-menu .menu-column-content:visible').length === 0) {
-          $('#menus').addClass('main-menu-active');
-        } else {
-          $('#menus').removeClass('main-menu-active');
+      // if mobile single project view check which action depending on click target. either open the main menu or toggle the main content text
+      if ($('body').hasClass('single-project') && Site.Layout.windowWidth <= Site.mobileThreshold) {
+        if (e.target.id !== 'hamburger-holder' && e.target.id !== 'hamburger' && e.target.tagName !== 'path') {
+          $target = $('#main-content');
         }
       }
 
-      // if mobile single project check which action depending on click target
-      if ($('body').hasClass('single-project') && Site.Layout.windowWidth < Site.mobileThreshold) {
-        if (e.target.id !== 'hamburger') {
-          $target = $('#main-content');
+      // if toggling the main menu update the class
+      if ($target[0].id === 'main-menu') {
+        if ($('#main-menu .menu-column-content:visible').length === 0) {
+          $('body').addClass('main-menu-open')
+        } else {
+          $('body').removeClass('main-menu-open')
         }
       }
 
@@ -344,6 +348,7 @@ Site.Menus = {
         return;
       }
 
+      // basic toggling of menu columns content
       if ($target.find('.menu-column-content:visible').length === 0) {
         $target.addClass('menu-active');
       } else {
@@ -360,6 +365,21 @@ Site.Menus = {
       }
     });
 
+  },
+
+  resize: function() {
+    var _this = this;
+
+    _this.checkMainMenuState();
+
+  },
+
+  checkMainMenuState: function() {
+    if ($('#main-menu .menu-column-content:visible').length > 0) {
+      $('body').addClass('main-menu-open')
+    } else {
+      $('body').removeClass('main-menu-open')
+    }
   },
 
   bindPeople: function() {
@@ -409,9 +429,13 @@ Site.Menus = {
   },
 
   closeMenus: function() {
+    var _this = this;
     var $targets = $('#main-menu, #submenu');
+
     $targets.removeClass('menu-active');
-    $targets.children('.menu-column-content').slideUp(Site.basicAnimationSpeed);
+    $targets.children('.menu-column-content').slideUp(Site.basicAnimationSpeed, function() {
+      _this.checkMainMenuState();
+    });
   },
 };
 

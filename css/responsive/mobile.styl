@@ -175,10 +175,13 @@ menuBackgrounds()
 
 #menus
   width: 100%
-  &.main-menu-active
-    #main-content
-      .menu-column-content
-        overflow: hidden
+
+.single-project.main-menu-open
+  #main-content
+    .menu-column-content
+      overflow: hidden
+  #project-images
+    overflow: hidden
 
 .menu-column
   float: none
@@ -308,6 +311,8 @@ menuBackgrounds()
 
 #project-images
   padding-top: 30px
+  max-height: 100vh
+  overflow-y: scroll
 
 .mobile-project-image
   display: block
