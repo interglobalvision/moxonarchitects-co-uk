@@ -12,6 +12,7 @@ Site = {
     var _this = this;
 
     _this.Layout.init();
+
     _this.Menus.init();
     _this.News.init();
 
@@ -22,6 +23,10 @@ Site = {
     $(document).ready(function () {
 
       _this.Gallery.init();
+
+      if ($('body').hasClass('home')) {
+        _this.HomeVideo.init();
+      }
 
       if ($('body').hasClass('page-contact')) {
         _this.Map.init();
@@ -35,6 +40,7 @@ Site = {
     var _this = this;
 
     _this.Layout.resize();
+    _this.HomeVideo.resize();
     _this.News.resize();
   },
 
@@ -169,6 +175,132 @@ Site.Layout = {
     });
 
   }
+};
+
+Site.HomeVideo = {
+  active: false,
+
+  init: function() {
+    var _this = this;
+
+    if ($('body').hasClass('home')) {
+      _this.active = true;
+    }
+
+    if (_this.active) {
+      // setup objects and vars
+      _this.$video = $('#home-video');
+      _this.videoRatio = _this.$video.width() / _this.$video.height();
+
+      // scale video to fix
+      _this.layout();
+
+      // fade in when ready
+      _this.showVideo();
+    }
+  },
+
+  layout: function() {
+    var _this = this;
+
+    _this.windowWidth = $(window).width();
+    _this.windowHeight = $(window).height();
+
+    _this.videoWidth = _this.$video.width();
+    _this.videoHeight = _this.$video.height();
+
+    var windowRatio = _this.windowWidth / _this.windowHeight;
+
+    _this.reset(function() {
+      if (_this.videoRatio > windowRatio) {
+        // video is more landscape than window
+        if (_this.videoRatio >= 1 && windowRatio >= 1) {
+          // video and window are landscape
+          _this.fitHeight();
+        } else if (_this.videoRatio >= 1 && windowRatio < 1) {
+          // video is landscape window is portrait
+          _this.fitHeight();
+        } else {
+          _this.fitWidth();
+        }
+      } else {
+        // video is less landscape than window
+        if (_this.videoRatio >= 1 && windowRatio >= 1) {
+          // video and window are landscape
+          _this.fitWidth();
+        } else if (_this.videoRatio < 1 && windowRatio >= 1) {
+          // video is portrait window is landscape
+          _this.fitWidth();
+        } else {
+          _this.fitHeight();
+        }
+      }
+    });
+  },
+
+  reset: function(callback) {
+    var _this = this;
+
+    _this.$video.css({
+      'top': 'initial',
+      'left': 'initial'
+    });
+
+    callback();
+  },
+
+  scale: function(width, callback) {
+    var _this = this;
+    var width;
+    var height;
+
+    if (width) {
+      width = _this.windowWidth;
+      height = (_this.windowWidth * (1 / _this.videoRatio));
+    } else {
+      width = (_this.windowHeight * _this.videoRatio);
+      height = _this.windowHeight;
+    }
+
+    _this.$video.css({
+      'width': width + 'px',
+      'height': height + 'px'
+    });
+
+    return callback(width, height)
+  },
+
+  fitWidth: function() {
+    var _this = this;
+
+    _this.scale(true, function(width, height) {
+      // set the offset to half the height minus the window height
+      _this.$video.css('top', '-' + ((height - _this.windowHeight) / 2) + 'px');
+    });
+  },
+
+  fitHeight: function() {
+    var _this = this;
+
+    _this.scale(false, function(width, height) {
+      // set the offset to half the height minus the window height
+      _this.$video.css('left', '-' + ((width - _this.windowWidth) / 2) + 'px');
+    });
+  },
+
+  resize: function() {
+    var _this = this;
+
+    if (_this.active) {
+      _this.layout();
+    }
+  },
+
+  showVideo: function() {
+    var _this = this;
+
+    _this.$video.css('opacity', 1);
+  },
 };
 
 Site.Menus = {
