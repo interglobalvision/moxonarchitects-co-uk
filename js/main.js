@@ -190,13 +190,16 @@ Site.HomeVideo = {
     if (_this.active) {
       // setup objects and vars
       _this.$video = $('#home-video');
-      _this.videoRatio = _this.$video.width() / _this.$video.height();
 
-      // scale video to fix
-      _this.layout();
+      _this.$video.on('loadeddata', function() {
+        _this.videoRatio = _this.$video.width() / _this.$video.height();
 
-      // fade in when ready
-      _this.showVideo();
+        // scale video to fix
+        _this.layout();
+
+        // fade in when ready
+        _this.showVideo();
+      });
     }
   },
 
