@@ -25,7 +25,7 @@ if (!empty($instagram_feed))  {
 ?>
   <section id="news">
     <div id="news-posts">
-      <div id="news-post-shim" class="news-masonry-item"><div id="news-post-shim-inside"></div></div>
+      <div id="news-post-shim" class="news-masonry-item"></div>
 
 <?php
 $i = 0;
