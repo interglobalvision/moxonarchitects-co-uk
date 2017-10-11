@@ -2,6 +2,17 @@
 
 // Custom filters (like pre_get_posts etc)
 
+// Projects category archive orderby title acending
+add_action( 'pre_get_posts', 'igv_project_type_archive_order' );
+function igv_project_type_archive_order($query) {
+
+  if(!is_admin() && $query->is_main_query() && $query->is_tax('project_type')) {
+    $query->set('orderby', 'title');
+    $query->set('order', 'ASC');
+  }
+
+}
+
 // Page Slug Body Class
 function add_slug_body_class( $classes ) {
   global $post;

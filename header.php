@@ -85,6 +85,8 @@
             'terms' => $type->term_id
           )
         ),
+        'orderby' => 'title',
+        'order' => 'ASC',
         'posts_per_page' => 1,
         'post_type' => 'project'
       ));
