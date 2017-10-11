@@ -39,7 +39,7 @@
           if (is_single_type('project', $post) && !is_archive()) {
         ?>
           <span id="mobile-single-project-title" class="only-mobile text-overflow-ellipsis"><?php the_title(); ?></span>
-          <span id="mobile-single-project-info-toggle" class="only-mobile font-tracking-wider">info</span>
+          <span id="mobile-single-project-info-toggle" class="only-mobile font-tracking-wider">INFO</span>
         <?php
         } ?>
       </div>
