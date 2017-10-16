@@ -61,6 +61,9 @@ Site.Layout = {
 
     _this.$news = $('#news');
 
+    _this.$menuColumn = $('#main-menu .menu-column-content');
+    _this.$menuTopColumn = $('#main-menu .menu-column-top');
+
     _this.$mainContentColumn = $('#main-content .menu-column-content');
     _this.$mainContentTopColumn = $('#main-content .menu-column-top');
 
@@ -99,10 +102,20 @@ Site.Layout = {
   layout: function() {
     var _this = this;
 
+    // set content column max height
+
     var topHeight = _this.$mainContentTopColumn.outerHeight(true);
 
     _this.$mainContentColumn.css({
       'max-height': (_this.windowHeight - topHeight) + 'px',
+    });
+
+    // set menu column max height
+
+    var menuTopHeight = _this.$menuTopColumn.outerHeight(true);
+
+    _this.$menuColumn.css({
+      'max-height': (_this.windowHeight - menuTopHeight) + 'px',
     });
 
   },
