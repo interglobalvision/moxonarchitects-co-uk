@@ -49,9 +49,7 @@ function clean_site_blog_info() {
 add_action( 'after_setup_theme', 'clean_site_blog_info' );
 
 // custom login logo
-/*
 function custom_login_logo() {
-  echo '<style type="text/css">h1 a { background-image:url(' . get_bloginfo( 'template_directory' ) . '/images/login-logo.png) !important; background-size:300px auto !important; width:300px !important; }</style>';
+  echo '<style type="text/css">h1 a { background-image:url(' . get_bloginfo( 'template_directory' ) . '/img/dist/moxon-mobile-logo.svg) !important; background-size:cover; }</style>';
 }
 add_action( 'login_head', 'custom_login_logo' );
-*/
