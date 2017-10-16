@@ -2150,7 +2150,6 @@ article.people .wp-post-image {
   #mobile-single-project-info-toggle {
     float: right;
     color: #ff0;
-    text-transform: lowercase;
   }
   .single-project #main-content .menu-column-top:after {
     font-size: 1rem;
