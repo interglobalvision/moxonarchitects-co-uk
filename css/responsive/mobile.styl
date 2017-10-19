@@ -171,7 +171,7 @@ menuBackgrounds()
   background-color: $color-gray-transparent
   padding: 6px 12px
   margin-bottom: 1px
-  margin-right: 1px
+  margin-right: 0
 
 #menus
   width: 100%
@@ -180,8 +180,10 @@ menuBackgrounds()
   #main-content
     .menu-column-content
       overflow: hidden
+      pointer-events: none
   #project-images
     overflow: hidden
+    pointer-events: none
 
 .menu-column
   float: none

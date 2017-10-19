@@ -2041,9 +2041,11 @@ article.people .wp-post-image {
   }
   .single-project.main-menu-open #main-content .menu-column-content {
     overflow: hidden;
+    pointer-events: none;
   }
   .single-project.main-menu-open #project-images {
     overflow: hidden;
+    pointer-events: none;
   }
   .menu-column {
     float: none;
@@ -2060,19 +2062,19 @@ article.people .wp-post-image {
     background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
-    margin-right: 1px;
+    margin-right: 0;
   }
   .menu-column-content li {
     background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
-    margin-right: 1px;
+    margin-right: 0;
   }
   .menu-background {
     background-color: rgba(0,0,0,0.75);
     padding: 6px 12px;
     margin-bottom: 1px;
-    margin-right: 1px;
+    margin-right: 0;
   }
   #main-menu .menu-column-top:after {
     display: none;
