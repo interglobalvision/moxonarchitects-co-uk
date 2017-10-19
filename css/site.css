@@ -2177,7 +2177,7 @@ article.people .wp-post-image {
         align-items: flex-start;
   }
   #project-images {
-    padding-top: 30px;
+    padding-top: 34px;
     max-height: 100vh;
     overflow-y: scroll;
   }
