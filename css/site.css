@@ -1344,13 +1344,13 @@ img {
 #desktop-logo-overlay svg path {
   fill: #fdfdfd;
 }
-#home-video-holder {
+#background-video-holder {
   height: 100vh;
   width: 100vw;
   position: relative;
   overflow: hidden;
 }
-#home-video {
+#background-video {
   position: absolute;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
