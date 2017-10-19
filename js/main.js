@@ -24,8 +24,8 @@ Site = {
 
       _this.Gallery.init();
 
-      if ($('body').hasClass('home')) {
-        _this.HomeVideo.init();
+      if ($('#background-video').length) {
+        _this.BackgroundVideo.init();
       }
 
       if ($('body').hasClass('page-contact')) {
@@ -41,7 +41,7 @@ Site = {
 
     _this.Layout.resize();
     _this.Menus.resize();
-    _this.HomeVideo.resize();
+    _this.BackgroundVideo.resize();
     _this.News.resize();
   },
 
@@ -191,20 +191,19 @@ Site.Layout = {
   }
 };
 
-Site.HomeVideo = {
+Site.BackgroundVideo = {
   active: false,
 
   init: function() {
     var _this = this;
 
-    if ($('body').hasClass('home')) {
+    _this.$video = $('#background-video');
+
+    if (_this.$video.length) {
       _this.active = true;
     }
 
     if (_this.active) {
-      // setup objects and vars
-      _this.$video = $('#home-video');
-
       _this.$video.on('loadeddata', function() {
         _this.videoRatio = _this.$video.width() / _this.$video.height();
 

@@ -17,8 +17,8 @@ $front_page_gallery = get_post_meta($front_page_projects[$random_index], '_igv_g
 <?php
   if (!empty($front_page_video_webm) || !empty($front_page_video_mp4)) {
 ?>
-  <section id="home-video-holder">
-    <video id="home-video" autoplay muted loop>
+  <section id="background-video-holder">
+    <video id="background-video" autoplay muted loop>
       <?php
         if (!empty($front_page_video_webm)) {
       ?>

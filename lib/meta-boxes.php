@@ -127,5 +127,25 @@ function igv_cmb_metaboxes() {
 		'type'       => 'text',
 	) );
 
+  $page_meta = new_cmb2_box( array(
+		'id'            => $prefix . 'page_metabox',
+		'title'         => __( 'Page Metabox', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+	) );
+
+	$page_meta->add_field( array(
+		'name'       => __( 'Front Page video (webm)', 'cmb2' ),
+		'desc'       => __( 'webm compressed front page video. Better encoded without any audio. No size restriction but aim for smallest file size possible', 'cmb2' ),
+		'id'         => $prefix . 'video_webm',
+		'type'       => 'file',
+	) );
+
+	$page_meta->add_field( array(
+		'name'       => __( 'Front Page video (mp4)', 'cmb2' ),
+		'desc'       => __( 'mp4 compressed front page video. This file is required for Safari', 'cmb2' ),
+		'id'         => $prefix . 'video_mp4',
+		'type'       => 'file',
+	) );
+
 }
 ?>
