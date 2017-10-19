@@ -338,39 +338,14 @@ Site.Menus = {
   },
 
   bind: function() {
+    var _this = this;
 
     $('.menu-column-top').click(function(e) {
-      var $target = $(this).parent();
+      _this.menuToggle($(this).parent(), e);
+    });
 
-      // if mobile single project view check which action depending on click target. either open the main menu or toggle the main content text
-      if ($('body').hasClass('single-project') && Site.Layout.windowWidth <= Site.mobileThreshold) {
-        if (e.target.id !== 'hamburger-holder' && e.target.id !== 'hamburger' && e.target.tagName !== 'path') {
-          $target = $('#main-content');
-        }
-      }
-
-      // if toggling the main menu update the class
-      if ($target[0].id === 'main-menu') {
-        if ($('#main-menu .menu-column-content:visible').length === 0) {
-          $('body').addClass('main-menu-open')
-        } else {
-          $('body').removeClass('main-menu-open')
-        }
-      }
-
-      // if gallery pagination is clicked do nothing
-      if ($(e.target).hasClass('swiper-pagination-bullet') || e.target.id === 'gallery-pagination') {
-        return;
-      }
-
-      // basic toggling of menu columns content
-      if ($target.find('.menu-column-content:visible').length === 0) {
-        $target.addClass('menu-active');
-      } else {
-        $target.removeClass('menu-active');
-      }
-
-      $target.children('.menu-column-content').slideToggle(Site.basicAnimationSpeed);
+    $('#mobile-menu-toggle-hitpoint').click(function(e) {
+      _this.menuToggle($('#main-menu'), e);
     });
 
     $('#menu-studio-link').click(function(e) {
@@ -380,6 +355,38 @@ Site.Menus = {
       }
     });
 
+  },
+
+  menuToggle: function($target, e) {
+    // if mobile single project view check which action depending on click target. either open the main menu or toggle the main content text
+    if ($('body').hasClass('single-project') && Site.Layout.windowWidth <= Site.mobileThreshold) {
+      if (e.target.id !== 'mobile-menu-toggle-hitpoint' && e.target.id !== 'hamburger-holder' && e.target.id !== 'hamburger' && e.target.tagName !== 'path') {
+        $target = $('#main-content');
+      }
+    }
+
+    // if toggling the main menu update the class
+    if ($target[0].id === 'main-menu') {
+      if ($('#main-menu .menu-column-content:visible').length === 0) {
+        $('body').addClass('main-menu-open')
+      } else {
+        $('body').removeClass('main-menu-open')
+      }
+    }
+
+    // if gallery pagination is clicked do nothing
+    if ($(e.target).hasClass('swiper-pagination-bullet') || e.target.id === 'gallery-pagination') {
+      return;
+    }
+
+    // basic toggling of menu columns content
+    if ($target.find('.menu-column-content:visible').length === 0) {
+      $target.addClass('menu-active');
+    } else {
+      $target.removeClass('menu-active');
+    }
+
+    $target.children('.menu-column-content').slideToggle(Site.basicAnimationSpeed);
   },
 
   resize: function() {

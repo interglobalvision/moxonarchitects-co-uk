@@ -30,6 +30,8 @@
   <div id="menus" class="font-color-white">
 
     <div id="main-menu" class="menu-column menu-active font-uppercase">
+      <div id="mobile-menu-toggle-hitpoint" class="only-mobile u-pointer"></div>
+
       <div class="menu-column-top">
         <div id="hamburger-holder" class="u-inline-block">
           <?php echo url_get_contents(get_template_directory_uri() . '/img/dist/hamburger.svg'); ?>
