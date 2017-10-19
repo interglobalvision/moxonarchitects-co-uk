@@ -23,18 +23,42 @@ get_header();
 
   </div>
 
-  <section id="images" class="u-flex-center">
-    <div class="image-cover-holder">
+<?php
+      $video_webm = get_post_meta($post->ID, '_igv_video_webm', true);
+      $video_mp4 = get_post_meta($post->ID, '_igv_video_mp4', true);
+
+      $thumbnail_id = get_post_thumbnail_id();
+
+      if (!empty($video_webm) || !empty($video_mp4)) {
+?>
+  <section id="background-video-holder">
+    <video id="background-video" autoplay muted loop>
       <?php
-        $thumbnail_id = get_post_thumbnail_id();
-        if (!empty($thumbnail_id)) {
-          echo wp_get_attachment_image($thumbnail_id, 'gallery-huge', null, array('class' => 'image-cover gallery-image-huge'));
+        if (!empty($video_webm)) {
+      ?>
+      <source src="<?php echo $video_webm; ?>" type="video/webm"/>
+      <?php
         }
       ?>
+      <?php
+        if (!empty($video_mp4)) {
+      ?>
+      <source src="<?php echo $video_mp4; ?>" type="video/mp4"/>
+      <?php
+        }
+      ?>
+    </video>
+  </section>
+<?php
+      } else if (!empty($thumbnail_id)) {
+?>
+  <section id="images" class="u-flex-center">
+    <div class="image-cover-holder">
+      <?php echo wp_get_attachment_image($thumbnail_id, 'gallery-huge', null, array('class' => 'image-cover gallery-image-huge')); ?>
     </div>
   </section>
-
 <?php
+      }
     }
   }
 get_footer();
