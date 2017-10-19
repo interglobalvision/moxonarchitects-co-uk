@@ -2041,9 +2041,11 @@ article.people .wp-post-image {
   }
   .single-project.main-menu-open #main-content .menu-column-content {
     overflow: hidden;
+    pointer-events: none;
   }
   .single-project.main-menu-open #project-images {
     overflow: hidden;
+    pointer-events: none;
   }
   .menu-column {
     float: none;
