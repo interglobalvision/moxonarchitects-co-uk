@@ -1,6 +1,9 @@
 <?php
 get_header();
 
+$video_webm = IGV_get_option('_igv_people_video_webm');
+$video_mp4 = IGV_get_option('_igv_people_video_mp4');
+
 $background = IGV_get_option('_igv_people_background_id');
 ?>
     <main id="main-content" class="menu-column menu-active">
@@ -44,16 +47,36 @@ $background = IGV_get_option('_igv_people_background_id');
 
   </div>
 
-  <section id="images" class="u-flex-center">
-    <div class="image-cover-holder">
+<?php
+  if (!empty($video_webm) || !empty($video_mp4)) {
+?>
+  <section id="background-video-holder">
+    <video id="background-video" autoplay muted loop>
       <?php
-        if (!empty($background)) {
-          echo wp_get_attachment_image($background, 'gallery-huge', null, array('class' => 'image-cover gallery-image-huge'));
+        if (!empty($video_webm)) {
+      ?>
+      <source src="<?php echo $video_webm; ?>" type="video/webm"/>
+      <?php
         }
       ?>
+      <?php
+        if (!empty($video_mp4)) {
+      ?>
+      <source src="<?php echo $video_mp4; ?>" type="video/mp4"/>
+      <?php
+        }
+      ?>
+    </video>
+  </section>
+<?php
+  } else if (!empty($background)) {
+?>
+  <section id="images" class="u-flex-center">
+    <div class="image-cover-holder">
+      <?php echo wp_get_attachment_image($background, 'gallery-huge', null, array('class' => 'image-cover gallery-image-huge')); ?>
     </div>
   </section>
-
 <?php
+  }
 get_footer();
 ?>

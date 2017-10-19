@@ -145,6 +145,20 @@ class IGV_Admin {
     ) );
 
     $options_metabox->add_field( array(
+      'name' => __( 'People Page video (webm)', 'cmb2' ),
+      'desc' => __( 'webm compressed front page video. Better encoded without any audio. No size restriction but aim for smallest file size possible', 'cmb2' ),
+      'id'   => $this->prefix . 'people_video_webm',
+      'type' => 'file',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'People Page video (mp4)', 'cmb2' ),
+      'desc' => __( 'mp4 compressed front page video. This file is required for Safari', 'cmb2' ),
+      'id'   => $this->prefix . 'people_video_mp4',
+      'type' => 'file',
+    ) );
+
+    $options_metabox->add_field( array(
       'name'        => __( 'People Page Background Image' ),
       'desc' => __( '...', 'cmb2' ),
       'id'          => $this->prefix . 'people_background',
