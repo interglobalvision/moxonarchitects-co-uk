@@ -2198,6 +2198,10 @@ article.people .wp-post-image {
   .post-type-archive-people .people-copy {
     padding-bottom: 8px;
   }
+  .tax-project_type .menu-column-content.menu-background {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 @media screen and (max-width: 460px) {
   .news-masonry-item {
