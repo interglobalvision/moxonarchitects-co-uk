@@ -2206,6 +2206,12 @@ article.people .wp-post-image {
   .post-type-archive-people .people-copy {
     padding-bottom: 8px;
   }
+  .project-type-archive-post-title {
+    background-color: rgba(0,0,0,0.75);
+    padding: 6px 12px;
+    margin-bottom: 1px;
+    margin-right: 0;
+  }
   .tax-project_type .menu-column-content.menu-background {
     padding-left: 0;
     padding-right: 0;
