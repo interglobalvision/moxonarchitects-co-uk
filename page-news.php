@@ -29,16 +29,17 @@ if (!empty($instagram_feed))  {
 
 <?php
 $i = 0;
-foreach($instagram_feed['user']['media']['nodes'] as $item) {
+
+foreach($instagram_feed['graphql']['user']['edge_owner_to_timeline_media']['edges'] as $item) {
   if ($i === 19) {
     break;
   }
 
-  $id = $item['id'];
-  $image = $item['display_src'];
-  $date = gmdate('d.m.Y', $item['date']);
-  $location = $item['location']['name']; // not sure where this maps to now on new endpoint
-  $caption = $item['caption'];
+  $id = $item['node']['id'];
+  $image = $item['node']['display_url'];
+  $date = gmdate('d.m.Y', $item['node']['taken_at_timestamp']);
+  $location = false; // not sure where this maps to now on new endpoint
+  $caption = $item['node']['edge_media_to_caption']['edges'][0]['node']['text'];
 
 ?>
         <article class="news-post news-masonry-item" id="post-<?php echo $item['id']; ?>" data-drawer="true">
