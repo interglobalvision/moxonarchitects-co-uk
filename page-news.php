@@ -4,13 +4,21 @@ get_header();
   </div>
 <?php
 $instagram_feed = get_transient('instagram_feed');
-$instagram_handle = IGV_get_option('_igv_socialmedia_instagram');
+
+$instagram_token = IGV_get_option('_igv_instagram_token');
+$instagram_count = intval(IGV_get_option('_igv_instagram_count'));
 
 if (empty($instagram_feed))  {
 
-  if (!empty($instagram_handle)) {
+  if (!empty($instagram_token)) {
+    $number_of_posts = 19;
 
-    $url = 'https://www.instagram.com/'. $instagram_handle .'/?__a=1';
+    if ($instagram_count) {
+      $number_of_posts = $instagram_count;
+    }
+
+    $url = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' . $instagram_token . '&count=' . $number_of_posts;
+
     $results = json_decode(file_get_contents($url), true);
 
     if (!empty($results)) {
@@ -30,16 +38,12 @@ if (!empty($instagram_feed))  {
 <?php
 $i = 0;
 
-foreach($instagram_feed['graphql']['user']['edge_owner_to_timeline_media']['edges'] as $item) {
-  if ($i === 19) {
-    break;
-  }
-
-  $id = $item['node']['id'];
-  $image = $item['node']['display_url'];
-  $date = gmdate('d.m.Y', $item['node']['taken_at_timestamp']);
-  $location = false; // not sure where this maps to now on new endpoint
-  $caption = $item['node']['edge_media_to_caption']['edges'][0]['node']['text'];
+foreach($instagram_feed['data'] as $item) {
+  $id = $item['id'];
+  $image = $item['images']['standard_resolution']['url'];
+  $date = gmdate('d.m.Y', $item['created_time']);
+  $location = $item['location']['name'];
+  $caption = $item['caption']['text'];
 
 ?>
         <article class="news-post news-masonry-item" id="post-<?php echo $item['id']; ?>" data-drawer="true">
