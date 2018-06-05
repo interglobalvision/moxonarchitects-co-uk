@@ -135,6 +135,29 @@ class IGV_Admin {
       'select_behavior' => 'add',
     ) );
 
+    // NEWS PAGE
+
+    $options_metabox->add_field( array(
+      'name' => __( 'News Page options', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $this->prefix . 'news_title',
+      'type' => 'title',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Instagram API Token', 'cmb2' ),
+      'desc' => __( 'Token for access to the Instagram user whos posts are shown on the news page', 'cmb2' ),
+      'id'   => $this->prefix . 'instagram_token',
+      'type' => 'text',
+    ) );
+
+    $options_metabox->add_field( array(
+      'name' => __( 'Instagram posts to show', 'cmb2' ),
+      'desc' => __( 'How many instagram posts to show on the news page (Optional, Default is 19)', 'cmb2' ),
+      'id'   => $this->prefix . 'instagram_count',
+      'type' => 'text_small',
+    ) );
+
     // PEOPLE ARCHIVE
 
     $options_metabox->add_field( array(
