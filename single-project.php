@@ -4,7 +4,18 @@ get_header();
 if( have_posts() ) {
   while( have_posts() ) {
     the_post();
+    $videos = get_post_meta($post->ID, '_igv_project_videos');
     $gallery = get_post_meta($post->ID, '_igv_gallery');
+        
+    $insert_videos = [];
+    
+    if (!empty($videos)) {
+      foreach($videos[0] as $video) {
+        $insert_videos[intval($video['index']) - 1] = [
+          $video['video']
+        ];
+      }
+    }
 ?>
     <main id="main-content" class="menu-column">
       <div class="menu-column-top font-uppercase">
@@ -36,14 +47,22 @@ if( have_posts() ) {
     <div id="project-gallery" class="only-desktop">
     <?php
       if (!empty($gallery)) {
-        render_gallery($gallery);
+        render_gallery($gallery, $insert_videos);
       }
     ?>
     </div>
     <div id="project-images" class="only-mobile">
     <?php
       if (!empty($gallery)) {
-        foreach ($gallery[0] as $image) {
+        foreach ($gallery[0] as $index => $image) {
+          if (array_key_exists($index, $insert_videos)) {
+    ?>
+      <video autoplay muted loop>
+        <source src="<?php echo $insert_videos[$index][0]; ?>" type="video/webm">
+      </video>
+    <?php
+          }
+          
           echo wp_get_attachment_image($image, 'mobile-project-image', null, array('class' => 'mobile-project-image'));
         }
       }
