@@ -87,8 +87,8 @@
             'terms' => $type->term_id
           )
         ),
-        'orderby' => 'title',
-        'order' => 'ASC',
+        'orderby' => 'date',
+        'order' => 'DESC',  
         'posts_per_page' => 1,
         'post_type' => 'project'
       ));
@@ -121,7 +121,7 @@
               )
             ),
             'orderby' => 'title',
-            'order' => 'ASC',
+            'order' => 'DESC', // reversed this 17.7.19
             'posts_per_page' => -1,
             'post_type' => 'project'
           ));

@@ -11,6 +11,12 @@ get_header();
         <section id="posts">
 
       <?php
+	      
+	      
+	  global $wp_the_query;
+$wp_the_query->posts = array_reverse($wp_the_query->posts);   // these two lines added 2019 to reverse mobile order
+	      
+	      
       if( have_posts() ) {
         while( have_posts() ) {
           the_post();

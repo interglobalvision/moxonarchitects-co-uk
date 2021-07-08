@@ -732,7 +732,7 @@ Site.Map = {
     // Multiple Markers
     var markers = [
       ['London', 51.521351,-0.196285],
-      ['Scotland', 57.0434123,-3.2153803]
+      ['Scotland', 57.039380,-3.205329]
     ];
 
     // Info Window Content
