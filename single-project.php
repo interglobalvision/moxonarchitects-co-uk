@@ -6,14 +6,17 @@ if( have_posts() ) {
     the_post();
     $videos = get_post_meta($post->ID, '_igv_project_videos');
     $gallery = get_post_meta($post->ID, '_igv_gallery');
-        
+            
     $insert_videos = [];
     
     if (!empty($videos)) {
-      foreach($videos[0] as $video) {
-        $insert_videos[intval($video['index']) - 1] = [
-          $video['video']
-        ];
+      foreach($videos[0] as $video) {        
+        if (isset($video['video']) && isset($video['video_mp4'])) {  
+          $insert_videos[intval($video['index']) - 1] = [
+            $video['video'], $video['video_mp4']
+          ];
+        }
+
       }
     }
 ?>
@@ -59,6 +62,7 @@ if( have_posts() ) {
     ?>
       <video autoplay muted loop>
         <source src="<?php echo $insert_videos[$index][0]; ?>" type="video/webm">
+        <source src="<?php echo $insert_videos[$index][1]; ?>" type="video/mp4">
       </video>
     <?php
           }

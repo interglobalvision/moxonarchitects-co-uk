@@ -51,6 +51,7 @@ function render_gallery($gallery, $insert_videos = []) {
     <div class="swiper-slide">
       <video autoplay muted loop>
         <source src="<?php echo $insert_videos[$index][0]; ?>" type="video/webm">
+        <source src="<?php echo $insert_videos[$index][1]; ?>" type="video/mp4">
       </video>
     </div>
 <?php 

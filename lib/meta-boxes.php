@@ -101,8 +101,14 @@ function igv_cmb_metaboxes() {
   ) );
   
   $project_meta->add_group_field( $project_videos, array(
-    'name' => 'Video',
+    'name' => 'Video (webm)',
     'id'   => 'video',
+    'type' => 'file',
+  ) );
+
+  $project_meta->add_group_field( $project_videos, array(
+    'name' => 'Video (mp4)',
+    'id'   => 'video_mp4',
     'type' => 'file',
   ) );
 
